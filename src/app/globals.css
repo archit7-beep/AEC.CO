@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-gold: #FBCC13;
+  --color-gold-bright: #FBCC13;
+  --color-obsidian: #0A192F;
+  --color-navy: #112240;
+  
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
+
+@layer base {
+  body {
+    background-color: #0A192F;
+    overflow-x: hidden;
+    position: relative;
+    color: #e2e8f0;
+    min-height: 100vh;
+    margin: 0;
+  }
+}
+
+/* Custom GPU-Accelerated Animation Keyframes */
+@keyframes nebula-drift-alpha {
+  0% { transform: translate3d(0px, 0px, 0px) scale(1); }
+  33% { transform: translate3d(40px, -60px, 0px) scale(1.15); }
+  66% { transform: translate3d(-20px, 30px, 0px) scale(0.9); }
+  100% { transform: translate3d(0px, 0px, 0px) scale(1); }
+}
+
+@keyframes nebula-drift-beta {
+  0% { transform: translate3d(0px, 0px, 0px) scale(1.1); }
+  50% { transform: translate3d(-50px, 40px, 0px) scale(0.85); }
+  100% { transform: translate3d(0px, 0px, 0px) scale(1.1); }
+}
+
+.bg-nebula-1 {
+  will-change: transform;
+  animation: nebula-drift-alpha 25s infinite ease-in-out;
+}
+
+.bg-nebula-2 {
+  will-change: transform;
+  animation: nebula-drift-beta 30s infinite ease-in-out;
+}
+
+/* Engineering Tech Grid Pattern Overlay */
+.blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(197, 160, 89, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 160, 89, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@layer utilities {
+  .liquid-glass {
+    @apply bg-[#112240]/70 backdrop-blur-2xl border border-[#FBCC13]/20 saturate-150 shadow-2xl;
+  }
+}
+
+/* Custom Industrial Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #0A192F;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #00A8CC;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #FBCC13;
+}
+

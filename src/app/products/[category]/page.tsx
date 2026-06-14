@@ -1,0 +1,127 @@
+import React from 'react';
+import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowLeft, Download, PenTool } from 'lucide-react';
+import { CATALOG_DATA } from '@/lib/catalogData';
+import ProductTable from '@/components/ProductTable';
+import ComingSoonButton from '@/components/ComingSoonButton';
+import Compressor3DViewer from '@/components/Compressor3DViewer';
+
+export function generateStaticParams() {
+  return Object.keys(CATALOG_DATA).map((category) => ({
+    category: category,
+  }));
+}
+
+interface CategoryPageProps {
+  params: {
+    category: string;
+  };
+}
+
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const resolvedParams = await params;
+  const categoryData = CATALOG_DATA[resolvedParams.category];
+
+  if (!categoryData) {
+    notFound();
+  }
+
+  return (
+    <div className="w-full relative z-10 font-body pb-24">
+      {/* Cinematic Header */}
+      <div className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-[#0A192F] z-0" />
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-[#0A192F]/50 to-transparent z-0" />
+        
+        {/* Abstract Background Elements */}
+        <div className="absolute -left-32 -top-32 w-96 h-96 bg-[#FBCC13]/5 rounded-full blur-[100px] z-0 pointer-events-none" />
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] z-0 pointer-events-none" />
+
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-12 pt-20">
+          <div className="flex-1">
+            <Link href="/products" className="inline-flex items-center text-slate-400 hover:text-[#FBCC13] transition-colors mb-8 font-mono text-xs uppercase tracking-widest">
+              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Catalog
+            </Link>
+            <div className="font-mono text-sm text-[#FBCC13] uppercase tracking-[0.3em] font-bold mb-4">
+              {categoryData.brand}
+            </div>
+            <h1 className="font-heading font-black text-5xl md:text-7xl text-white mb-6 leading-none">
+              {categoryData.heroText.split(' ').map((word, i) => (
+                <React.Fragment key={i}>
+                  {word} {i !== categoryData.heroText.split(' ').length - 1 && <br/>}
+                </React.Fragment>
+              ))}
+            </h1>
+            <p className="text-xl text-slate-400 max-w-xl font-light leading-relaxed border-l-2 border-[#FBCC13] pl-6">
+              {categoryData.desc}
+            </p>
+          </div>
+          
+          <div className={`w-full ${resolvedParams.category === 'compressors' ? 'md:w-1/2' : 'md:w-1/3'} aspect-square relative bg-white/5 rounded-2xl border border-white/10 p-0 md:p-8 backdrop-blur-sm hidden md:flex items-center justify-center`}>
+            {resolvedParams.category === 'compressors' ? (
+              <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden">
+                <Compressor3DViewer />
+              </div>
+            ) : (
+              <Image 
+                src={categoryData.img} 
+                alt={categoryData.name}
+                fill
+                className="object-contain p-8 drop-shadow-2xl"
+              />
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content & Tables */}
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 mt-16">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+          <div className="md:max-w-2xl">
+            <h2 className="font-heading font-bold text-3xl text-white">Technical Specifications</h2>
+            <p className="font-mono text-sm text-slate-500 mt-2 mb-4">Available Configurations & Part Numbers</p>
+            <div className="bg-[#FBCC13]/10 border-l-4 border-[#FBCC13] p-4 rounded-r-md">
+              <p className="font-body text-sm text-slate-300">
+                <span className="font-bold text-[#FBCC13]">Note:</span> All series are available in complete standard configurations (e.g. bore, stroke, flow rate, port size). Contact our sales team for exact part number availability and customized solutions.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-4 mt-6 md:mt-0">
+            {resolvedParams.category === 'compressors' ? (
+              <a 
+                href="/booklet/Air Compressor Spec.pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center bg-blue-600 hover:bg-blue-500 text-white border border-blue-400/50 px-6 py-3 rounded-md font-mono text-xs uppercase tracking-widest transition-all shadow-[0_0_15px_rgba(37,99,235,0.5)]"
+              >
+                <Download className="w-4 h-4 mr-2" /> Download Spec Sheet
+              </a>
+            ) : (
+              <ComingSoonButton className="flex items-center bg-white/5 hover:bg-white/10 border border-white/10 text-white px-6 py-3 rounded-md font-mono text-xs uppercase tracking-widest transition-all">
+                <Download className="w-4 h-4 mr-2" /> Spec Sheet PDF
+              </ComingSoonButton>
+            )}
+            <Link href="/contact" className="flex items-center bg-[#FBCC13] hover:bg-white text-[#0A192F] px-6 py-3 rounded-md font-heading font-bold uppercase tracking-widest transition-all">
+              <PenTool className="w-4 h-4 mr-2" /> Request Quote
+            </Link>
+          </div>
+        </div>
+
+        {categoryData.subCategories.map((subCat, index) => {
+          const sectionId = subCat.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          return (
+            <div key={index} id={sectionId} className="mb-16 scroll-mt-32">
+              <h3 className="font-heading font-bold text-2xl text-[#FBCC13] uppercase tracking-widest mb-6">
+                {subCat.title}
+              </h3>
+              <ProductTable headers={subCat.tableHeaders} products={subCat.products} />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
