@@ -55,5 +55,5 @@ next-env.d.ts
 !next-env.d.ts
 recovered.txt
 pdf_text_sample.txt
-booklet/
+/booklet/
 
