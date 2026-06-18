@@ -1,0 +1,418 @@
+<USER_REQUEST>
+# SYSTEM METAMORPHOSIS: MODERN AESTHETIC B2B SHOWROOM FRAMEWORK
+# VIBE: AUTHORITY CORPORATE PORTFOLIO MERGED WITH ELITE DIGITAL MARKET
+
+## 1. DESIGN AND STRUCTURAL GOALS
+- **The Blueprint**: Take the structural clarity of an authoritative industrial corporate supplier (clear navigation, immediate product visibility, structured data) and rebuild it into a hyper-modern, elite digital showroom.
+- **The Design Vocabulary**:
+  * **Background**: Smooth, deep obsidian-navy transitions (`bg-[#02050f]` into a rich, ambient sapphire vacuum `bg-[#050e21]`). Inject a low-visibility fluid radial glow behind the primary text blocks.
+  * **Accents**: Forged Royal Gold (`text-[#C5A059]` or `#E5C17D`) used for technical identifiers, thin borders, and active selections.
+  * **Lines & Framework**: Absolute removal of bulky block frames. Use ultra-fine, elegant hairline dividers (`border-[#C5A059]/10`) to segment sections cleanly. Use sharp or minimal corner radiuses (`rounded-sm`).
+
+---
+
+## 2. RESTRUCTURED COMPONENT ARCHITECTURE
+
+### A. The Elite Navigation & Corporate Hero (`src/app/page.tsx` & `Navbar.tsx`)
+1. **The Liquid Glass Header**: Create a sticky navbar overlay using high-refraction properties (`backdrop-blur-xl bg-[#02050f]/40 border-b border-[#C5A059]/10`). Left logo reads "APEX // FORGED" in stark white with a gold dot. Right zone displays a minimalist currency select module and an elegant order weight tracker.
+2. **The Asymmetrical Hero Layout**:
+   - **Left Column**: Clean, authoritative, spaced typography. Primary Title: "ENGINEERED AUTONOMY." Subtitle: "A premier international portfolio of heavy mechanical components and high-tolerance machinery. Designed for global industrial networks."
+   - **Right Column**: A large, dark-ambient floating media showcase viewport. Inside, render a pristine, studio-lit, monochrome industrial asset (e.g., a flawless chrome piston or turbine core) cast against a soft, slow-pulsing sapphire background gradient.
+
+### B. The Integrated Command & Category Hub (`src/compone
+<truncated 385 bytes>
+"
+3. Flank the search bar with sharp, premium text filters for **Motors // Pistons // Pipes // Valves**.
+
+### C. The Connected Blueprint Product Matrix (`src/components/Catalog.tsx`)
+1. Transition into a unified dashboard product display area. Drop independent floating cards. The catalog items must be divided strictly by continuous, thin 1px hairline grid borders (`divide-x divide-y divide-slate-800/60`).
+2. Cell Content & Micro-Interactions:
+   - Each item cell displays its identification SKU in tracking-widest gold monospace font (`font-mono text-[10px] text-[#C5A059]`).
+   - Hovering over a specific product cell smoothly fills the background with a luxurious sapphire-navy glow (`bg-blue-950/20 duration-300`) and reveals a sharp golden wireframe button: "EXAMINE SIZING MATRIX →".
+
+### D. The Sizing Chart Configuration Drawer (`src/components/DetailDrawer.tsx`)
+1. Trigger a sliding overlay panel entering smoothly from the screen's right boundary when a product cell action is clicked. Apply the heavy backdrop blur and liquid glass properties.
+2. Inside, house the interactive dimensions matrix table:
+   - Eliminate blocky cell borders. Use an open, elegant rows layout where selecting custom measurements (e.g., Bore Size, Stroke Length, Wall Thickness) applies a soft sapphire highlight and updates the bottom master e-commerce invoice calculations, freight metrics, and checkout routing values instantly.
+
+---
+
+## 3. COMPILATION & SYSTEM VERIFICATION
+1. Verify that all components compile cleanly under Next.js App Router parameters with zero strict TypeScript typing failures.
+2. Ensure text contrast against the deep sapphire animated radial orbs maintains absolute readability.
+3. Assert that layout blocks scale responsively across fluid grid containers (`grid-cols-1 md:grid-cols-2 lg:grid-cols-3`).
+
+Execute the modern showroom script, update the project directory, and compile the live preview files now.
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-05T20:49:47+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+# CRITICAL AESTHETIC UPGRADE: ROUNDED FLUID LUXURY INTERFACE
+# PALETTE: RICH OBSIDIAN SAPPHIRE & POLISHED CHROME GOLD
+
+## 1. COMPREHENSIVE UI STYLING & CORNER OVERHAUL
+- **The Core Mandate**: Completely abandon harsh, sharp box edges. The site must look incredibly smooth, approachable, premium, and highly aesthetic. Apply fluid rounded corners and rich glowing micro-interactions across every single element.
+- **Color Palette Calibration**:
+  * **Deep Base Background**: Absolute dark obsidian (`bg-[#02040a]`) blending into a rich, luminous midnight sapphire center (`bg-[#050e22]`).
+  * **Lush Ambient Glows**: Behind major text blocks and the product display area, inject large, soft, blurred radial background orbs using `#1e3a8a` (Deep Blue) and a micro-opacity `#C5A059` (Forged Gold) to create deep spatial volume.
+  * **Polished Royal Gold**: `#C5A059` used elegantly for active text highlights, micro technical trackers, and delicate interactive glows.
+- **Enforced Corner & Shadow Tokens (Tailwind v4)**:
+  * **Global Rounding Rule**: Every single block, panel, card, button, and image must use **smooth rounded corners** (`rounded-2xl` or `rounded-xl` for large cards; `rounded-full` for badges, inputs, and category buttons).
+  * **Soft Shadows**: Replace harsh grid separations with smooth, soft depth shadows (`shadow-2xl` or internal glow drops `shadow-[inset_0_1px_2px_rgba(255,255,255,0.08)]`).
+
+---
+
+## 2. COMPONENT OVERHAUL & INTERACTION SPECIFICATION
+
+### A. The Luminous Floating Navigation Shell (`src/components/Navbar.tsx`)
+1. Transform the navigation header into a detached, floating capsule layout (`top-4 mx-auto max-w-7xl rounded-full`).
+2. Apply the heavy backdrop blurring liquid-glass properties seamlessly: `backdrop-blur-xl bg-[#02040a]/50 border border-white/10 shadow-xl`.
+3. Ensure the active item indicator highlights use a pill-shaped, fully rounded gold outline mask (`rounded-full border border-[#C5A059]/40`).
+
+### B. The Asymmetrical Fluid Hero (`src/app/page.tsx`)
+1. Left Text Column: R
+<truncated 979 bytes>
+#C5A059] hover:border-[#C5A059]/30`).
+
+### D. The Organic Showroom Catalog Grid (`src/components/Catalog.tsx`)
+1. Delete the shared raw grid line layout (`divide-x divide-y`). Replace it with a spacious layout grid showcasing distinct, elegantly rounded item display cards (`rounded-2xl border border-white/5 bg-slate-900/20 p-6`).
+2. **Advanced Hover Engine**: When a user hovers over an individual item card:
+   - Smoothly transition the background layout into a rich, deep sapphire-navy field (`bg-blue-950/30 duration-300`).
+   - Scale the container layout up slightly (`hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1)`).
+   - Expand the active card shadow footprint and reveal a fully rounded golden wireframe configuration action button: "EXAMINE SIZING MATRIX →" (`rounded-full border border-[#C5A059]/40 text-[#C5A059] hover:bg-[#C5A059] hover:text-[#02040a]`).
+
+### E. The Curved Spec Matrix Drawer (`src/components/DetailDrawer.tsx`)
+1. Apply a smooth corner radius curve on the interior left edge of the right-hand sliding panel (`rounded-l-3xl border-l border-white/10`).
+2. The dynamic dimension selection table inside must use soft row geometry:
+   - Individual matrix rows must feature rounded ends (`rounded-lg`).
+   - Selecting a size configuration line (e.g., 85mm Bore) must cleanly animate into a glowing sapphire-gold capsule highlight field with a soft gold border marker [INDEX].
+
+---
+
+## 3. COMPILATION & AESTHETIC RE-VERIFICATION
+1. Verify that all blocky, sharp-edged template layers have been entirely updated to the new rounded corner logic.
+2. Confirm that color values maintain deep, luxurious contrast across the illuminated dark blue sapphire backdrops.
+3. Ensure the AI asset pipeline compiles cleanly under strict Next.js App Router rules.
+
+Execute the visual refinement, rewrite the global style configs, and trigger the live preview update now.
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-05T20:52:36+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+# STAFF ENGINEER SYSTEM DIRECTIVE: FLAGSHIP EDITORIAL SHOWROOM RECONSTRUCTION
+# TARGET: DESTROY BOILERPLATE TROPES // EXECUTE ULTRA-PREMIUM ARCHITECTURAL INTERFACE
+
+## 1. STRATEGIC DESIGN & LAYOUT PHILOSOPHY (ELITE PRODUCTION RULES)
+- **The Imperative**: Stop generating predictable, balanced "SaaS template" layouts. The website must feel like a highly advanced, bespoke industrial design matrix. 
+- **Banned AI Archetypes (PURGE IMMEDIATELY)**:
+  * No floating capsule/pill-shaped navbars squishing components.
+  * No balanced 50/50 left-text / right-image structural grids.
+  * No generic rectangular card blocks with simple hover states.
+- **Enforced Architectural Mechanics**:
+  * **Asymmetric Structural Grid**: Utilize an unconventional layout rhythm where text elements, visual models, and data sheets intersect across asymmetric bounding anchors.
+  * **Layered Typographic Tension**: Merge extreme heavy bold display type tracking with ultra-fine italicized weights (e.g., *APEX* **AUTONOMY**). Titles must stretch across 80%+ of the viewport layout.
+  * **Interactive Blueprint Canvas Backdrop**: Instead of a flat dark void, construct a multi-layered coordinate viewport. Overlay razor-thin, muted gold lines (`border-[#C5A059]/10`) that mimic a precision drafting board or aerospace schematic file.
+
+---
+
+## 2. HIGH-FIDELITY COMPONENT MATRIX IMPLEMENTATION
+
+### A. The Structural Horizon Frame (`src/components/Navbar.tsx`)
+1. Remove all pill-shaped containers. Rebuild the navbar as a full-width, ultra-thin architectural beam spanning edge-to-edge.
+2. Structure: Absolute transparency sitting on top of an ultra-fine, single horizontal hairline (`border-b border-white/5 py-5 px-12 bg-[#02040a]/30 backdrop-blur-md`).
+3. Space out navigation links expansively with extreme tracking configuration (`tracking-[0.25em] font-mono text-[9px] uppercase text-slate-400 hover:text-[#C5A059] transition-colors duration-350`).
+
+### B. The Dramatic Overlapping Hero Horizon (`src/app/page.tsx`)
+1. Destroy the standard left-text /
+<truncated 1403 bytes>
+ The Magazine-Style Open Gallery Catalog (`src/components/Catalog.tsx`)
+1. Break the uniform product row matrix. Implement an **Alternating Magazine-Style Catalog Grid Layout**.
+2. Cells must alternate layout scales (e.g., Row 1: Card A takes 65% width, Card B takes 35% width. Row 2: Card C takes 40% width, Card D takes 60% width). This instantly eliminates the "AI generator grid" look.
+3. Card Structure: Open, borderless cells that softly illuminate with a deep navy sapphire aura reflection on hover (`hover:bg-blue-950/15 transition-all duration-500 rounded-2xl border border-white/5`).
+4. Replace chunky product descriptions with tiny golden wireframe indicators and a minimalist interaction command: "EXAMINE SPECIFICATIONS MATRIX →".
+
+### E. The Blueprint Spec Configuration Matrix (`src/components/DetailDrawer.tsx`)
+1. The right-hand sliding spec sheet drawer must use a high-refraction glass layer with an intense backdrop-blur mask (`backdrop-blur-3xl bg-slate-950/40 border-l border-white/10 rounded-l-3xl`).
+2. The dynamic size configuration chart table inside must be clean and completely borderless:
+   - Individual matrix rows must feature soft rounded geometries (`rounded-md`).
+   - Selecting custom dimensions (e.g., 85mm Bore or 4-inch Outer Diameter) must smoothly animate into a glowing sapphire-gold capsule block highlight, dynamically recalculating pricing metrics and weight totals in real-time.
+
+---
+
+## 3. PRODUCTION METRICS & COMPILATION SAFETY CHECK
+1. Run automated linter validation scripts across all modified Next.js App Router workspace pathways.
+2. Assert absolute type safety across the size variation data objects. There must be zero loose configurations (`any`).
+3. Ensure fluid responsive rendering scaling rules are flawlessly active down to mobile breakpoint windows.
+
+Purge all basic AI styling presets, initialize the flagship layout engine, and build the premium code framework now.
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-05T20:59:38+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+once check this website and take some inspiration https://vscompressor.com/
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-10T20:23:41+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+this very basic ai genrated looking can once check https://www.beatushoehlen.swiss/en/ for header - https://www.mypifi.com/   check how cretrive is this - https://www.cravburgers.shop/
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-10T23:30:35+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+## Error Type
+Build Error
+
+## Error Message
+Expected ',', got ':'
+
+## Build Output
+./src/lib/catalogData.ts:335:14
+Expected ',', got ':'
+  333 |         ]
+  334 |       },
+> 335 |         title: 'Industrial Clamps',
+      |              ^
+  336 |         tableHeaders: ['Material', 'Type', 'Application', 'Stock Status'],
+  337 |         products: [
+  338 |           { model: 'PP - Polypropylene', size: 'Single / Twin', maxPressure: 'Standard Du...
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/lib/catalogData.ts [Client Component Browser]
+    ./src/components/SearchModal.tsx [Client Component Browser]
+    ./src/components/Navbar.tsx [Client Component Browser]
+    ./src/components/Navbar.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/lib/catalogData.ts [Client Component SSR]
+    ./src/components/SearchModal.tsx [Client Component SSR]
+    ./src/components/Navbar.tsx [Client Component SSR]
+    ./src/components/Navbar.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+Next.js version: 16.2.7 (Turbopack)
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T14:28:10+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+## Error Type
+Console Error
+
+## Error Message
+A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectBoundary>
+      <RedirectErrorBoundary router={{...}}>
+        <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+          <SegmentViewNode type="page" pagePath="page.tsx">
+            <SegmentTrieNode>
+            <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+              <Home params={Promise} searchParams={Promise}>
+                <div className="flex-1 fle...">
+                  <Hero>
+                  <PartnerLogos>
+                  <IndustriesServed>
+                  <OurServices>
+                  <WhyChooseUs>
+                  <FeaturedCarousel>
+                  <ContactSection>
+                    <section className="w-full py-..." id="contact">
+                      <div>
+                      <div>
+                      <div>
+                      <div className="max-w-[160...">
+                        <div>
+                        <div className="flex flex-...">
+                          <div>
+                          <div>
+                          <div className="w-full xl:...">
+                            <div>
+                            <h3>
+                            <p>
+                            <form className="space-y-8 ..." onSubmit={function onSubmit}>
+          
+<truncated 3609 bytes>
+t_dist_compiled_react-dom_096_9a-._.js:965:74)
+    at emitPendingHydrationWarnings (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:3438:13)
+    at completeWork (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:6885:102)
+    at runWithFiberInDEV (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:965:131)
+    at completeUnitOfWork (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9622:23)
+    at performUnitOfWork (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9551:58)
+    at renderRootConcurrent (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9534:71)
+    at performWorkOnRoot (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_next_dist_compiled_1amofcm._.js:2647:64)
+    at input (<anonymous>:null:null)
+    at ContactSection (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/src_0ski8rv._.js:2353:263)
+    at Home (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/src_0ski8rv._.js:2706:215)
+    at ClientPageRoot (file://D:/Coding/Vibe Code/AME/.next/dev/static/chunks/node_modules_0jrey07._.js:9620:50)
+
+Next.js version: 16.2.7 (Turbopack)
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T14:29:23+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+can make an small under line in navbar when i am in that section
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T14:42:22+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+wt happend to product in navbar its comltely broken
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T14:45:24+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+i want an imporatant part of website to be desgin air comprroser this the main which i selled service and its parts so in navbar i want air comprrsor an section and its parts
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-12T14:01:39+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+can make air comprssoer section smae like Product section, when I click on a specific category like rotary screw, then I should be directly land on the section of rotary screw. I don't want the only compressor page because when I am on a compressor page and I will click on air and oil filters in air compression navbar, then it is not responding. So when I would click on the category, automatically it should land on that category on the page. 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-12T15:45:59+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+The Air Compressor button in Navbar is continuously glowing yellow. Make it normal. And also the scroll which you added downside of a button in a navbar, when I am in a ID section like which you made now, there are coming two bars downside of a button. And the button is also not correctly aligned due to the Air Compressor button added new. So also check it out. When I am in Air Compressor section, then there are two buttons, two scrolls are glowing below the button, on Product and on Air Compressor. It should be only on Air Compressor. 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-12T15:50:48+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+ Currently, what you did is like uh, did not uh, minimize the anything. Because still there are lots of products currently. Uh, what I told you was to uh, build an category of that. And in that, uh, you have to show all its uh, variations. What you did is, uh, you just took part number of an uh, product and uh, listed in an product. Uh, example, what I was telling you that, like oil fuel delivery hose. 10 bar. Same it has of 20 bar, 30 bar, 40 bar. You have all listed it differently. I think it is because you ran in script which did not did a good job. And another thing is that, website is currently sluggish and not loading fast enough. Because this much products are listed when I expand and list. Uh, so it lags. What you did was good, but you have to make it more efficient. And also, when you list it, uh, what I told you to do now, uh, we have to list its specification also.And also in the variations, if we not list the part number, it's okay. Because I want the part number in the global search. When somebody types in search of a part number, we should get that product. If it is not listed in that product section, it's okay. But somebody search it, we have to get it. 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-12T17:19:15+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+Bro, I think you did only what I told you, an example. Like rest of all the same, there are still many products. I gave you another example like air breathing hose. It's two types, 6000 PSI, 7000 PSI. They are listed as different products. Bro, you just run the script. The script is only target specific products and do not do everything. Can you evaluate everything on your own? Don't run a script. Search online for a products variants and list them all in one. In the first section, there are many different products listed. 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-12T17:34:53+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+I can still see some of the products, for example, water blaster T40, T55, T50. I don't know what are you doing, bro. You told me every time that I have grouped correctly, but again when I verify, there are same issues. Is that you do not check your own creation after you done? 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-12T17:43:08+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+http://localhost:3000/products/fittings why this is not working
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-14T10:04:31+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+Bro, your script do not add anything. You added just 2-3 products. Bro, I already gave you in previous versions. I gave you the catalog images and told you to add all of them. Did you remember of Hydroline products? You added all of them and fittings also you have added all. You literally just broke all of it. Like example filters, level gauge, strainers, breathers, valves, accessories. You added all of them. You just did not add and they are now missing. Please check, I already gave you all of them in the previous version. Why did you do not add that? Means why did you literally remove it? I don't understand. If there are files saved, you have to only edit what I told you to edit. Why did you edit that out? Nobody told you to do that. You are literally hallucinating yourself. You are doing anything which has been not told to you. 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-14T10:24:09+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+https://github.com/archit7-beep/AEC.CO.git
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-14T11:24:22+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+client now want different landing page style can try this https://umanodesign.studio/ can  make something this type only landing page means hero section and navbar
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-15T18:52:05+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+i also liked this https://buckssauce.com/ it has very good typography and colour is also graet
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-15T18:56:40+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+it also has good hero section - https://www.dropship.io/ ,  this one has some good level of scrolling effect - https://eatnaked.co/
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-15T19:02:23+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+You did not make any of the end of the screen. There is written end of option two scroll back to up to see effects. Can you make another down scene of the same? And also on the main screen you did not write the brand name. That is very important. And also navbar is the same as the old. 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-15T19:49:44+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+Don't make that block type of navbar. The previous navbar, which was not concentrated all in one block, it was free, that was very good looking. Now it's looking like same as old. The previous one was very good. Now what you did about the logo, keep it same, but I want the navbar as it was previous. 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-15T19:54:02+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+Did you change the navbar color because now the navbar buttons are not literally visible? Previously it was good. Check previously what you did. 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-15T19:55:11+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+Second option's navbar is permanent because it's coming down when I scroll it. And also you used the another enterprises logo in the main hero section, VS Enterprises. Why did you do that? And also the third option navbar, it's why it's blurry and it's of gray color? Why it's not like bright, brighten enough? 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-15T20:03:41+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+I told you to update the air compressor section. What did you do? I did not see any of the changes.  http://localhost:3000/products/compressors
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-16T19:15:18+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+but not its look like tradination website page make good bro wt are you doing it should feel like when i click or land in air compresoor section i am on anothor website change whole ui/ux navbar colur asthic modern visually aplleing you hundreds of website modern best websited do anyalsis then crete an good piece of work you are just dumping regualr
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-16T20:57:00+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+table font are basic and the img you placed in grid is transperent i told you make it bigger dont put backgound in that and on right side make more good its looking very blank and background make liitle shiny and make the effect where i move my cursor an little bluish colour move very little and navbar is still rigid basic i alredy gave sevral example how navbar hsould be i gave how many website links just take inspriration check you brain 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-16T21:14:02+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+make it endges round the header it too big dont place it in contanier check https://buckssauce.com/  and still the hower background effect is not present
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-17T19:43:32+05:30.
+</ADDITIONAL_METADATA>
+<USER_REQUEST>
+Bro, why can't you understand? I told you thousand times, I don't want this type of navbar. Still you do the same. I gave you example how to do it, I gave you what to do it. You still do the same. Can you please tell me what is the problem with you? 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-17T19:47:18+05:30.
+</ADDITIONAL_METADATA>

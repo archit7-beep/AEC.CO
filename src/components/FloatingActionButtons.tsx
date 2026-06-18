@@ -18,7 +18,7 @@ export default function FloatingActionButtons() {
         </a>
         <a 
           href="tel:+1234567890" 
-          className="w-12 h-12 bg-[#FBCC13] hover:bg-[#FBCC13] rounded-full flex items-center justify-center text-[#0A192F] shadow-lg shadow-[#FBCC13]/20 transition-transform hover:scale-110"
+          className="w-12 h-12 bg-[#0ea5e9] hover:bg-[#0ea5e9] rounded-full flex items-center justify-center text-[#030014] shadow-lg shadow-[#0ea5e9]/20 transition-transform hover:scale-110"
           title="Call Us"
         >
           <Phone className="w-5 h-5 fill-current" />
@@ -29,7 +29,7 @@ export default function FloatingActionButtons() {
       <div className="fixed bottom-8 right-8 z-50">
         <button 
           onClick={() => alert("Coming soon!")}
-          className="flex items-center gap-2 bg-[#112240] border border-[#FBCC13]/50 hover:bg-[#FBCC13] hover:text-[#0A192F] text-[#FBCC13] font-body font-semibold text-sm px-5 py-3 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-300 group"
+          className="flex items-center gap-2 bg-[#110b29] border border-[#0ea5e9]/50 hover:bg-[#0ea5e9] hover:text-[#030014] text-[#0ea5e9] font-body font-semibold text-sm px-5 py-3 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-300 group"
         >
           <Download className="w-4 h-4 group-hover:animate-bounce" />
           Download Catalogues

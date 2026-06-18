@@ -48,14 +48,14 @@ export default function DetailDrawer({ product, isOpen, onClose }: DetailDrawerP
         {/* Header */}
         <div className="flex justify-between items-center p-12 pb-8">
           <div>
-            <div className="font-mono text-[9px] text-[#FBCC13] tracking-[0.2em] uppercase mb-3">
+            <div className="font-mono text-[9px] text-[#0ea5e9] tracking-[0.2em] uppercase mb-3">
               MATRIX CONFIGURATION // {product.baseSku}
             </div>
             <h2 className="text-3xl lg:text-4xl font-sans font-black text-white uppercase tracking-tight">{product.name}</h2>
           </div>
           <button 
             onClick={onClose}
-            className="text-slate-500 hover:text-[#FBCC13] transition-colors p-4 rounded-full"
+            className="text-slate-500 hover:text-[#0ea5e9] transition-colors p-4 rounded-full"
           >
             <X className="w-6 h-6" />
           </button>
@@ -78,19 +78,19 @@ export default function DetailDrawer({ product, isOpen, onClose }: DetailDrawerP
                     onClick={() => setSelectedVariant(v)}
                     className={`flex items-center cursor-pointer transition-all duration-300 rounded-md p-5 ${
                       isActive 
-                      ? 'bg-blue-900/20 text-[#FBCC13] shadow-[inset_0_0_30px_rgba(197,160,89,0.05)]' 
+                      ? 'bg-blue-900/20 text-[#0ea5e9] shadow-[inset_0_0_30px_rgba(197,160,89,0.05)]' 
                       : 'bg-transparent text-slate-400 hover:bg-white/5 hover:text-slate-300'
                     }`}
                   >
                     <div className="w-1/4 font-mono text-xs tracking-widest uppercase flex items-center">
-                      {isActive && <span className="inline-block w-1 h-1 rounded-full bg-[#FBCC13] mr-3 shadow-[0_0_8px_rgba(197,160,89,0.8)]" />}
+                      {isActive && <span className="inline-block w-1 h-1 rounded-full bg-[#0ea5e9] mr-3 shadow-[0_0_8px_rgba(197,160,89,0.8)]" />}
                       {v.skuExtension}
                     </div>
                     
                     <div className="w-1/2 flex flex-wrap gap-4 font-mono text-[10px] uppercase">
                       {Object.entries(v.dimensions).map(([k, val]) => (
-                        <span key={k} className={`${isActive ? 'text-[#FBCC13]/80' : 'text-slate-500'}`}>
-                          {k}: <span className={isActive ? 'text-[#FBCC13]' : 'text-slate-300'}>{val}</span>
+                        <span key={k} className={`${isActive ? 'text-[#0ea5e9]/80' : 'text-slate-500'}`}>
+                          {k}: <span className={isActive ? 'text-[#0ea5e9]' : 'text-slate-300'}>{val}</span>
                         </span>
                       ))}
                     </div>
@@ -119,8 +119,8 @@ export default function DetailDrawer({ product, isOpen, onClose }: DetailDrawerP
                 <div className="font-sans text-xl font-bold text-white">{currentVolume} <span className="text-sm font-normal text-slate-500">M³</span></div>
               </div>
               <div>
-                <div className="font-mono text-[9px] text-[#FBCC13] uppercase tracking-widest mb-1">Global Tariff</div>
-                <div className="font-sans text-xl font-bold text-[#FBCC13]">${shippingTariff}</div>
+                <div className="font-mono text-[9px] text-[#0ea5e9] uppercase tracking-widest mb-1">Global Tariff</div>
+                <div className="font-sans text-xl font-bold text-[#0ea5e9]">${shippingTariff}</div>
               </div>
               <div>
                 <div className="font-mono text-[9px] text-slate-500 uppercase tracking-widest mb-1">Total Price</div>
@@ -134,7 +134,7 @@ export default function DetailDrawer({ product, isOpen, onClose }: DetailDrawerP
         <div className="p-12 border-t border-white/5">
           <button 
             disabled={!selectedVariant}
-            className="w-full flex items-center justify-between bg-white/[0.02] border border-white/10 hover:border-[#FBCC13]/40 text-slate-300 hover:text-[#FBCC13] hover:bg-[#FBCC13]/5 rounded-xl font-mono text-xs uppercase tracking-[0.15em] p-6 transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full flex items-center justify-between bg-white/[0.02] border border-white/10 hover:border-[#0ea5e9]/40 text-slate-300 hover:text-[#0ea5e9] hover:bg-[#0ea5e9]/5 rounded-xl font-mono text-xs uppercase tracking-[0.15em] p-6 transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span>AUTHORIZE SECURE FREIGHT ROUTING</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />

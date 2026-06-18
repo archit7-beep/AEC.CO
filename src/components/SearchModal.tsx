@@ -131,16 +131,16 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 bg-[#0A192F]/80 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 bg-[#030014]/80 animate-in fade-in duration-200">
       
       {/* Sleek Command Palette Container */}
       <div 
         ref={modalRef}
-        className="w-full max-w-2xl bg-[#112240] border border-white/10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col animate-in zoom-in-95 duration-200"
+        className="w-full max-w-2xl bg-[#110b29] border border-white/10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col animate-in zoom-in-95 duration-200"
       >
         {/* Header / Input Area */}
-        <div className="relative flex items-center border-b border-white/10 bg-[#0A192F]/50 px-4">
-          <Search className="w-5 h-5 text-[#00A8CC] shrink-0" />
+        <div className="relative flex items-center border-b border-white/10 bg-[#030014]/50 px-4">
+          <Search className="w-5 h-5 text-[#0284c7] shrink-0" />
           <input 
             ref={inputRef}
             type="text"
@@ -158,7 +158,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         </div>
         
         {/* Results Area */}
-        <div className="flex-1 overflow-y-auto max-h-[50vh] p-2 bg-[#112240] custom-scrollbar">
+        <div className="flex-1 overflow-y-auto max-h-[50vh] p-2 bg-[#110b29] custom-scrollbar">
           
           {query.trim().length < 2 && (
             <div className="py-10 text-center flex flex-col items-center justify-center opacity-50">
@@ -180,17 +180,17 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   href={`/products/${res.categoryId}#${res.productModel.replace(/\s+/g, '-').toLowerCase()}`} 
                   key={idx}
                   onClick={onClose}
-                  className="group flex items-center justify-between p-4 rounded-xl hover:bg-[#0A192F] hover:border hover:border-[#FBCC13]/30 border border-transparent transition-all cursor-pointer"
+                  className="group flex items-center justify-between p-4 rounded-xl hover:bg-[#030014] hover:border hover:border-[#0ea5e9]/30 border border-transparent transition-all cursor-pointer"
                 >
                   <div className="flex flex-col">
-                    <span className="font-heading font-bold text-white text-base group-hover:text-[#FBCC13] transition-colors">
+                    <span className="font-heading font-bold text-white text-base group-hover:text-[#0ea5e9] transition-colors">
                       {res.productModel} <span className="font-body font-light text-slate-400 text-sm ml-2">- {res.productType}</span>
                     </span>
-                    <span className="font-mono text-[10px] text-[#00A8CC] uppercase tracking-widest mt-1">
+                    <span className="font-mono text-[10px] text-[#0284c7] uppercase tracking-widest mt-1">
                       {res.categoryBrand} • {res.subCategoryTitle}
                     </span>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-slate-600 group-hover:text-[#FBCC13] group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="w-5 h-5 text-slate-600 group-hover:text-[#0ea5e9] group-hover:translate-x-1 transition-all" />
                 </Link>
               ))}
             </div>

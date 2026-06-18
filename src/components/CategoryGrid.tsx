@@ -64,12 +64,12 @@ export default function CategoryGrid() {
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <div className="max-w-2xl">
-            <h4 className="font-body text-[#FBCC13] font-semibold tracking-wider uppercase mb-3">Full Catalog</h4>
+            <h4 className="font-body text-[#0ea5e9] font-semibold tracking-wider uppercase mb-3">Full Catalog</h4>
             <h2 className="font-heading font-bold text-4xl lg:text-5xl text-white leading-tight">
               Our Products & Brands
             </h2>
           </div>
-          <ComingSoonButton className="mt-6 md:mt-0 text-white border-b border-[#FBCC13] pb-1 font-body font-medium hover:text-[#FBCC13] transition-colors flex items-center">
+          <ComingSoonButton className="mt-6 md:mt-0 text-white border-b border-[#0ea5e9] pb-1 font-body font-medium hover:text-[#0ea5e9] transition-colors flex items-center">
             Download PDF Catalog <ArrowUpRight className="w-4 h-4 ml-2" />
           </ComingSoonButton>
         </div>
@@ -79,7 +79,7 @@ export default function CategoryGrid() {
             <Link 
               key={idx}
               href={`/products/${item.id}`}
-              className="group cursor-pointer rounded-xl border border-white/5 bg-[#0A192F]/40 backdrop-blur-md overflow-hidden hover:border-[#FBCC13]/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(11,32,70,0.5)] block"
+              className="group cursor-pointer rounded-xl border border-white/5 bg-[#030014]/40 backdrop-blur-md overflow-hidden hover:border-[#0ea5e9]/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(11,32,70,0.5)] block"
             >
               <div className="w-full h-72 relative overflow-hidden flex items-center justify-center border-b border-white/5 bg-white">
                 <Image 
@@ -90,16 +90,16 @@ export default function CategoryGrid() {
                 />
               </div>
               <div className="p-8">
-                <div className="font-mono text-[10px] text-[#FBCC13] tracking-widest uppercase mb-2">
+                <div className="font-mono text-[10px] text-[#0ea5e9] tracking-widest uppercase mb-2">
                   {item.brand}
                 </div>
-                <h3 className="font-heading font-bold text-2xl text-white mb-3 group-hover:text-[#FBCC13] transition-colors">
+                <h3 className="font-heading font-bold text-2xl text-white mb-3 group-hover:text-[#0ea5e9] transition-colors">
                   {item.name}
                 </h3>
                 <p className="font-body text-slate-400 font-light">
                   {item.desc}
                 </p>
-                <div className="mt-6 flex items-center text-[#FBCC13] font-body text-sm font-medium">
+                <div className="mt-6 flex items-center text-[#0ea5e9] font-body text-sm font-medium">
                   View Specifications Table <ArrowUpRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                 </div>
               </div>

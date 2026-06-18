@@ -4339,8 +4339,8 @@ export const CATALOG_DATA: Record<string, CatalogCategory> = {
     brand: 'AEC, ELGI, Atlas Copco, Kirloskar, Ingersoll Rand',
     name: 'Air Compressors & Spares',
     desc: 'Amal Engg Manufactured Compressors, Global Brand Spares, and Air Automation Accessories.',
-    img: '/booklet/aec-compressor.png',
-    heroText: 'INDUSTRIAL AIR AUTOMATION',
+    img: '/booklet/blue-compressor.png',
+    heroText: 'INDUSTRIAL AIR COMPRESSION',
     subCategories: [
       {
         title: 'Amal Engg Manufactured Compressors',

@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Hero from '@/components/Hero';
 import FeaturedCarousel from '@/components/FeaturedCarousel';
@@ -19,7 +17,7 @@ export default function Home() {
       <ContactSection />
       
       {/* Basic Footer */}
-      <footer className="w-full bg-[#0A192F] border-t border-white/5 py-12 text-center">
+      <footer className="w-full bg-[#030014] border-t border-white/5 py-12 text-center">
         <p className="font-body text-slate-500 text-sm">&copy; {new Date().getFullYear()} Amal Engineering Corporation. All rights reserved.</p>
       </footer>
     </div>

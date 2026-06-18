@@ -65,20 +65,20 @@ export default async function BrandPage({ params }: BrandPageProps) {
   }
 
   return (
-    <div className="w-full relative z-10 font-body pb-32 bg-[#0A192F] min-h-screen">
+    <div className="w-full relative z-10 font-body pb-32 bg-[#030014] min-h-screen">
       
       {/* Brand Hero Header */}
       <div className="relative w-full h-[50vh] flex items-center justify-center overflow-hidden border-b-2 border-white/10">
-        <div className="absolute inset-0 bg-[#112240] z-0" />
+        <div className="absolute inset-0 bg-[#110b29] z-0" />
         
         {/* Abstract Background Element */}
-        <div className="absolute -left-32 top-0 w-[600px] h-[600px] bg-[#FBCC13]/5 rounded-full blur-[120px] z-0 pointer-events-none" />
+        <div className="absolute -left-32 top-0 w-[600px] h-[600px] bg-[#0ea5e9]/5 rounded-full blur-[120px] z-0 pointer-events-none" />
 
         <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col pt-24">
-          <Link href="/" className="inline-flex items-center text-slate-400 hover:text-[#FBCC13] transition-colors mb-8 font-mono text-xs uppercase tracking-widest w-max">
+          <Link href="/" className="inline-flex items-center text-slate-400 hover:text-[#0ea5e9] transition-colors mb-8 font-mono text-xs uppercase tracking-widest w-max">
             <ArrowLeft className="w-4 h-4 mr-2" /> Back to Home
           </Link>
-          <div className="font-mono text-sm text-[#FBCC13] uppercase tracking-[0.3em] font-bold mb-4">
+          <div className="font-mono text-sm text-[#0ea5e9] uppercase tracking-[0.3em] font-bold mb-4">
             Authorized Partnership
           </div>
           <h1 className="font-heading font-black text-5xl md:text-7xl text-white uppercase tracking-tighter leading-none max-w-4xl">
@@ -92,7 +92,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
         
         {/* Left Column: Info */}
         <div className="flex-1">
-          <h2 className="font-heading font-bold text-3xl text-[#FBCC13] mb-6">
+          <h2 className="font-heading font-bold text-3xl text-[#0ea5e9] mb-6">
             {brandData.subtitle}
           </h2>
           <p className="text-xl text-slate-300 font-light leading-relaxed mb-12 border-l-2 border-white/20 pl-6">
@@ -101,28 +101,28 @@ export default async function BrandPage({ params }: BrandPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="bg-white/5 p-6 border border-white/10 flex flex-col items-start rounded-lg">
-              <ShieldCheck className="w-8 h-8 text-[#FBCC13] mb-4" />
+              <ShieldCheck className="w-8 h-8 text-[#0ea5e9] mb-4" />
               <h4 className="font-heading font-bold text-white mb-2">OEM Certified</h4>
               <p className="text-sm text-slate-400 font-mono">100% authentic components</p>
             </div>
             <div className="bg-white/5 p-6 border border-white/10 flex flex-col items-start rounded-lg">
-              <Factory className="w-8 h-8 text-[#FBCC13] mb-4" />
+              <Factory className="w-8 h-8 text-[#0ea5e9] mb-4" />
               <h4 className="font-heading font-bold text-white mb-2">Industrial Grade</h4>
               <p className="text-sm text-slate-400 font-mono">Built for extreme conditions</p>
             </div>
             <div className="bg-white/5 p-6 border border-white/10 flex flex-col items-start rounded-lg">
-              <Globe className="w-8 h-8 text-[#FBCC13] mb-4" />
+              <Globe className="w-8 h-8 text-[#0ea5e9] mb-4" />
               <h4 className="font-heading font-bold text-white mb-2">Global Support</h4>
               <p className="text-sm text-slate-400 font-mono">Full warranty & service</p>
             </div>
           </div>
 
-          <div className="bg-[#112240] p-8 border-l-4 border-[#FBCC13] rounded-r-xl">
+          <div className="bg-[#110b29] p-8 border-l-4 border-[#0ea5e9] rounded-r-xl">
             <h3 className="font-heading font-bold text-2xl text-white mb-4">View Technical Specifications</h3>
             <p className="text-slate-400 mb-8">Access our comprehensive database of sizes, flow rates, and stock availability for {brandData.name}.</p>
             <Link 
               href={brandData.catalogRoute}
-              className="inline-flex items-center justify-center bg-[#FBCC13] text-[#0A192F] font-heading font-black px-8 py-4 uppercase tracking-widest hover:bg-white transition-colors"
+              className="inline-flex items-center justify-center bg-[#0ea5e9] text-[#030014] font-heading font-black px-8 py-4 uppercase tracking-widest hover:bg-white transition-colors"
             >
               Access Catalog <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
@@ -131,7 +131,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
 
         {/* Right Column: Image */}
         <div className="w-full lg:w-[500px] shrink-0">
-          <div className="w-full aspect-square relative bg-white rounded-xl p-8 shadow-[12px_12px_0_#FBCC13] border-4 border-white">
+          <div className="w-full aspect-square relative bg-white rounded-xl p-8 shadow-[12px_12px_0_#0ea5e9] border-4 border-white">
             <Image 
               src={brandData.img}
               alt={brandData.name}

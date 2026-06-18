@@ -11,7 +11,7 @@ export default function ProductsPage() {
       
       <CategoryGrid />
       
-      <footer className="w-full bg-[#0A192F] border-t border-white/5 py-12 text-center mt-auto">
+      <footer className="w-full bg-[#030014] border-t border-white/5 py-12 text-center mt-auto">
         <p className="font-body text-slate-500 text-sm">&copy; {new Date().getFullYear()} Amal Engineering Corporation. All rights reserved.</p>
       </footer>
     </div>

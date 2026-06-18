@@ -16,6 +16,11 @@ export default function Navbar() {
   const pathname = usePathname();
   const [activeHash, setActiveHash] = useState('');
 
+  // Hide the global navbar entirely on preview routes
+  if (pathname && pathname.startsWith('/preview')) {
+    return null;
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       // Check which section is in view
@@ -56,7 +61,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Infobar Marquee (Like beatushoehlen.swiss) */}
-      <div className="w-full bg-[#FBCC13] text-[#0A192F] py-2 overflow-hidden relative z-[60]">
+      <div className="w-full bg-[#0ea5e9] text-[#030014] py-2 overflow-hidden relative z-[60]">
         <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap">
           <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
             — 24/7 EMERGENCY SPARES SUPPORT: +91 99999 99999
@@ -83,7 +88,7 @@ export default function Navbar() {
       </div>
 
       {/* Main Sticky Navigation */}
-      <nav className="w-full bg-[#0A192F]/95 backdrop-blur-xl border-b-2 border-white/5 sticky top-0 z-[100] transition-all duration-300">
+      <nav className="w-full bg-[#030014]/95 backdrop-blur-xl border-b-2 border-white/5 sticky top-0 z-[100] transition-all duration-300">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between h-24">
           
           {/* Logo */}
@@ -103,10 +108,10 @@ export default function Navbar() {
               
               {/* Standard Link */}
               <li className="h-full flex items-center px-2 lg:px-4 group">
-                <Link href="/" className={`relative font-heading font-bold text-sm tracking-widest uppercase flex items-center transition-colors h-full ${isHomeActive ? 'text-[#FBCC13]' : 'text-white hover:text-[#FBCC13]'}`}>
+                <Link href="/" className={`relative font-heading font-bold text-sm tracking-widest uppercase flex items-center transition-colors h-full ${isHomeActive ? 'text-[#0ea5e9]' : 'text-white hover:text-[#0ea5e9]'}`}>
                   Home
                   {isHomeActive && (
-                    <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#FBCC13]" />
+                    <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#0ea5e9]" />
                   )}
                 </Link>
               </li>
@@ -117,26 +122,26 @@ export default function Navbar() {
                 onMouseEnter={() => handleMouseEnter('products')}
                 onMouseLeave={handleMouseLeave}
               >
-                <Link href="/products" className={`relative font-heading font-bold text-sm tracking-widest uppercase flex items-center gap-1 transition-colors h-full ${isProductsActive ? 'text-[#FBCC13]' : 'text-white group-hover:text-[#FBCC13]'}`}>
+                <Link href="/products" className={`relative font-heading font-bold text-sm tracking-widest uppercase flex items-center gap-1 transition-colors h-full ${isProductsActive ? 'text-[#0ea5e9]' : 'text-white group-hover:text-[#0ea5e9]'}`}>
                   Products <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${activeMegaMenu === 'products' ? 'rotate-180' : ''}`} />
                   {isProductsActive && (
-                    <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#FBCC13]" />
+                    <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#0ea5e9]" />
                   )}
                 </Link>
 
                 {/* Mega Menu Dropdown */}
-                <div className={`absolute left-0 top-[100%] w-full bg-[#112240] border-t border-[#FBCC13] shadow-2xl transition-all duration-300 origin-top overflow-hidden ${activeMegaMenu === 'products' ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}>
+                <div className={`absolute left-0 top-[100%] w-full bg-[#110b29] border-t border-[#0ea5e9] shadow-2xl transition-all duration-300 origin-top overflow-hidden ${activeMegaMenu === 'products' ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}>
                   <div className="max-w-[1800px] mx-auto p-12 flex gap-12">
                     {/* Left: Featured Image */}
-                    <div className="w-1/3 relative aspect-video bg-[#0A192F] overflow-hidden group/image">
+                    <div className="w-1/3 relative aspect-video bg-[#030014] overflow-hidden group/image">
                       <Image 
                         src="/booklet/Axial-Flow-Pump1.webp"
                         alt="Featured Product"
                         fill
                         className="object-contain p-4 group-hover/image:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-[#00A8CC]/20 mix-blend-overlay" />
-                      <div className="absolute bottom-4 left-4 bg-white text-[#0A192F] font-mono font-bold text-xs px-3 py-1 uppercase">
+                      <div className="absolute inset-0 bg-[#0284c7]/20 mix-blend-overlay" />
+                      <div className="absolute bottom-4 left-4 bg-white text-[#030014] font-mono font-bold text-xs px-3 py-1 uppercase">
                         Featured: Axial Pumps
                       </div>
                     </div>
@@ -146,23 +151,23 @@ export default function Navbar() {
                       <div>
                         <h3 className="font-heading font-black text-white text-xl uppercase mb-6 border-b border-white/10 pb-2">Hydraulics</h3>
                         <ul className="space-y-4 font-body text-slate-300">
-                          <li><Link href="/products" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Piston Pumps</Link></li>
-                          <li><Link href="/products" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Vane Motors</Link></li>
-                          <li><Link href="/products/couplings" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Control Valves</Link></li>
+                          <li><Link href="/products" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Piston Pumps</Link></li>
+                          <li><Link href="/products" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Vane Motors</Link></li>
+                          <li><Link href="/products/couplings" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Control Valves</Link></li>
                         </ul>
                       </div>
                       <div>
                         <h3 className="font-heading font-black text-white text-xl uppercase mb-6 border-b border-white/10 pb-2">Pneumatics</h3>
                         <ul className="space-y-4 font-body text-slate-300">
-                          <li><Link href="/products/pneumatics" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Cylinders</Link></li>
-                          <li><Link href="/products/pneumatics" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Air Preparation</Link></li>
-                          <li><Link href="/products" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Fittings</Link></li>
+                          <li><Link href="/products/pneumatics" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Cylinders</Link></li>
+                          <li><Link href="/products/pneumatics" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Air Preparation</Link></li>
+                          <li><Link href="/products" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Fittings</Link></li>
                         </ul>
                       </div>
                       <div className="bg-white/5 p-6 border border-white/10 flex flex-col justify-center items-start">
-                         <h3 className="font-heading font-black text-[#FBCC13] text-2xl uppercase mb-4">View All Catalog</h3>
+                         <h3 className="font-heading font-black text-[#0ea5e9] text-2xl uppercase mb-4">View All Catalog</h3>
                          <p className="font-mono text-sm text-slate-400 mb-6">Browse our complete inventory of over 10,000 certified OEM parts.</p>
-                         <Link href="/products" className="bg-white text-[#0A192F] font-heading font-bold uppercase px-6 py-3 hover:bg-[#FBCC13] transition-colors">
+                         <Link href="/products" className="bg-white text-[#030014] font-heading font-bold uppercase px-6 py-3 hover:bg-[#0ea5e9] transition-colors">
                            Explore Catalog
                          </Link>
                       </div>
@@ -177,26 +182,26 @@ export default function Navbar() {
                 onMouseEnter={() => handleMouseEnter('compressors')}
                 onMouseLeave={handleMouseLeave}
               >
-                <Link href="/products/compressors" className={`relative font-heading font-bold text-sm tracking-widest uppercase flex items-center gap-1 transition-colors h-full ${pathname === '/products/compressors' ? 'text-[#FBCC13]' : 'text-white group-hover:text-[#FBCC13]'}`}>
+                <Link href="/products/compressors" className={`relative font-heading font-bold text-sm tracking-widest uppercase flex items-center gap-1 transition-colors h-full ${pathname === '/products/compressors' ? 'text-[#0ea5e9]' : 'text-white group-hover:text-[#0ea5e9]'}`}>
                   Air Compressors <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${activeMegaMenu === 'compressors' ? 'rotate-180' : ''}`} />
                   {pathname === '/products/compressors' && (
-                    <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#FBCC13]" />
+                    <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#0ea5e9]" />
                   )}
                 </Link>
 
                 {/* Mega Menu Dropdown */}
-                <div className={`absolute left-0 top-[100%] w-full bg-[#112240] border-t border-[#FBCC13] shadow-2xl transition-all duration-300 origin-top overflow-hidden ${activeMegaMenu === 'compressors' ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}>
+                <div className={`absolute left-0 top-[100%] w-full bg-[#110b29] border-t border-[#0ea5e9] shadow-2xl transition-all duration-300 origin-top overflow-hidden ${activeMegaMenu === 'compressors' ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}>
                   <div className="max-w-[1800px] mx-auto p-12 flex gap-12">
                     {/* Left: Featured Image */}
-                    <div className="w-1/3 relative aspect-video bg-white rounded-xl overflow-hidden group/image border-2 border-[#FBCC13]">
+                    <div className="w-1/3 relative aspect-video bg-white rounded-xl overflow-hidden group/image border-2 border-[#0ea5e9]">
                       <Image 
                         src="/booklet/aec-compressor.png"
                         alt="AEC Air Compressor"
                         fill
                         className="object-contain p-4 group-hover/image:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-[#0A192F]/5 mix-blend-overlay" />
-                      <div className="absolute bottom-4 left-4 bg-[#FBCC13] text-[#0A192F] font-mono font-bold text-xs px-3 py-1 uppercase shadow-lg">
+                      <div className="absolute inset-0 bg-[#030014]/5 mix-blend-overlay" />
+                      <div className="absolute bottom-4 left-4 bg-[#0ea5e9] text-[#030014] font-mono font-bold text-xs px-3 py-1 uppercase shadow-lg">
                         AEC Manufactured
                       </div>
                     </div>
@@ -204,25 +209,25 @@ export default function Navbar() {
                     {/* Right: Links Grid */}
                     <div className="w-2/3 grid grid-cols-3 gap-8">
                       <div>
-                        <h3 className="font-heading font-black text-white text-xl uppercase mb-6 border-b border-[#FBCC13]/30 pb-2">Compressor Units</h3>
+                        <h3 className="font-heading font-black text-white text-xl uppercase mb-6 border-b border-[#0ea5e9]/30 pb-2">Compressor Units</h3>
                         <ul className="space-y-4 font-body text-slate-300">
-                          <li><Link href="/products/compressors#amal-engg-manufactured-compressors" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Rotary Screw</Link></li>
-                          <li><Link href="/products/compressors#amal-engg-manufactured-compressors" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Reciprocating</Link></li>
-                          <li><Link href="/products/compressors#amal-engg-manufactured-compressors" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Oil-Free Systems</Link></li>
+                          <li><Link href="/products/compressors#amal-engg-manufactured-compressors" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Rotary Screw</Link></li>
+                          <li><Link href="/products/compressors#amal-engg-manufactured-compressors" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Reciprocating</Link></li>
+                          <li><Link href="/products/compressors#amal-engg-manufactured-compressors" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Oil-Free Systems</Link></li>
                         </ul>
                       </div>
                       <div>
-                        <h3 className="font-heading font-black text-white text-xl uppercase mb-6 border-b border-[#FBCC13]/30 pb-2">Genuine Spares</h3>
+                        <h3 className="font-heading font-black text-white text-xl uppercase mb-6 border-b border-[#0ea5e9]/30 pb-2">Genuine Spares</h3>
                         <ul className="space-y-4 font-body text-slate-300">
-                          <li><Link href="/products/compressors#genuine-compressor-spares" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Air & Oil Filters</Link></li>
-                          <li><Link href="/products/compressors#genuine-compressor-spares" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Air/Oil Separators</Link></li>
-                          <li><Link href="/products/compressors#genuine-compressor-spares" className="hover:text-[#FBCC13] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Auto Drain Valves</Link></li>
+                          <li><Link href="/products/compressors#genuine-compressor-spares" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Air & Oil Filters</Link></li>
+                          <li><Link href="/products/compressors#genuine-compressor-spares" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Air/Oil Separators</Link></li>
+                          <li><Link href="/products/compressors#genuine-compressor-spares" className="hover:text-[#0ea5e9] flex items-center gap-2 group/link"><ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all" /> Auto Drain Valves</Link></li>
                         </ul>
                       </div>
-                      <div className="bg-[#FBCC13]/10 p-6 border border-[#FBCC13]/30 flex flex-col justify-center items-start rounded-xl">
-                         <h3 className="font-heading font-black text-[#FBCC13] text-2xl uppercase mb-4">Service & Repair</h3>
+                      <div className="bg-[#0ea5e9]/10 p-6 border border-[#0ea5e9]/30 flex flex-col justify-center items-start rounded-xl">
+                         <h3 className="font-heading font-black text-[#0ea5e9] text-2xl uppercase mb-4">Service & Repair</h3>
                          <p className="font-mono text-sm text-slate-300 mb-6">Expert servicing & overhaul for all major global compressor brands.</p>
-                         <Link href="/contact" className="bg-[#FBCC13] text-[#0A192F] font-heading font-bold uppercase px-6 py-3 hover:bg-white transition-colors rounded-lg">
+                         <Link href="/contact" className="bg-[#0ea5e9] text-[#030014] font-heading font-bold uppercase px-6 py-3 hover:bg-white transition-colors rounded-lg">
                            Book Service
                          </Link>
                       </div>
@@ -233,18 +238,18 @@ export default function Navbar() {
 
               {/* Standard Links */}
               <li className="h-full flex items-center px-4 group">
-                <Link href="/#industries" className={`relative font-heading font-bold text-sm tracking-widest uppercase flex items-center transition-colors h-full ${isIndustriesActive ? 'text-[#FBCC13]' : 'text-white hover:text-[#FBCC13]'}`}>
+                <Link href="/#industries" className={`relative font-heading font-bold text-sm tracking-widest uppercase flex items-center transition-colors h-full ${isIndustriesActive ? 'text-[#0ea5e9]' : 'text-white hover:text-[#0ea5e9]'}`}>
                   Industries
                   {isIndustriesActive && (
-                    <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#FBCC13]" />
+                    <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#0ea5e9]" />
                   )}
                 </Link>
               </li>
               <li className="h-full flex items-center px-4 group">
-                <Link href="/about" className={`relative font-heading font-bold text-sm tracking-widest uppercase flex items-center transition-colors h-full ${isAboutActive ? 'text-[#FBCC13]' : 'text-white hover:text-[#FBCC13]'}`}>
+                <Link href="/about" className={`relative font-heading font-bold text-sm tracking-widest uppercase flex items-center transition-colors h-full ${isAboutActive ? 'text-[#0ea5e9]' : 'text-white hover:text-[#0ea5e9]'}`}>
                   About Us
                   {isAboutActive && (
-                    <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#FBCC13]" />
+                    <motion.div layoutId="nav-underline" className="absolute bottom-6 left-0 right-0 h-0.5 bg-[#0ea5e9]" />
                   )}
                 </Link>
               </li>
@@ -253,13 +258,13 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center space-x-6 z-50">
-            <button className="text-white hover:text-[#FBCC13] transition-colors hidden sm:block" onClick={() => setIsSearchOpen(true)}>
+            <button className="text-white hover:text-[#0ea5e9] transition-colors hidden sm:block" onClick={() => setIsSearchOpen(true)}>
               <Search className="w-6 h-6" />
             </button>
-            <button className="text-white hover:text-[#FBCC13] transition-colors hidden sm:block" onClick={() => alert('Coming soon!')}>
+            <button className="text-white hover:text-[#0ea5e9] transition-colors hidden sm:block" onClick={() => alert('Coming soon!')}>
               <User className="w-6 h-6" />
             </button>
-            <button className="text-white hover:text-[#FBCC13] transition-colors relative" onClick={() => alert('Coming soon!')}>
+            <button className="text-white hover:text-[#0ea5e9] transition-colors relative" onClick={() => alert('Coming soon!')}>
               <ShoppingCart className="w-6 h-6" />
               <span className="absolute -top-2 -right-3 bg-red-600 text-white font-mono text-[10px] font-bold px-1.5 py-0.5 rounded">
                 0
@@ -267,13 +272,13 @@ export default function Navbar() {
             </button>
             
             {/* Brutalist Quote Button */}
-            <Link href="/contact" className="hidden xl:flex items-center justify-center bg-transparent border-2 border-white text-white font-heading font-bold uppercase tracking-widest px-8 py-3 hover:bg-white hover:text-[#0A192F] transition-colors ml-4 rounded-full">
+            <Link href="/contact" className="hidden xl:flex items-center justify-center bg-transparent border-2 border-white text-white font-heading font-bold uppercase tracking-widest px-8 py-3 hover:bg-white hover:text-[#030014] transition-colors ml-4 rounded-full">
               Get Quote
             </Link>
 
             {/* Mobile Menu Toggle */}
             <button 
-              className="lg:hidden text-white hover:text-[#FBCC13] transition-colors ml-2"
+              className="lg:hidden text-white hover:text-[#0ea5e9] transition-colors ml-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
@@ -283,14 +288,14 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Dropdown */}
-        <div className={`lg:hidden absolute top-[100%] left-0 w-full bg-[#0A192F] border-t border-white/10 transition-all duration-300 ${isMobileMenuOpen ? 'max-h-screen py-6 opacity-100' : 'max-h-0 py-0 opacity-0 overflow-hidden'}`}>
+        <div className={`lg:hidden absolute top-[100%] left-0 w-full bg-[#030014] border-t border-white/10 transition-all duration-300 ${isMobileMenuOpen ? 'max-h-screen py-6 opacity-100' : 'max-h-0 py-0 opacity-0 overflow-hidden'}`}>
           <div className="flex flex-col px-6 space-y-4">
             <Link href="/" className="font-heading font-black text-2xl text-white uppercase" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
             <Link href="/products" className="font-heading font-black text-2xl text-white uppercase" onClick={() => setIsMobileMenuOpen(false)}>Products</Link>
-            <Link href="/products/compressors" className="font-heading font-black text-2xl text-[#FBCC13] uppercase" onClick={() => setIsMobileMenuOpen(false)}>Air Compressors</Link>
+            <Link href="/products/compressors" className="font-heading font-black text-2xl text-[#0ea5e9] uppercase" onClick={() => setIsMobileMenuOpen(false)}>Air Compressors</Link>
             <Link href="/#industries" className="font-heading font-black text-2xl text-white uppercase" onClick={() => setIsMobileMenuOpen(false)}>Industries</Link>
             <Link href="/about" className="font-heading font-black text-2xl text-white uppercase" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
-            <Link href="/contact" className="font-heading font-black text-2xl text-[#FBCC13] uppercase mt-4" onClick={() => setIsMobileMenuOpen(false)}>Request Quote</Link>
+            <Link href="/contact" className="font-heading font-black text-2xl text-[#0ea5e9] uppercase mt-4" onClick={() => setIsMobileMenuOpen(false)}>Request Quote</Link>
           </div>
         </div>
       </nav>

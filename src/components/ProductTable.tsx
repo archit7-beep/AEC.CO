@@ -57,12 +57,12 @@ export default function ProductTable({ headers, products }: ProductTableProps) {
   }, []);
 
   return (
-    <div className="w-full overflow-x-auto bg-[#0A192F]/60 backdrop-blur-md border border-white/10 rounded-xl mt-12 mb-24">
+    <div className="w-full overflow-x-auto bg-[#030014]/60 backdrop-blur-md border border-white/10 rounded-xl mt-12 mb-24">
       <table className="w-full text-left border-collapse min-w-[800px] lg:min-w-full">
         <thead>
-          <tr className="border-b-2 border-[#FBCC13]/30 bg-[#112240]">
+          <tr className="border-b-2 border-[#0ea5e9]/30 bg-[#110b29]">
             {headers.map((header, i) => (
-              <th key={i} className="py-5 px-6 font-mono text-[11px] text-[#FBCC13] tracking-widest uppercase">
+              <th key={i} className="py-5 px-6 font-mono text-[11px] text-[#0ea5e9] tracking-widest uppercase">
                 {header}
               </th>
             ))}
@@ -81,14 +81,14 @@ export default function ProductTable({ headers, products }: ProductTableProps) {
                   onClick={() => row.variations && toggleRow(idx)}
                   className={`border-b border-white/5 transition-all duration-1000 group scroll-mt-32 ${row.variations ? 'cursor-pointer' : ''} ${
                     isTarget 
-                      ? 'bg-[#FBCC13]/20 border-l-4 border-l-[#FBCC13] shadow-[inset_0_0_20px_rgba(251,204,19,0.2)]' 
+                      ? 'bg-[#0ea5e9]/20 border-l-4 border-l-[#0ea5e9] shadow-[inset_0_0_20px_rgba(251,204,19,0.2)]' 
                       : 'hover:bg-white/5 border-l-4 border-l-transparent'
                   }`}
                 >
                   <td className="py-4 px-6 font-heading font-semibold text-white transition-colors flex items-center gap-2">
                     {row.model}
                     {row.variations && (
-                      <span className="text-slate-400 group-hover:text-[#FBCC13] transition-colors">
+                      <span className="text-slate-400 group-hover:text-[#0ea5e9] transition-colors">
                         {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                       </span>
                     )}
@@ -117,7 +117,7 @@ export default function ProductTable({ headers, products }: ProductTableProps) {
                     <td colSpan={5} className="p-0 border-b border-white/5">
                       <div className="p-6 pl-12 animate-in slide-in-from-top-2 duration-300">
                         <div className="mb-4 flex items-center gap-2">
-                          <h4 className="font-heading font-bold text-[#00A8CC] uppercase text-sm">Available Part Numbers</h4>
+                          <h4 className="font-heading font-bold text-[#0284c7] uppercase text-sm">Available Part Numbers</h4>
                           <div className="h-px bg-white/10 flex-1"></div>
                         </div>
                         <table className="w-full text-left text-sm">
@@ -139,10 +139,10 @@ export default function ProductTable({ headers, products }: ProductTableProps) {
                                   key={vIdx} 
                                   id={vId}
                                   className={`border-b border-white/5 last:border-0 transition-colors ${
-                                    isVTarget ? 'bg-[#FBCC13]/20' : 'hover:bg-white/5'
+                                    isVTarget ? 'bg-[#0ea5e9]/20' : 'hover:bg-white/5'
                                   }`}
                                 >
-                                  <td className={`py-3 font-semibold ${isVTarget ? 'text-[#FBCC13]' : 'text-slate-200'}`}>
+                                  <td className={`py-3 font-semibold ${isVTarget ? 'text-[#0ea5e9]' : 'text-slate-200'}`}>
                                     {v.specs}
                                   </td>
                                   <td className="py-3 font-mono text-slate-400">
