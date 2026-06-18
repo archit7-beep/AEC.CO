@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme inline {
-  --color-gold: #0ea5e9;
-  --color-gold-bright: #0ea5e9;
-  --color-obsidian: #050505;
-  --color-navy: #111111;
+  --color-industrial-blue: #0055A4; /* Strong corporate blue */
+  --color-industrial-accent: #E53935; /* Industrial red accent */
+  --color-zinc-dark: #09090b;
+  --color-zinc-light: #fafafa;
   
   --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -23,70 +25,52 @@
 
 @layer base {
   body {
-    background-color: #050505;
+    background-color: transparent;
     overflow-x: hidden;
     position: relative;
-    color: #e2e8f0;
     min-height: 100vh;
     margin: 0;
   }
 }
 
-/* Custom GPU-Accelerated Animation Keyframes */
-@keyframes nebula-drift-alpha {
-  0% { transform: translate3d(0px, 0px, 0px) scale(1); }
-  33% { transform: translate3d(40px, -60px, 0px) scale(1.15); }
-  66% { transform: translate3d(-20px, 30px, 0px) scale(0.9); }
-  100% { transform: translate3d(0px, 0px, 0px) scale(1); }
-}
-
-@keyframes nebula-drift-beta {
-  0% { transform: translate3d(0px, 0px, 0px) scale(1.1); }
-  50% { transform: translate3d(-50px, 40px, 0px) scale(0.85); }
-  100% { transform: translate3d(0px, 0px, 0px) scale(1.1); }
-}
-
-.bg-nebula-1 {
-  will-change: transform;
-  animation: nebula-drift-alpha 25s infinite ease-in-out;
-}
-
-.bg-nebula-2 {
-  will-change: transform;
-  animation: nebula-drift-beta 30s infinite ease-in-out;
-}
-
-/* Engineering Tech Grid Pattern Overlay */
-.blueprint-grid {
+/* Engineering Tech Grid Pattern Overlay - Dark Mode Version */
+.dark .blueprint-grid {
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
+/* Light mode variant for blueprint grid */
+.blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
 @layer utilities {
-  .liquid-glass {
-    @apply bg-[#111111]/70 backdrop-blur-2xl border border-white/5 saturate-150 shadow-2xl;
+  .glass-panel {
+    @apply bg-zinc-900/80 backdrop-blur-md border border-zinc-800 shadow-xl;
   }
 }
 
-/* Custom Industrial Scrollbar */
+/* Custom Industrial Scrollbar - Dark */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #050505;
+  background: #18181b;
   border-radius: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #3f3f46;
   border-radius: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #52525b;
 }
-

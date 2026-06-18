@@ -131,15 +131,15 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 bg-[#030014]/80 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 bg-black/50 dark:bg-[#030014]/80 animate-in fade-in duration-200 transition-colors">
       
       {/* Sleek Command Palette Container */}
       <div 
         ref={modalRef}
-        className="w-full max-w-2xl bg-[#110b29] border border-white/10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col animate-in zoom-in-95 duration-200"
+        className="w-full max-w-2xl bg-white dark:bg-[#110b29] border border-zinc-200 dark:border-white/10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.1)] dark:shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col animate-in zoom-in-95 duration-200 transition-colors"
       >
         {/* Header / Input Area */}
-        <div className="relative flex items-center border-b border-white/10 bg-[#030014]/50 px-4">
+        <div className="relative flex items-center border-b border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-[#030014]/50 px-4 transition-colors">
           <Search className="w-5 h-5 text-[#0284c7] shrink-0" />
           <input 
             ref={inputRef}
@@ -147,29 +147,29 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search parts, brands, or categories..."
-            className="w-full bg-transparent border-none py-5 pl-4 pr-10 text-lg text-white placeholder-slate-500 focus:outline-none font-body"
+            className="w-full bg-transparent border-none py-5 pl-4 pr-10 text-lg text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-slate-500 focus:outline-none font-body transition-colors"
           />
           <button 
             onClick={onClose}
-            className="absolute right-4 p-1 rounded-md text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+            className="absolute right-4 p-1 rounded-md text-zinc-500 dark:text-slate-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200 dark:hover:bg-white/10 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
         
         {/* Results Area */}
-        <div className="flex-1 overflow-y-auto max-h-[50vh] p-2 bg-[#110b29] custom-scrollbar">
+        <div className="flex-1 overflow-y-auto max-h-[50vh] p-2 bg-white dark:bg-[#110b29] custom-scrollbar transition-colors">
           
           {query.trim().length < 2 && (
             <div className="py-10 text-center flex flex-col items-center justify-center opacity-50">
-               <Component className="w-10 h-10 text-slate-400 mb-3" />
-               <p className="font-body text-slate-400 text-sm">Start typing to search the catalog</p>
+               <Component className="w-10 h-10 text-zinc-500 dark:text-slate-400 mb-3 transition-colors" />
+               <p className="font-body text-zinc-500 dark:text-slate-400 text-sm transition-colors">Start typing to search the catalog</p>
             </div>
           )}
 
           {query.trim().length >= 2 && results.length === 0 && (
             <div className="py-10 text-center">
-              <p className="font-body text-slate-400 text-sm">No components found for "<span className="text-white">{query}</span>"</p>
+              <p className="font-body text-zinc-500 dark:text-slate-400 text-sm transition-colors">No components found for "<span className="text-zinc-900 dark:text-white">{query}</span>"</p>
             </div>
           )}
 
@@ -180,11 +180,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   href={`/products/${res.categoryId}#${res.productModel.replace(/\s+/g, '-').toLowerCase()}`} 
                   key={idx}
                   onClick={onClose}
-                  className="group flex items-center justify-between p-4 rounded-xl hover:bg-[#030014] hover:border hover:border-[#0ea5e9]/30 border border-transparent transition-all cursor-pointer"
+                  className="group flex items-center justify-between p-4 rounded-xl hover:bg-zinc-50 dark:hover:bg-[#030014] hover:border hover:border-[#0ea5e9]/30 border border-transparent transition-all cursor-pointer"
                 >
                   <div className="flex flex-col">
-                    <span className="font-heading font-bold text-white text-base group-hover:text-[#0ea5e9] transition-colors">
-                      {res.productModel} <span className="font-body font-light text-slate-400 text-sm ml-2">- {res.productType}</span>
+                    <span className="font-heading font-bold text-zinc-900 dark:text-white text-base group-hover:text-[#0ea5e9] transition-colors">
+                      {res.productModel} <span className="font-body font-light text-zinc-500 dark:text-slate-400 text-sm ml-2 transition-colors">- {res.productType}</span>
                     </span>
                     <span className="font-mono text-[10px] text-[#0284c7] uppercase tracking-widest mt-1">
                       {res.categoryBrand} • {res.subCategoryTitle}
@@ -197,9 +197,9 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
           )}
           
           {/* Footer */}
-          <div className="p-3 border-t border-white/5 mt-2 flex justify-between items-center text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+          <div className="p-3 border-t border-zinc-200 dark:border-white/5 mt-2 flex justify-between items-center text-[10px] font-mono text-zinc-500 dark:text-slate-500 uppercase tracking-widest transition-colors">
             <span>{results.length} {results.length === 1 ? 'Result' : 'Results'}</span>
-            <span className="flex items-center gap-2">Press <kbd className="bg-white/10 px-2 py-1 rounded text-white font-sans text-xs">ESC</kbd> to close</span>
+            <span className="flex items-center gap-2">Press <kbd className="bg-zinc-200 dark:bg-white/10 px-2 py-1 rounded text-zinc-900 dark:text-white font-sans text-xs transition-colors">ESC</kbd> to close</span>
           </div>
 
         </div>

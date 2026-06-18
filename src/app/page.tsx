@@ -17,8 +17,8 @@ export default function Home() {
       <ContactSection />
       
       {/* Basic Footer */}
-      <footer className="w-full bg-[#030014] border-t border-white/5 py-12 text-center">
-        <p className="font-body text-slate-500 text-sm">&copy; {new Date().getFullYear()} Amal Engineering Corporation. All rights reserved.</p>
+      <footer className="w-full bg-zinc-100 dark:bg-slate-900 border-t border-zinc-200 dark:border-slate-800 py-12 text-center transition-colors duration-500">
+        <p className="font-body text-zinc-600 dark:text-slate-400 text-sm transition-colors duration-500">&copy; {new Date().getFullYear()} Amal Engineering Corporation. All rights reserved.</p>
       </footer>
     </div>
   );
