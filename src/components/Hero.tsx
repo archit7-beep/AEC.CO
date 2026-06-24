@@ -1,15 +1,27 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Settings, ShieldCheck, Zap } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import ScrollReveal from './ScrollReveal';
 
 export default function Hero() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+  
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
   return (
-    <section className="relative w-full min-h-[90vh] bg-transparent overflow-hidden flex flex-col justify-center pt-24 pb-20" id="home">
+    <section ref={ref} className="relative w-full min-h-[90vh] bg-transparent overflow-hidden flex flex-col justify-center pt-24 pb-20" id="home">
       
       {/* Subtle Engineering Grid Background */}
-      <div className="absolute inset-0 blueprint-grid opacity-30 z-0 pointer-events-none" />
+      <motion.div style={{ y: yBg }} className="absolute inset-0 blueprint-grid opacity-30 z-0 pointer-events-none" />
       
       {/* Decorative corporate accent lines */}
       <div className="absolute top-0 right-0 w-1/3 h-[800px] bg-gradient-to-bl from-[#0055A4]/10 to-transparent z-0 pointer-events-none rounded-bl-full" />
@@ -85,18 +97,26 @@ export default function Hero() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] aspect-square bg-white dark:bg-zinc-900 rounded-full shadow-2xl border border-zinc-200 dark:border-zinc-800 z-0 transition-colors duration-500" />
           
           {/* Main Product Image */}
-          <div className="relative z-10 w-full h-full flex items-center justify-center">
+          <motion.div 
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="relative z-10 w-full h-full flex items-center justify-center"
+          >
              <Image 
                src="/booklet/blue-compressor.png" 
                alt="Industrial Rotary Screw Air Compressor" 
                fill 
-               className="object-contain p-8 md:p-12 drop-shadow-2xl hover:scale-[1.02] transition-transform duration-700"
+               className="object-contain p-8 md:p-12 drop-shadow-2xl"
                priority
              />
-          </div>
+          </motion.div>
 
           {/* Floating Corporate Spec Card */}
-          <div className="absolute bottom-10 -left-6 md:left-10 z-20 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-lg p-5 flex items-center gap-4 transition-colors duration-500">
+          <motion.div 
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute bottom-10 -left-6 md:left-10 z-20 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-lg p-5 flex items-center gap-4 transition-colors duration-500"
+          >
             <div className="w-12 h-12 bg-zinc-100 dark:bg-zinc-800 rounded flex items-center justify-center transition-colors duration-500">
               <Zap className="w-6 h-6 text-[#0055A4]" />
             </div>
@@ -104,7 +124,7 @@ export default function Hero() {
               <h4 className="font-heading font-bold text-zinc-900 dark:text-white leading-tight transition-colors duration-500">Heavy-Duty Build</h4>
               <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">Industrial Grade</p>
             </div>
-          </div>
+          </motion.div>
           
         </ScrollReveal>
 

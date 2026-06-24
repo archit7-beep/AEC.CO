@@ -65,11 +65,11 @@ export default function CategoryGrid() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <div className="max-w-2xl">
             <h4 className="font-body text-[#0ea5e9] font-semibold tracking-wider uppercase mb-3">Full Catalog</h4>
-            <h2 className="font-heading font-bold text-4xl lg:text-5xl text-white leading-tight">
+            <h2 className="font-heading font-bold text-4xl lg:text-5xl text-zinc-900 dark:text-white leading-tight transition-colors duration-500">
               Our Products & Brands
             </h2>
           </div>
-          <ComingSoonButton className="mt-6 md:mt-0 text-white border-b border-[#0ea5e9] pb-1 font-body font-medium hover:text-[#0ea5e9] transition-colors flex items-center">
+          <ComingSoonButton className="mt-6 md:mt-0 text-zinc-900 dark:text-white border-b border-[#0ea5e9] pb-1 font-body font-medium hover:text-[#0ea5e9] dark:hover:text-[#0ea5e9] transition-colors duration-500 flex items-center">
             Download PDF Catalog <ArrowUpRight className="w-4 h-4 ml-2" />
           </ComingSoonButton>
         </div>
@@ -79,9 +79,9 @@ export default function CategoryGrid() {
             <Link 
               key={idx}
               href={`/products/${item.id}`}
-              className="group cursor-pointer rounded-xl border border-white/5 bg-[#030014]/40 backdrop-blur-md overflow-hidden hover:border-[#0ea5e9]/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(11,32,70,0.5)] block"
+              className="group cursor-pointer rounded-xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-[#030014]/40 backdrop-blur-md overflow-hidden hover:border-[#0ea5e9]/40 dark:hover:border-[#0ea5e9]/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(11,32,70,0.1)] dark:hover:shadow-[0_20px_40px_rgba(11,32,70,0.5)] block"
             >
-              <div className="w-full h-72 relative overflow-hidden flex items-center justify-center border-b border-white/5 bg-white">
+              <div className="w-full h-72 relative overflow-hidden flex items-center justify-center border-b border-zinc-200 dark:border-white/5 bg-white transition-colors duration-500">
                 <Image 
                   src={item.img} 
                   alt={item.name}
@@ -93,10 +93,10 @@ export default function CategoryGrid() {
                 <div className="font-mono text-[10px] text-[#0ea5e9] tracking-widest uppercase mb-2">
                   {item.brand}
                 </div>
-                <h3 className="font-heading font-bold text-2xl text-white mb-3 group-hover:text-[#0ea5e9] transition-colors">
+                <h3 className="font-heading font-bold text-2xl text-zinc-900 dark:text-white mb-3 group-hover:text-[#0ea5e9] transition-colors duration-500">
                   {item.name}
                 </h3>
-                <p className="font-body text-slate-400 font-light">
+                <p className="font-body text-zinc-600 dark:text-slate-400 font-light transition-colors duration-500">
                   {item.desc}
                 </p>
                 <div className="mt-6 flex items-center text-[#0ea5e9] font-body text-sm font-medium">

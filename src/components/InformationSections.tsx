@@ -1,18 +1,21 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { ShieldCheck, Truck, Clock, Wrench, Award, Settings, Zap, Factory, Box, Building2, Flame, Car, TestTube, Droplets, Plane } from 'lucide-react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 
 const INDUSTRIES = [
-  { name: 'Manufacturing', icon: Factory, colSpan: 'md:col-span-2 md:row-span-2', bgImage: '/vs_products/product_1.png' },
-  { name: 'Construction', icon: Building2, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/vs_products/product_13.png' },
-  { name: 'Oil & Gas', icon: Flame, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/fiiting.jpeg' },
-  { name: 'Automotive', icon: Car, colSpan: 'md:col-span-2 md:row-span-1', bgImage: '/vs_products/product_4.png' },
-  { name: 'Chemical Plants', icon: TestTube, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/vs_products/product_5.png' },
-  { name: 'Power Gen', icon: Zap, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/pneumatics.jpg' },
-  { name: 'Water Treatment', icon: Droplets, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/vs_products/product_7.png' },
-  { name: 'Aerospace', icon: Plane, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/steering unit.jpg' }
+  { name: 'Manufacturing', icon: Factory, colSpan: 'md:col-span-2 md:row-span-2', bgImage: '/booklet/Manfacturing.jpg' },
+  { name: 'Construction', icon: Building2, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/constructution.png' },
+  { name: 'Oil & Gas', icon: Flame, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/Oil-Gas-2.jpg' },
+  { name: 'Automotive', icon: Car, colSpan: 'md:col-span-2 md:row-span-1', bgImage: '/booklet/automotive.cms' },
+  { name: 'Chemical Plants', icon: TestTube, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/chemical plant.jpg' },
+  { name: 'Power Gen', icon: Zap, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/power gen.cms' },
+  { name: 'Water Treatment', icon: Droplets, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/water treatment.webp' },
+  { name: 'Aerospace', icon: Plane, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/aerospace.jpg' }
 ];
 
 const FEATURES = [
@@ -49,8 +52,10 @@ export function IndustriesServed() {
             const Icon = ind.icon;
             return (
               <ScrollReveal key={idx} animation="scale" delay={idx * 0.1} className={ind.colSpan}>
-                <div 
-                  className={`relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-[#0055A4] dark:hover:border-[#0055A4] rounded-sm p-8 flex flex-col items-center justify-center text-center group transition-all duration-700 overflow-hidden cursor-crosshair h-full w-full`}
+                <motion.div 
+                  whileHover={{ y: -8, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className={`relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-[#0055A4] dark:hover:border-[#0055A4] rounded-sm p-8 flex flex-col items-center justify-center text-center group transition-all duration-700 overflow-hidden cursor-crosshair h-full w-full shadow-sm hover:shadow-xl hover:shadow-[#0055A4]/10`}
                 >
                 {/* Image Reveal Background */}
                 <div className="absolute inset-0 z-0">
@@ -58,21 +63,21 @@ export function IndustriesServed() {
                     src={ind.bgImage} 
                     alt={ind.name} 
                     fill 
-                    className="object-cover opacity-0 group-hover:opacity-10 group-hover:scale-110 transition-all duration-700 mix-blend-luminosity" 
+                    className="object-cover opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" 
                   />
                 </div>
                 
-                {/* Hover Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white dark:from-zinc-900 via-transparent to-[#0055A4]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
+                {/* Hover Dark Overlay for Text Readability */}
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
                 
                 {/* Giant faint icon in background */}
-                <Icon className="absolute -right-4 -bottom-4 w-32 h-32 text-zinc-900 dark:text-white opacity-[0.02] group-hover:scale-150 group-hover:-rotate-12 group-hover:opacity-[0.05] group-hover:text-[#0055A4] transition-all duration-700 z-0" />
+                <Icon className="absolute -right-4 -bottom-4 w-32 h-32 text-zinc-900 dark:text-white opacity-[0.02] group-hover:scale-150 group-hover:-rotate-12 group-hover:opacity-[0.1] group-hover:text-white transition-all duration-700 z-0" />
                 
                 <div className="relative z-10 transform group-hover:-translate-y-2 transition-transform duration-500">
-                  <div className="w-16 h-16 rounded-full bg-zinc-50 dark:bg-[#09090b] border-2 border-zinc-200 dark:border-zinc-800 flex items-center justify-center mb-4 group-hover:bg-zinc-100 dark:group-hover:bg-zinc-900 group-hover:border-[#0055A4] group-hover:shadow-lg transition-all duration-500 mx-auto">
-                    <Icon className="w-8 h-8 text-zinc-600 dark:text-zinc-400 group-hover:text-[#0055A4] transition-colors duration-500" />
+                  <div className="w-16 h-16 rounded-full bg-zinc-50 dark:bg-[#09090b] border-2 border-zinc-200 dark:border-zinc-800 flex items-center justify-center mb-4 group-hover:bg-[#0ea5e9] group-hover:border-[#0ea5e9] group-hover:shadow-[0_0_20px_rgba(14,165,233,0.5)] transition-all duration-500 mx-auto">
+                    <Icon className="w-8 h-8 text-zinc-600 dark:text-zinc-400 group-hover:text-white transition-colors duration-500" />
                   </div>
-                  <span className="font-heading font-black text-xl md:text-2xl text-zinc-900 dark:text-white uppercase tracking-wide group-hover:text-[#0055A4] transition-colors duration-500">
+                  <span className="font-heading font-black text-xl md:text-2xl text-zinc-900 dark:text-white uppercase tracking-wide group-hover:text-white drop-shadow-md transition-colors duration-500">
                     {ind.name}
                   </span>
                 </div>
@@ -82,7 +87,7 @@ export function IndustriesServed() {
                 <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-zinc-300 dark:border-zinc-700 group-hover:border-[#0055A4] group-hover:scale-150 transition-all duration-500 z-10" />
                 <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-zinc-300 dark:border-zinc-700 group-hover:border-[#0055A4] group-hover:scale-150 transition-all duration-500 z-10" />
                 <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-zinc-300 dark:border-zinc-700 group-hover:border-[#0055A4] group-hover:scale-150 transition-all duration-500 z-10" />
-                </div>
+                </motion.div>
               </ScrollReveal>
             );
           })}
@@ -111,7 +116,7 @@ export function OurServices() {
           
           {/* Service 1: Manufacturing */}
           <ScrollReveal animation="slide-up" delay={0.1}>
-            <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl transition-all duration-500 overflow-hidden relative">
+            <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
               <div className="h-64 relative overflow-hidden">
                  <Image src="/booklet/air comprsoor.png" alt="Manufacturing" fill className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent transition-colors duration-500" />
@@ -123,41 +128,41 @@ export function OurServices() {
                   We manufacture high-grade industrial equipment including Air Compressors, Air Dryers, custom Filters, and Auto Drain Valves designed for rigorous industrial demands.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </ScrollReveal>
 
           {/* Service 2: Supply */}
           <ScrollReveal animation="slide-up" delay={0.2}>
-            <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl transition-all duration-500 overflow-hidden relative">
+            <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
               <div className="h-64 relative overflow-hidden">
                  <Image src="/vs_products/product_8.png" alt="Global Spares Supply" fill className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent transition-colors duration-500" />
                  <Box className="absolute bottom-6 left-6 w-12 h-12 text-[#0055A4]" />
               </div>
               <div className="p-8 pt-6 mt-4">
-                <h3 className="font-heading font-bold text-2xl text-zinc-900 dark:text-white uppercase mb-3 tracking-tight transition-colors duration-500">Spares Supply</h3>
+                <h3 className="font-heading font-bold text-2xl text-zinc-900 dark:text-white uppercase mb-3 tracking-tight transition-colors duration-500">Global Supply</h3>
                 <p className="font-body text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 transition-colors duration-500">
-                  Authorized suppliers of compressor spares for all major global brands including ELGI, KND, Kirloskar, Atlas Copco, Chicago Pneumatic, and Ingersoll Rand.
+                  Extensive inventory of 10,000+ OEM and aftermarket spares for compressors, excavators, rock breakers, and drilling rigs. 
                 </p>
               </div>
-            </div>
+            </motion.div>
           </ScrollReveal>
 
-          {/* Service 3: Repair & Rental */}
+          {/* Service 3: Servicing */}
           <ScrollReveal animation="slide-up" delay={0.3}>
-            <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl transition-all duration-500 overflow-hidden relative">
+            <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
               <div className="h-64 relative overflow-hidden">
-                 <Image src="/vs_products/product_10.png" alt="Repair and Rental" fill className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
+                 <Image src="/booklet/pneumatics.jpg" alt="Maintenance" fill className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent transition-colors duration-500" />
                  <Wrench className="absolute bottom-6 left-6 w-12 h-12 text-[#0055A4]" />
               </div>
               <div className="p-8 pt-6 mt-4">
-                <h3 className="font-heading font-bold text-2xl text-zinc-900 dark:text-white uppercase mb-3 tracking-tight transition-colors duration-500">Repair & Rental</h3>
+                <h3 className="font-heading font-bold text-2xl text-zinc-900 dark:text-white uppercase mb-3 tracking-tight transition-colors duration-500">Maintenance</h3>
                 <p className="font-body text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 transition-colors duration-500">
-                  Complete compressor repair services by certified technicians. We also provide heavy-duty compressors on a flexible rental basis for short and long-term needs.
+                  Specialized repair and overhauling of all major compressor brands. We bring dead units back to factory specifications with certified service protocols.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </ScrollReveal>
 
         </div>

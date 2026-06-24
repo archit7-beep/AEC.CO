@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   description: "Authorized Distributor - Established 2008",
 };
 
+import SmoothScroll from "@/components/SmoothScroll";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,11 +30,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${inter.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${inter.variable} antialiased`}
       suppressHydrationWarning
     >
       <ClientThemeWrapper>
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </ClientThemeWrapper>
     </html>
   );

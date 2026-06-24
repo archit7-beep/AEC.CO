@@ -36,10 +36,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   return (
     <div className="w-full relative z-10 font-body pb-24">
       {/* Cinematic Header */}
-      <div className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-[#030014] z-0" />
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20 z-0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-[#030014]/50 to-transparent z-0" />
+      <div className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden border-b border-zinc-200 dark:border-white/10 transition-colors duration-500">
+        <div className="absolute inset-0 bg-zinc-50 dark:bg-[#030014] z-0 transition-colors duration-500" />
+        <div className="absolute inset-0 blueprint-grid opacity-30 dark:opacity-20 z-0 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-50 dark:from-[#030014] via-zinc-50/50 dark:via-[#030014]/50 to-transparent z-0 transition-colors duration-500" />
         
         {/* Abstract Background Elements */}
         <div className="absolute -left-32 -top-32 w-96 h-96 bg-[#0ea5e9]/5 rounded-full blur-[100px] z-0 pointer-events-none" />
@@ -47,25 +47,25 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
         <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-12 pt-20">
           <div className="flex-1">
-            <Link href="/products" className="inline-flex items-center text-slate-400 hover:text-[#0ea5e9] transition-colors mb-8 font-mono text-xs uppercase tracking-widest">
+            <Link href="/products" className="inline-flex items-center text-zinc-600 dark:text-slate-400 hover:text-[#0ea5e9] transition-colors mb-8 font-mono text-xs uppercase tracking-widest">
               <ArrowLeft className="w-4 h-4 mr-2" /> Back to Catalog
             </Link>
             <div className="font-mono text-sm text-[#0ea5e9] uppercase tracking-[0.3em] font-bold mb-4">
               {categoryData.brand}
             </div>
-            <h1 className="font-heading font-black text-5xl md:text-7xl text-white mb-6 leading-none">
+            <h1 className="font-heading font-black text-5xl md:text-7xl text-zinc-900 dark:text-white mb-6 leading-none transition-colors duration-500">
               {categoryData.heroText.split(' ').map((word, i) => (
                 <React.Fragment key={i}>
                   {word} {i !== categoryData.heroText.split(' ').length - 1 && <br/>}
                 </React.Fragment>
               ))}
             </h1>
-            <p className="text-xl text-slate-400 max-w-xl font-light leading-relaxed border-l-2 border-[#0ea5e9] pl-6">
+            <p className="text-xl text-zinc-600 dark:text-slate-400 max-w-xl font-light leading-relaxed border-l-2 border-[#0ea5e9] pl-6 transition-colors duration-500">
               {categoryData.desc}
             </p>
           </div>
           
-          <div className="w-full md:w-1/3 aspect-square relative bg-white/5 rounded-2xl border border-white/10 p-0 md:p-8 backdrop-blur-sm hidden md:flex items-center justify-center overflow-hidden group">
+          <div className="w-full md:w-1/3 aspect-square relative bg-white dark:bg-white/5 rounded-2xl border border-zinc-200 dark:border-white/10 p-0 md:p-8 backdrop-blur-sm hidden md:flex items-center justify-center overflow-hidden group transition-colors duration-500 shadow-sm dark:shadow-none">
             {/* SaaS-style glowing backdrop behind product */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[#0ea5e9]/10 blur-[80px] rounded-full z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             
@@ -81,12 +81,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       {/* Main Content & Tables */}
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 mt-16">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-zinc-200 dark:border-white/10 pb-6 transition-colors duration-500">
           <div className="md:max-w-2xl">
-            <h2 className="font-heading font-bold text-3xl text-white">Technical Specifications</h2>
-            <p className="font-mono text-sm text-slate-500 mt-2 mb-4">Available Configurations & Part Numbers</p>
+            <h2 className="font-heading font-bold text-3xl text-zinc-900 dark:text-white transition-colors duration-500">Technical Specifications</h2>
+            <p className="font-mono text-sm text-zinc-500 dark:text-slate-500 mt-2 mb-4 transition-colors duration-500">Available Configurations & Part Numbers</p>
             <div className="bg-[#0ea5e9]/10 border-l-4 border-[#0ea5e9] p-4 rounded-r-md">
-              <p className="font-body text-sm text-slate-300">
+              <p className="font-body text-sm text-zinc-700 dark:text-slate-300 transition-colors duration-500">
                 <span className="font-bold text-[#0ea5e9]">Note:</span> All series are available in complete standard configurations (e.g. bore, stroke, flow rate, port size). Contact our sales team for exact part number availability and customized solutions.
               </p>
             </div>
