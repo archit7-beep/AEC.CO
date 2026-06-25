@@ -206,7 +206,7 @@ export default function Navbar() {
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                       {/* AEC Compressors */}
-                      <Link href="/products/compressors" className="group/card bg-white dark:bg-[#030014] border border-zinc-200 dark:border-white/10 rounded-xl p-6 hover:border-[#0ea5e9] hover:shadow-[0_10px_30px_rgba(14,165,233,0.1)] dark:hover:shadow-[0_10px_30px_rgba(14,165,233,0.2)] transition-all duration-300 flex flex-col justify-between h-64 relative overflow-hidden">
+                      <Link href="/products/compressors#piston" className="group/card bg-white dark:bg-[#030014] border border-zinc-200 dark:border-white/10 rounded-xl p-6 hover:border-[#0ea5e9] hover:shadow-[0_10px_30px_rgba(14,165,233,0.1)] dark:hover:shadow-[0_10px_30px_rgba(14,165,233,0.2)] transition-all duration-300 flex flex-col justify-between h-64 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-[#0ea5e9]/5 rounded-bl-full pointer-events-none group-hover/card:scale-110 transition-transform duration-500" />
                         <div>
                           <div className="w-12 h-12 bg-zinc-100 dark:bg-white/5 rounded-lg flex items-center justify-center mb-4 group-hover/card:bg-[#0ea5e9] transition-colors duration-300">

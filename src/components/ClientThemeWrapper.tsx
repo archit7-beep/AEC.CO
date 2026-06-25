@@ -22,29 +22,30 @@ export default function ClientThemeWrapper({ children }: { children: React.React
 
   if (isSaas) {
     return (
-      <body className="text-slate-100 min-h-screen relative selection:bg-blue-500/30 selection:text-white font-sans bg-[#000000]">
-        
-        {/* Dynamic Interactive Cursor Glow */}
-        <div className="pointer-events-none fixed inset-0 z-0 opacity-100" 
-             style={{ background: 'radial-gradient(1000px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(59, 130, 246, 0.25), transparent 40%)' }} />
-        
-        <div className="relative z-10 min-h-screen flex flex-col">
-          {/* SaaS Specific Navigation */}
-          <NavbarSaaS />
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <div className="text-slate-900 dark:text-white min-h-screen relative selection:bg-blue-500/30 selection:text-white font-sans bg-white dark:bg-[#030014] transition-colors duration-500">
+          
+          {/* Dynamic Interactive Cursor Glow */}
+          <div className="pointer-events-none fixed inset-0 z-0 opacity-100" 
+               style={{ background: 'radial-gradient(1000px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(59, 130, 246, 0.25), transparent 40%)' }} />
+          
+          <div className="relative z-10 min-h-screen flex flex-col">
+            {/* SaaS Specific Navigation */}
+            <NavbarSaaS />
 
-          {/* Dynamic Page Rendering for SaaS Route */}
-          <main className="w-full flex-grow flex flex-col items-center">
-            {children}
-          </main>
+            {/* Dynamic Page Rendering for SaaS Route */}
+            <main className="w-full flex-grow flex flex-col items-center">
+              {children}
+            </main>
+          </div>
         </div>
-      </body>
+      </ThemeProvider>
     );
   }
 
   // Modern Obsidian Aesthetic for the rest of the site
   return (
-    <body className="text-slate-900 dark:text-slate-100 min-h-screen relative selection:bg-cyan-500/30 selection:text-white font-body bg-[#FAFAFA] dark:bg-[#050505] transition-colors duration-500">
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         {/* FIXED BACKGROUND STACK FRAMEWORK */}
         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none">
           {/* Layer 0: The Deep Void Base (Only visible in dark mode via globals.css or bg class) */}
@@ -74,6 +75,5 @@ export default function ClientThemeWrapper({ children }: { children: React.React
           </main>
         </div>
       </ThemeProvider>
-    </body>
   );
 }

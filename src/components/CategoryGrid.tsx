@@ -50,10 +50,10 @@ const CATALOG_ITEMS = [
   },
   { 
     id: 'compressors',
-    brand: 'AEC & Atlas Copco', 
+    brand: 'AEC & Kelvin', 
     name: 'Air Compressors', 
     desc: 'Amal Engg manufactured compressors and industrial air automation spares.', 
-    img: '/booklet/aec-compressor.png' 
+    img: '/booklet/new air compressoer.png' 
   }
 ];
 
@@ -75,11 +75,14 @@ export default function CategoryGrid() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {CATALOG_ITEMS.map((item, idx) => (
+          {CATALOG_ITEMS.map((item, idx) => {
+            const isLastAndOrphanedLg = idx === CATALOG_ITEMS.length - 1 && CATALOG_ITEMS.length % 3 === 1;
+            
+            return (
             <Link 
               key={idx}
               href={`/products/${item.id}`}
-              className="group cursor-pointer rounded-xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-[#030014]/40 backdrop-blur-md overflow-hidden hover:border-[#0ea5e9]/40 dark:hover:border-[#0ea5e9]/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(11,32,70,0.1)] dark:hover:shadow-[0_20px_40px_rgba(11,32,70,0.5)] block"
+              className={`group cursor-pointer rounded-xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-[#030014]/40 backdrop-blur-md overflow-hidden hover:border-[#0ea5e9]/40 dark:hover:border-[#0ea5e9]/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(11,32,70,0.1)] dark:hover:shadow-[0_20px_40px_rgba(11,32,70,0.5)] block ${isLastAndOrphanedLg ? 'lg:col-start-2' : ''}`}
             >
               <div className="w-full h-72 relative overflow-hidden flex items-center justify-center border-b border-zinc-200 dark:border-white/5 bg-white transition-colors duration-500">
                 <Image 
@@ -104,7 +107,8 @@ export default function CategoryGrid() {
                 </div>
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
 
       </div>

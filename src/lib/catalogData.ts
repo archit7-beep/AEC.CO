@@ -4336,41 +4336,75 @@ export const CATALOG_DATA: Record<string, CatalogCategory> = {
   },
   'compressors': {
     id: 'compressors',
-    brand: 'AEC, ELGI, Atlas Copco, Kirloskar, Ingersoll Rand',
+    brand: 'AEC, ELGI, Kelvin, Kirloskar, Ingersoll Rand',
     name: 'Air Compressors & Spares',
     desc: 'Amal Engg Manufactured Compressors, Global Brand Spares, and Air Automation Accessories.',
-    img: '/booklet/blue-compressor.png',
+    img: '/booklet/new air compressoer.png',
     heroText: 'INDUSTRIAL AIR COMPRESSION',
     subCategories: [
       {
-        title: 'Amal Engg Manufactured Compressors',
-        tableHeaders: ['Model Series', 'Compressor Type', 'Key Specifications', 'Stock Status'],
+        title: 'Screw Compressors',
+        tableHeaders: ['Model Name', 'Compressor Type', 'Key Specifications', 'Stock Status'],
         products: [
-          { model: 'AEC Lubricated Rotary Screw', size: 'Oil-Injected Screw', maxPressure: '11kW - 250kW | 7 - 13 Bar | High Efficiency', inStock: true },
-          { model: 'AEC Oil-Free Rotary Screw', size: 'Oil-Free Screw', maxPressure: '15kW - 300kW | ISO Class 0 Air | 7 - 10 Bar', inStock: true },
-          { model: 'AEC Heavy Duty Reciprocating', size: 'Piston Compressor', maxPressure: '3HP - 20HP | 8 - 12 Bar | Cast Iron Block', inStock: true },
-          { model: 'AEC Oil-Free Scroll', size: 'Scroll Compressor', maxPressure: '2kW - 22kW | Ultra Quiet | 8 Bar', inStock: true },
-          { model: 'AEC Variable Speed Drive (VSD)', size: 'VSD Screw', maxPressure: 'Energy Saving | 22kW - 160kW | 7 - 10 Bar', inStock: true },
+          { model: '10 HP Rotary Screw Compressor', size: 'Tank Mounted Screw', maxPressure: '10 HP / Compact Design', inStock: true },
+          { model: '15 HP Rotary Screw Compressor', size: 'Rotary Screw', maxPressure: '15 HP / Industrial Duty', inStock: true },
+          { model: '30 HP Screw Compressor', size: 'Rotary Screw', maxPressure: '30 HP / High Volume', inStock: true },
+          { model: '50 HP Industrial Screw Compressor', size: 'Rotary Screw', maxPressure: '50 HP / 12 Bar / 190-220 CFM', inStock: true },
+          { model: 'Screw Compressor for Pharmaceutical', size: 'Tank & Dryer Included', maxPressure: 'Complete System', inStock: true }
         ]
       },
       {
-        title: 'Genuine Compressor Spares',
-        tableHeaders: ['Part Type', 'Compatible Brands', 'Application', 'Stock Status'],
+        title: 'Piston Compressors',
+        tableHeaders: ['Model Name', 'Compressor Type', 'Key Specifications', 'Stock Status'],
         products: [
-          { model: 'Air Filters', size: 'ELGI, Atlas Copco, KND', maxPressure: 'Intake Filtration', inStock: true },
-          { model: 'Oil Filters', size: 'All Major Brands', maxPressure: 'Lubrication System', inStock: true },
-          { model: 'Air/Oil Separators', size: 'Screw Compressors', maxPressure: 'Oil Removal', inStock: true },
-          { model: 'Auto Drain Valves', size: 'Universal', maxPressure: 'Moisture Removal', inStock: true },
-          { model: 'Service Kits', size: '500h, 1000h, 2000h', maxPressure: 'Maintenance', inStock: true },
+          { model: '1 HP Air Compressor', size: 'Single Stage', maxPressure: '1 HP / General Duty', inStock: true },
+          { model: '2 HP Double Piston Compressor', size: 'Single Stage', maxPressure: '2 HP / 5.96 CFM / 100 LTR Tank', inStock: true },
+          { model: 'Base Plate Mounted Air Compressor', size: 'Single Stage', maxPressure: '2 HP / Compact Mount', inStock: true },
+          { model: '3 HP Air Compressor', size: 'Single Stage / Two Stage', maxPressure: '3 HP / Medium Duty', inStock: true },
+          { model: '5 HP Single Stage Air Compressor', size: 'Single Stage', maxPressure: '5 HP / Single Stage', inStock: true },
+          { model: '5 HP Two Stage Compressor', size: 'Two Stage', maxPressure: '5 HP / Heavy Duty', inStock: true },
+          { model: '7.5 HP Air Compressor', size: 'Two Stage', maxPressure: '7.5 HP / Industrial', inStock: true },
+          { model: '10 HP Air Compressor', size: 'Reciprocating', maxPressure: '10 HP', inStock: true },
+          { model: '15 HP Pet Bottle Compressor', size: 'High Pressure', maxPressure: '15 HP / Pet Blowing Applications', inStock: true },
+          { model: 'Mini Air Compressor', size: 'Reciprocating', maxPressure: 'Compact Applications', inStock: true },
+          { model: 'Air Cooled Compressor', size: 'Air Cooled', maxPressure: '1 HP to 25 HP', inStock: true },
+          { model: 'Motor Driven Compressor', size: 'Variable Output', maxPressure: '0-100% Displacement Adjustment', inStock: true },
+          { model: 'Air Compressor For Tyre Works', size: 'Reciprocating', maxPressure: '17.32 CFM', inStock: true },
+          { model: 'Air Compressor For Laser Machine', size: 'High Pressure', maxPressure: 'Reliable High Pressure', inStock: true },
+          { model: 'Low Pressure Compressor', size: 'Reciprocating', maxPressure: 'Low Pressure Applications', inStock: true },
+          { model: 'Car Cleaning Air Compressor', size: 'Reciprocating', maxPressure: 'Car Wash Applications', inStock: true },
+          { model: 'Multi Stage High Pressure Air Compressor', size: 'Multi Stage', maxPressure: 'High Pressure Output', inStock: true },
+          { model: '20 HP High Pressure Air Compressor', size: 'High Pressure', maxPressure: '20 HP / Heavy Duty', inStock: true },
+          { model: '25 HP High Pressure Air Compressor', size: 'High Pressure', maxPressure: '25 HP / Extreme Duty', inStock: true },
+          { model: 'Two Stage Compressor', size: 'Two Stage', maxPressure: 'Standard Two Stage', inStock: true },
+          { model: 'Single Stage Dry Vacuum Pumps', size: 'Vacuum Pump', maxPressure: 'Dry Vacuum Applications', inStock: true }
         ]
       },
       {
-        title: 'Air Accessories',
-        tableHeaders: ['Equipment', 'Type', 'Specification', 'Stock Status'],
+        title: 'Air Dryers',
+        tableHeaders: ['Dryer Type', 'Operation', 'Key Specifications', 'Stock Status'],
         products: [
-          { model: 'Air Receivers', size: 'Vertical / Horizontal', maxPressure: 'High Capacity Storage', inStock: true },
-          { model: 'Refrigerated Air Dryers', size: 'Moisture Control', maxPressure: 'Dry Air Supply', inStock: true },
-          { model: 'Desiccant Air Dryers', size: 'Ultra Dry Air', maxPressure: 'Specialized Processes', inStock: true },
+          { model: 'Compressed Air Dryer', size: 'Refrigerated', maxPressure: 'Standard Drying', inStock: true },
+          { model: 'Automatic Air Dryer', size: 'Automated Control', maxPressure: 'Constant Dew Point', inStock: true },
+          { model: 'Industrial Air Dryers', size: 'Heavy Duty', maxPressure: 'Industrial Applications', inStock: true },
+          { model: 'Low Pressure Air Dryers', size: 'Specialized', maxPressure: 'Low Pressure Lines', inStock: true },
+          { model: '80 CFM Refrigerated Air Dryer', size: 'Refrigerated', maxPressure: '80 CFM Capacity', inStock: true }
+        ]
+      },
+      {
+        title: 'Compressor Spare Parts',
+        tableHeaders: ['Part Type', 'Application', 'Specification', 'Stock Status'],
+        products: [
+          { model: 'Air Compressor Bare Block', size: 'Replacement Block', maxPressure: 'OEM Quality', inStock: true },
+          { model: 'Compressor Top Block', size: 'Replacement Block', maxPressure: 'Top Block Assembly', inStock: true },
+          { model: 'Bare Block Air Compressor', size: 'Replacement Block', maxPressure: 'Complete Bare Block', inStock: true },
+          { model: 'Connecting Rods', size: 'Internal Component', maxPressure: 'Precision Forged', inStock: true },
+          { model: 'Automotive Pistons', size: 'Internal Component', maxPressure: 'High Durability', inStock: true },
+          { model: 'Air Filters & Intake Filters', size: 'Filtration', maxPressure: 'Heavy Duty Filtration', inStock: true },
+          { model: 'Oil Filters & Air/Oil Separators', size: 'Lubrication', maxPressure: 'OEM Replacement Parts', inStock: true },
+          { model: 'Rotary Screw Oil', size: 'Lubricant', maxPressure: 'Synthetic Lubricant', inStock: true },
+          { model: 'Piston Oil', size: 'Lubricant', maxPressure: 'High Temp Lubricant', inStock: true },
+          { model: 'Vertical Air Receivers', size: 'Storage', maxPressure: 'High Capacity Tanks', inStock: true }
         ]
       }
     ]
