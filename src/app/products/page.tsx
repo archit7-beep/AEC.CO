@@ -1,5 +1,11 @@
 import React from 'react';
+import { Metadata } from 'next';
 import CategoryGrid from '@/components/CategoryGrid';
+
+export const metadata: Metadata = {
+  title: "Industrial Product Catalog",
+  description: "Browse our extensive catalog of pneumatic systems, hydraulic pumps, air compressors, and precision industrial fittings.",
+};
 
 export default function ProductsPage() {
   return (

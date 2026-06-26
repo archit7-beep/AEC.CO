@@ -1,5 +1,11 @@
 import React from 'react';
+import { Metadata } from 'next';
 import Hero from '@/components/Hero';
+
+export const metadata: Metadata = {
+  title: "Industrial Air Compressors & Fluid Power | Amal Engineering",
+  description: "Amal Engineering Corporation is India's premier manufacturer and supplier of heavy-duty air compressors, hydraulic systems, and pneumatic components.",
+};
 import FeaturedCarousel from '@/components/FeaturedCarousel';
 import { WhyChooseUs, IndustriesServed, OurServices } from '@/components/InformationSections';
 import { PartnerLogos } from '@/components/PortfolioSections';

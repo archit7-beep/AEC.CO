@@ -59,9 +59,7 @@ export default function ClientThemeWrapper({ children }: { children: React.React
           {/* Layer 2: Technical Drafting Blueprint Grid Overlay */}
           <div className="absolute inset-0 blueprint-grid opacity-30 dark:opacity-50 transition-opacity duration-500" />
 
-          {/* Architectural Coordinate Tick Crosshairs */}
-          <div className="absolute top-12 left-12 font-mono text-[8px] text-[#0ea5e9]/40 dark:text-[#0ea5e9]/20 tracking-widest transition-colors duration-500">SYS.LOC // 45.09.21</div>
-          <div className="absolute bottom-12 right-12 font-mono text-[8px] text-[#0ea5e9]/40 dark:text-[#0ea5e9]/20 tracking-widest transition-colors duration-500">GRID.MATRIX // ACTIVE</div>
+
         </div>
 
         {/* Layer 4: Active Application Content Layout Viewport */}

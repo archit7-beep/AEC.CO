@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, ChevronRight, Component } from 'lucide-react';
-import { CATALOG_DATA } from '@/lib/catalogData';
+import { CATALOG_DATA } from '@/data/catalogData';
 import Link from 'next/link';
 
 interface SearchModalProps {

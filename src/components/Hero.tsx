@@ -81,7 +81,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[12vw] sm:text-[10vw] lg:text-[7.5vw] font-heading font-black leading-[0.95] tracking-tighter uppercase transition-colors duration-500 w-full"
+            className="text-[12vw] sm:text-[10vw] lg:text-[7.5vw] font-heading font-black leading-[0.95] tracking-tighter uppercase transition-colors duration-500 w-full break-words sm:break-normal px-2"
           >
             <span className="text-zinc-900 dark:text-white block mb-2 md:mb-4">Amal Engineering</span>
             <span className="text-[#0ea5e9] block">Corporation</span>

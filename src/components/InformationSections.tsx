@@ -2,29 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Truck, Clock, Wrench, Award, Settings, Zap, Factory, Box, Building2, Flame, Car, TestTube, Droplets, Plane } from 'lucide-react';
+import { Factory, Box, Wrench } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
-
-const INDUSTRIES = [
-  { name: 'Manufacturing', icon: Factory, colSpan: 'md:col-span-2 md:row-span-2', bgImage: '/booklet/Manfacturing.jpg' },
-  { name: 'Construction', icon: Building2, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/constructution.png' },
-  { name: 'Oil & Gas', icon: Flame, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/Oil-Gas-2.jpg' },
-  { name: 'Automotive', icon: Car, colSpan: 'md:col-span-2 md:row-span-1', bgImage: '/booklet/automotive.cms' },
-  { name: 'Chemical Plants', icon: TestTube, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/chemical plant.jpg' },
-  { name: 'Power Gen', icon: Zap, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/power gen.cms' },
-  { name: 'Water Treatment', icon: Droplets, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/water treatment.webp' },
-  { name: 'Aerospace', icon: Plane, colSpan: 'md:col-span-1 md:row-span-1', bgImage: '/booklet/aerospace.jpg' }
-];
-
-const FEATURES = [
-  { icon: Clock, title: '15+ Years Experience', desc: 'Over a decade of trusted industry experience.' },
-  { icon: ShieldCheck, title: 'Proven Reliability', desc: 'Fast service and dependable support network.' },
-  { icon: Award, title: 'Genuine Parts', desc: 'Authentic parts from leading global brands.' },
-  { icon: Wrench, title: 'Custom Repair', desc: 'Expert repair and maintenance services.' },
-  { icon: Settings, title: 'Flexible Rentals', desc: 'Short and long-term compressor rental options.' },
-];
+import { INDUSTRIES, FEATURES } from '@/data/home';
 
 export function IndustriesServed() {
   return (
@@ -63,6 +45,7 @@ export function IndustriesServed() {
                     src={ind.bgImage} 
                     alt={ind.name} 
                     fill 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" 
                   />
                 </div>
@@ -118,7 +101,7 @@ export function OurServices() {
           <ScrollReveal animation="slide-up" delay={0.1}>
             <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
               <div className="h-64 relative overflow-hidden">
-                 <Image src="/booklet/air comprsoor.png" alt="Manufacturing" fill className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
+                 <Image src="/booklet/air-compressor.png" alt="Industrial Air Compressor Manufacturing Facility" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent transition-colors duration-500" />
                  <Factory className="absolute bottom-6 left-6 w-12 h-12 text-[#0055A4]" />
               </div>
@@ -135,7 +118,7 @@ export function OurServices() {
           <ScrollReveal animation="slide-up" delay={0.2}>
             <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
               <div className="h-64 relative overflow-hidden">
-                 <Image src="/vs_products/product_8.png" alt="Global Spares Supply" fill className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
+                 <Image src="/vs_products/product_8.png" alt="Global Supply Chain and Spare Parts Distribution" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent transition-colors duration-500" />
                  <Box className="absolute bottom-6 left-6 w-12 h-12 text-[#0055A4]" />
               </div>
@@ -152,7 +135,7 @@ export function OurServices() {
           <ScrollReveal animation="slide-up" delay={0.3}>
             <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
               <div className="h-64 relative overflow-hidden">
-                 <Image src="/booklet/pneumatics.jpg" alt="Maintenance" fill className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
+                 <Image src="/booklet/pneumatics.jpg" alt="Industrial Maintenance and Pneumatic System Diagnostics" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent transition-colors duration-500" />
                  <Wrench className="absolute bottom-6 left-6 w-12 h-12 text-[#0055A4]" />
               </div>

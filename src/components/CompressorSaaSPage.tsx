@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Download, MessageSquare, Zap, Shield, Gauge, Activity } from 'lucide-react';
-import { CatalogCategory } from '@/lib/catalogData';
+import { CatalogCategory } from '@/data/catalogData';
 import ProductTableSaaS from './ProductTableSaaS';
 import CompressorBlocks from './CompressorBlocks';
 

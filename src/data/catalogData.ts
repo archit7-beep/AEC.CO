@@ -36,7 +36,7 @@ export const CATALOG_DATA: Record<string, CatalogCategory> = {
     brand: 'MASS, GOLAER, EPE',
     name: 'Fittings & Industrial Accessories',
     desc: 'Clamps, Transmitters, Accumulators, Gauges, and Coolers.',
-    img: '/booklet/fiiting.jpeg',
+    img: '/booklet/fitting.jpeg',
     heroText: 'SYSTEM ACCESSORIES & MEASUREMENT',
     subCategories: [
       {
@@ -260,7 +260,7 @@ export const CATALOG_DATA: Record<string, CatalogCategory> = {
     brand: 'Hydroline & Danfoss',
     name: 'Steering Units & Filtration',
     desc: 'Hydroline filters, breathers, level gauges, and heavy duty steering units.',
-    img: '/booklet/steering unit.jpg',
+    img: '/booklet/steering-unit.jpg',
     heroText: 'HYDROSTATIC SYSTEM CONTROL',
     subCategories: [
       {
@@ -4338,8 +4338,8 @@ export const CATALOG_DATA: Record<string, CatalogCategory> = {
     id: 'compressors',
     brand: 'AEC, ELGI, Kelvin, Kirloskar, Ingersoll Rand',
     name: 'Air Compressors & Spares',
-    desc: 'Amal Engg Manufactured Compressors, Global Brand Spares, and Air Automation Accessories.',
-    img: '/booklet/new air compressoer.png',
+    desc: 'Amal Engineering Corporation Manufactured Compressors, Global Brand Spares, and Air Automation Accessories.',
+    img: '/booklet/new-air-compressor.png',
     heroText: 'INDUSTRIAL AIR COMPRESSION',
     subCategories: [
       {

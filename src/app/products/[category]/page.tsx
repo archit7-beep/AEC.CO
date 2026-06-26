@@ -1,9 +1,10 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Download, PenTool } from 'lucide-react';
-import { CATALOG_DATA } from '@/lib/catalogData';
+import { CATALOG_DATA } from '@/data/catalogData';
 import ProductTable from '@/components/ProductTable';
 import ComingSoonButton from '@/components/ComingSoonButton';
 import CompressorSaaSPage from '@/components/CompressorSaaSPage';
@@ -15,8 +16,27 @@ export function generateStaticParams() {
 }
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     category: string;
+  }>;
+}
+
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const categoryData = CATALOG_DATA[resolvedParams.category];
+  
+  if (!categoryData) {
+    return { title: "Product Not Found" };
+  }
+
+  return {
+    title: `${categoryData.name} | ${categoryData.brand}`,
+    description: categoryData.desc,
+    openGraph: {
+      title: `${categoryData.name} by ${categoryData.brand} | Amal Engineering`,
+      description: categoryData.desc,
+      images: [categoryData.img],
+    }
   };
 }
 
@@ -30,11 +50,59 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   // Intercept the compressors category and render the bespoke SaaS layout
   if (resolvedParams.category === 'compressors') {
-    return <CompressorSaaSPage categoryData={categoryData} />;
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              "name": categoryData.name,
+              "image": `https://amalengcorp.com${categoryData.img}`,
+              "description": categoryData.desc,
+              "brand": {
+                "@type": "Brand",
+                "name": categoryData.brand
+              },
+              "offers": {
+                "@type": "AggregateOffer",
+                "priceCurrency": "INR",
+                "offerCount": categoryData.subCategories.reduce((acc, sub) => acc + sub.products.length, 0),
+                "availability": "https://schema.org/InStock"
+              }
+            })
+          }}
+        />
+        <CompressorSaaSPage categoryData={categoryData} />
+      </>
+    );
   }
 
   return (
     <div className="w-full relative z-10 font-body pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": categoryData.name,
+            "image": `https://amalengcorp.com${categoryData.img}`,
+            "description": categoryData.desc,
+            "brand": {
+              "@type": "Brand",
+              "name": categoryData.brand
+            },
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "offerCount": categoryData.subCategories.reduce((acc, sub) => acc + sub.products.length, 0),
+              "availability": "https://schema.org/InStock"
+            }
+          })
+        }}
+      />
       {/* Cinematic Header */}
       <div className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden border-b border-zinc-200 dark:border-white/10 transition-colors duration-500">
         <div className="absolute inset-0 bg-zinc-50 dark:bg-[#030014] z-0 transition-colors duration-500" />
@@ -73,6 +141,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               src={categoryData.img} 
               alt={categoryData.name}
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-contain p-8 drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] z-10 group-hover:scale-105 group-hover:-translate-y-2 transition-all duration-700 ease-out"
             />
           </div>

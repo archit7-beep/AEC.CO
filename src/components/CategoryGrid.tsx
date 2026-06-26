@@ -5,57 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ComingSoonButton from './ComingSoonButton';
 
-const CATALOG_ITEMS = [
-  { 
-    id: 'hoses',
-    brand: 'Polyhose', 
-    name: 'Hydraulic Hoses', 
-    desc: 'Rubber Hoses, Thermoplastic Hoses, PTFE Hoses, and Industrial Hoses.', 
-    img: '/booklet/hoses.jpg' 
-  },
-  { 
-    id: 'couplings',
-    brand: 'Hydax & Hyloc', 
-    name: 'Gear & Fluid Couplings', 
-    desc: 'Precision industrial couplings for fluid and mechanical power transmission.', 
-    img: '/booklet/coupling.jpg' 
-  },
-  { 
-    id: 'pneumatics',
-    brand: 'FESTO & Janatics', 
-    name: 'Pneumatic Systems', 
-    desc: 'Cylinders, FRL units, Solenoid Valves, and Air automation equipment.', 
-    img: '/booklet/pneumatics.jpg' 
-  },
-  { 
-    id: 'pumps',
-    brand: 'Yuken & Rexroth', 
-    name: 'Hydraulic Pumps', 
-    desc: 'Vane Pumps, Gear Pumps, Axial Piston Pumps, and Directional Controls.', 
-    img: '/booklet/pumps.jpg' 
-  },
-  { 
-    id: 'fittings',
-    brand: 'Amal Engineering', 
-    name: 'Fittings & Connectors', 
-    desc: 'High-tolerance joint mechanics and custom fluid power solutions.', 
-    img: '/booklet/fiiting.jpeg' 
-  },
-  { 
-    id: 'steering',
-    brand: 'Danfoss & Hydroline', 
-    name: 'Steering Units', 
-    desc: 'Heavy duty orbital steering units and hydrostatic steering controls.', 
-    img: '/booklet/steering unit.jpg' 
-  },
-  { 
-    id: 'compressors',
-    brand: 'AEC & Kelvin', 
-    name: 'Air Compressors', 
-    desc: 'Amal Engg manufactured compressors and industrial air automation spares.', 
-    img: '/booklet/new air compressoer.png' 
-  }
-];
+import { CATALOG_DATA } from '@/data/catalogData';
+
+const CATALOG_ITEMS = Object.values(CATALOG_DATA);
 
 export default function CategoryGrid() {
   return (
@@ -87,8 +39,9 @@ export default function CategoryGrid() {
               <div className="w-full h-72 relative overflow-hidden flex items-center justify-center border-b border-zinc-200 dark:border-white/5 bg-white transition-colors duration-500">
                 <Image 
                   src={item.img} 
-                  alt={item.name}
-                  fill
+                  alt={item.name} 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                 />
               </div>

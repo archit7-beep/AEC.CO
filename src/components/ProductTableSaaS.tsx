@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { ProductRow } from '@/lib/catalogData';
+import { ProductRow } from '@/data/catalogData';
 import { ChevronDown, ChevronUp, Box, Activity, Layers, Hash } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 

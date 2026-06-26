@@ -18,7 +18,7 @@ const BLOCKS: CompressorBlock[] = [
   {
     id: 'air',
     title: 'Screw Compressor',
-    image: '/booklet/screw compresoer.png',
+    image: '/booklet/screw-compressor.png',
     description: 'High efficiency oil-injected rotary screw compressors for continuous industrial applications.',
     models: [
       { name: '10 HP Rotary Screw Compressor', specs: '10 HP / Tank Mounted' },
@@ -32,7 +32,7 @@ const BLOCKS: CompressorBlock[] = [
   {
     id: 'piston',
     title: 'Piston Compressor',
-    image: '/booklet/piston compresoer.png',
+    image: '/booklet/piston-compressor.png',
     description: 'Heavy duty reciprocating air compressors built with cast iron blocks for maximum durability and peak loads.',
     models: [
       { name: '1 HP Air Compressor', specs: '1 HP / General Duty' },
@@ -43,10 +43,10 @@ const BLOCKS: CompressorBlock[] = [
       { name: '5 HP Two Stage Compressor', specs: '5 HP / Two Stage' },
       { name: '7.5 HP Air Compressor', specs: '7.5 HP / Industrial' },
       { name: '10 HP Air Compressor', specs: '10 HP' },
-      { name: '15 HP Pet Bottle High Pressure Compressor', specs: '15 HP / Pet Blowing' },
+      { name: '15 HP PET Bottle High Pressure Compressor', specs: '15 HP / PET Blowing' },
       { name: 'Mini Air Compressor', specs: 'Compact Applications' },
       { name: 'Air Cooled Compressor', specs: '1 HP to 25 HP' },
-      { name: 'Motor Driven Compressor', specs: '0-100% displacement adjustment' },
+      { name: 'Motor Driven Compressor', specs: '0-100% Displacement Adjustment' },
       { name: 'Air Compressor For Tyre Works', specs: '17.32 CFM' },
       { name: 'Air Compressor For Laser Machine', specs: 'Reliable High Pressure' },
       { name: 'Low Pressure Compressor', specs: 'Low Pressure Applications' },

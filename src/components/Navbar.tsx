@@ -65,25 +65,41 @@ export default function Navbar() {
       <div className="w-full bg-[#0ea5e9] text-[#030014] py-2 overflow-hidden relative z-[60]">
         <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap">
           <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
-            — 24/7 EMERGENCY SPARES SUPPORT: +91 99999 99999
+            — PAN-INDIA 24/7 EMERGENCY SPARES SUPPORT
           </span>
           <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
-            🔥 GLOBAL PARTNERSHIP ANNOUNCEMENT: AUTHORIZED BOSCH REXROTH DEALER
+            🔥 PREMIER NATIONAL PARTNER: AUTHORIZED JANATICS DEALER
           </span>
           <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
-            — FAST SHIPPING WORLDWIDE
+            — RAPID DISPATCH ACROSS ALL OF INDIA
           </span>
           <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
-            — ISO 9001:2015 CERTIFIED
+            — ISO 9001:2015 CERTIFIED ENGINEERING
           </span>
           <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
-            🔥 GLOBAL PARTNERSHIP ANNOUNCEMENT: AUTHORIZED BOSCH REXROTH DEALER
+            ⚙️ 15+ YEARS OF INDUSTRIAL EXCELLENCE
           </span>
           <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
-            — FAST SHIPPING WORLDWIDE
+            — AUTHORIZED KELVIN COMPRESSORS DISTRIBUTOR
+          </span>
+          {/* Duplicate for seamless CSS looping */}
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+            — PAN-INDIA 24/7 EMERGENCY SPARES SUPPORT
           </span>
           <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
-            — ISO 9001:2015 CERTIFIED
+            🔥 PREMIER NATIONAL PARTNER: AUTHORIZED JANATICS DEALER
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+            — RAPID DISPATCH ACROSS ALL OF INDIA
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+            — ISO 9001:2015 CERTIFIED ENGINEERING
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+            ⚙️ 15+ YEARS OF INDUSTRIAL EXCELLENCE
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+            — AUTHORIZED KELVIN COMPRESSORS DISTRIBUTOR
           </span>
         </div>
       </div>
