@@ -139,7 +139,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             
             <Image 
               src={categoryData.img} 
-              alt={categoryData.name}
+              alt={`${categoryData.brand} ${categoryData.name} - Industrial Equipment and Spares`}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-contain p-8 drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] z-10 group-hover:scale-105 group-hover:-translate-y-2 transition-all duration-700 ease-out"

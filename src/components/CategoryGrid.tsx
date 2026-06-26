@@ -39,7 +39,7 @@ export default function CategoryGrid() {
               <div className="w-full h-72 relative overflow-hidden flex items-center justify-center border-b border-zinc-200 dark:border-white/5 bg-white transition-colors duration-500">
                 <Image 
                   src={item.img} 
-                  alt={item.name} 
+                  alt={`${item.brand} ${item.name} Equipment and Spares`} 
                   fill 
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
