@@ -101,7 +101,7 @@ export function OurServices() {
           <ScrollReveal animation="slide-up" delay={0.1}>
             <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
               <div className="h-64 relative overflow-hidden">
-                 <Image src="/booklet/new-air-compressor.png" alt="Industrial Air Compressor Manufacturing Facility" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
+                 <Image src="/booklet/manufacturing.jpg" alt="Industrial Air Compressor Manufacturing Facility" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent transition-colors duration-500" />
                  <Factory className="absolute bottom-6 left-6 w-12 h-12 text-[#0055A4]" />
               </div>

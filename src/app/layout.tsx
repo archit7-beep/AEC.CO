@@ -50,7 +50,7 @@ export default function RootLayout({
       className={`${montserrat.variable} ${inter.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body suppressHydrationWarning className="min-h-screen text-slate-900 dark:text-slate-100 bg-[#FAFAFA] dark:bg-[#050505] selection:bg-cyan-500/30 selection:text-white font-body transition-colors duration-500">
+      <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -74,6 +74,8 @@ export default function RootLayout({
             })
           }}
         />
+      </head>
+      <body suppressHydrationWarning className="min-h-screen text-slate-900 dark:text-slate-100 bg-[#FAFAFA] dark:bg-[#050505] selection:bg-cyan-500/30 selection:text-white font-body transition-colors duration-500">
         <ClientThemeWrapper>
           <SmoothScroll>
             {children}
