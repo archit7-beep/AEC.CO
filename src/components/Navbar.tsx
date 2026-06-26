@@ -82,24 +82,49 @@ export default function Navbar() {
           <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
             — AUTHORIZED KELVIN COMPRESSORS DISTRIBUTOR
           </span>
-          {/* Duplicate for seamless CSS looping */}
           <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+            — MAHARASHTRA'S LARGEST PNEUMATIC INVENTORY
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+            — SPECIALIZED IN HEAVY DUTY AIR COMPRESSORS
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+            — EXPERT HYDRAULIC SYSTEM OVERHAULING
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+            — GENUINE OEM SPARE PARTS GUARANTEED
+          </span>
+
+          {/* Duplicate for seamless CSS looping */}
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4" aria-hidden="true">
             — PAN-INDIA 24/7 EMERGENCY SPARES SUPPORT
           </span>
-          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4" aria-hidden="true">
             🔥 PREMIER NATIONAL PARTNER: AUTHORIZED JANATICS DEALER
           </span>
-          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4" aria-hidden="true">
             — RAPID DISPATCH ACROSS ALL OF INDIA
           </span>
-          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4" aria-hidden="true">
             — ISO 9001:2015 CERTIFIED ENGINEERING
           </span>
-          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4" aria-hidden="true">
             ⚙️ 15+ YEARS OF INDUSTRIAL EXCELLENCE
           </span>
-          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4">
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4" aria-hidden="true">
             — AUTHORIZED KELVIN COMPRESSORS DISTRIBUTOR
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4" aria-hidden="true">
+            — MAHARASHTRA'S LARGEST PNEUMATIC INVENTORY
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4" aria-hidden="true">
+            — SPECIALIZED IN HEAVY DUTY AIR COMPRESSORS
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4" aria-hidden="true">
+            — EXPERT HYDRAULIC SYSTEM OVERHAULING
+          </span>
+          <span className="font-mono font-bold text-xs uppercase tracking-widest mx-4" aria-hidden="true">
+            — GENUINE OEM SPARE PARTS GUARANTEED
           </span>
         </div>
       </div>
