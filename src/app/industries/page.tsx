@@ -1,5 +1,15 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { IndustriesServed } from '@/components/InformationSections';
+
+export const metadata: Metadata = {
+  title: "Industries Served | Amal Engineering Corporation",
+  description: "Discover how Amal Engineering Corporation's industrial fluid power and pneumatic systems empower diverse global sectors.",
+  openGraph: {
+    title: "Industries We Serve",
+    description: "Amal Engineering Corporation empowers manufacturing, construction, automotive, and power generation sectors.",
+  }
+};
 
 export default function IndustriesPage() {
   return (

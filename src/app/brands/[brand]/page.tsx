@@ -1,4 +1,5 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -50,8 +51,24 @@ export function generateStaticParams() {
 }
 
 interface BrandPageProps {
-  params: {
+  params: Promise<{
     brand: string;
+  }>;
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ brand: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const brandData = BRAND_PROFILES[resolvedParams.brand];
+  
+  if (!brandData) return { title: 'Brand Not Found' };
+
+  return {
+    title: `${brandData.name} Authorized Dealer | Amal Engineering`,
+    description: brandData.description,
+    openGraph: {
+      title: `${brandData.name} | Authorized Dealer in India`,
+      description: brandData.description,
+    }
   };
 }
 
