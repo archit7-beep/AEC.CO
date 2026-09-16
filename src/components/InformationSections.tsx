@@ -98,14 +98,14 @@ export function OurServices() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Service 1: Manufacturing */}
-          <ScrollReveal animation="slide-up" delay={0.1}>
-            <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
+          <ScrollReveal animation="slide-up" delay={0.1} className="h-full">
+            <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="h-full flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
               <div className="h-64 relative overflow-hidden">
                  <Image src="/booklet/manufacturing.jpg" alt="Industrial Air Compressor Manufacturing Facility" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent transition-colors duration-500" />
                  <Factory className="absolute bottom-6 left-6 w-12 h-12 text-[#0055A4]" />
               </div>
-              <div className="p-8 pt-6 mt-4">
+              <div className="p-8 pt-6 mt-4 flex-grow">
                 <h3 className="font-heading font-bold text-2xl text-zinc-900 dark:text-white uppercase mb-3 tracking-tight transition-colors duration-500">Manufacturing</h3>
                 <p className="font-body text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 transition-colors duration-500">
                   We manufacture high-grade industrial equipment including Air Compressors, Air Dryers, custom Filters, and Auto Drain Valves designed for rigorous industrial demands.
@@ -115,14 +115,14 @@ export function OurServices() {
           </ScrollReveal>
 
           {/* Service 2: Supply */}
-          <ScrollReveal animation="slide-up" delay={0.2}>
-            <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
+          <ScrollReveal animation="slide-up" delay={0.2} className="h-full">
+            <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="h-full flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
               <div className="h-64 relative overflow-hidden">
                  <Image src="/vs_products/product_8.png" alt="Global Supply Chain and Spare Parts Distribution" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent transition-colors duration-500" />
                  <Box className="absolute bottom-6 left-6 w-12 h-12 text-[#0055A4]" />
               </div>
-              <div className="p-8 pt-6 mt-4">
+              <div className="p-8 pt-6 mt-4 flex-grow">
                 <h3 className="font-heading font-bold text-2xl text-zinc-900 dark:text-white uppercase mb-3 tracking-tight transition-colors duration-500">Global Supply</h3>
                 <p className="font-body text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 transition-colors duration-500">
                   Extensive inventory of 10,000+ OEM and aftermarket spares for compressors, excavators, rock breakers, and drilling rigs. 
@@ -132,14 +132,14 @@ export function OurServices() {
           </ScrollReveal>
 
           {/* Service 3: Servicing */}
-          <ScrollReveal animation="slide-up" delay={0.3}>
-            <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
+          <ScrollReveal animation="slide-up" delay={0.3} className="h-full">
+            <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="h-full flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm group hover:border-[#0055A4] dark:hover:border-[#0055A4] hover:shadow-xl hover:shadow-[#0055A4]/10 transition-all duration-500 overflow-hidden relative">
               <div className="h-64 relative overflow-hidden">
                  <Image src="/booklet/pneumatics.jpg" alt="Industrial Maintenance and Pneumatic System Diagnostics" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-90 group-hover:scale-105 transition-all duration-700" />
                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent transition-colors duration-500" />
                  <Wrench className="absolute bottom-6 left-6 w-12 h-12 text-[#0055A4]" />
               </div>
-              <div className="p-8 pt-6 mt-4">
+              <div className="p-8 pt-6 mt-4 flex-grow">
                 <h3 className="font-heading font-bold text-2xl text-zinc-900 dark:text-white uppercase mb-3 tracking-tight transition-colors duration-500">Maintenance</h3>
                 <p className="font-body text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 transition-colors duration-500">
                   Specialized repair and overhauling of all major compressor brands. We bring dead units back to factory specifications with certified service protocols.

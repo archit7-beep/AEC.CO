@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import Hero from '@/components/Hero';
 
 export const metadata: Metadata = {
-  title: "Industrial Air Compressors & Fluid Power | Amal Engineering",
-  description: "Amal Engineering Corporation is India's premier manufacturer and supplier of heavy-duty air compressors, hydraulic systems, and pneumatic components.",
+  title: "Air Compressor & Pneumatic Supplier in Pune | Amal Engineering",
+  description: "Authorized supplier of industrial air compressors and pneumatic systems in Pune & Pimpri-Chinchwad. Serving MSMEs and manufacturing since 2008.",
 };
 import FeaturedCarousel from '@/components/FeaturedCarousel';
 import { WhyChooseUs, IndustriesServed, OurServices } from '@/components/InformationSections';

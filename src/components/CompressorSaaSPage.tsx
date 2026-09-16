@@ -146,7 +146,7 @@ export default function CompressorSaaSPage({ categoryData }: CompressorSaaSPageP
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.9, delay: 1.8, ease: 'easeOut' }}
         >
-          <CompressorBlocks />
+          <CompressorBlocks brandName={categoryData.brand} />
         </motion.div>
 
         {/* Dedicated Editorial / SEO Section (Moved Below Blocks) */}

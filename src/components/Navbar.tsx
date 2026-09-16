@@ -5,14 +5,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingCart, Search, User, Menu, X, ChevronDown, ArrowRight, Wrench, Settings, Factory, ShieldCheck } from 'lucide-react';
+import { ShoppingCart, ClipboardList, Search, User, Menu, X, ChevronDown, ArrowRight, Wrench, Settings, Factory, ShieldCheck } from 'lucide-react';
 import SearchModal from './SearchModal';
 import ThemeToggle from './ThemeToggle';
+import { useEnquiry } from '@/context/EnquiryContext';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
+
+  const { items, openDrawer } = useEnquiry();
+  const enquiryCount = items.reduce((acc, item) => acc + item.quantity, 0);
 
   const pathname = usePathname();
   const [activeHash, setActiveHash] = useState('');
@@ -337,11 +341,17 @@ export default function Navbar() {
             <button className="text-zinc-800 dark:text-white hover:text-[#0ea5e9] transition-colors hidden sm:block" onClick={() => alert('Coming soon!')}>
               <User className="w-6 h-6" />
             </button>
-            <button className="text-zinc-800 dark:text-white hover:text-[#0ea5e9] transition-colors relative" onClick={() => alert('Coming soon!')}>
-              <ShoppingCart className="w-6 h-6" />
-              <span className="absolute -top-2 -right-3 bg-red-600 text-white font-mono text-[10px] font-bold px-1.5 py-0.5 rounded">
-                0
-              </span>
+            <button 
+              className="text-zinc-800 dark:text-white hover:text-[#0ea5e9] transition-colors relative" 
+              onClick={openDrawer}
+              title="My Enquiry"
+            >
+              <ClipboardList className="w-6 h-6" />
+              {enquiryCount > 0 && (
+                <span className="absolute -top-2 -right-3 bg-red-600 text-white font-mono text-[10px] font-bold px-1.5 py-0.5 rounded">
+                  {enquiryCount}
+                </span>
+              )}
             </button>
             
             {/* Brutalist Quote Button */}

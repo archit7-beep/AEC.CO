@@ -1,11 +1,140 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, Hexagon } from 'lucide-react';
 import Image from 'next/image';
 import ScrollReveal from './ScrollReveal';
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
+  const [verifyAnswer, setVerifyAnswer] = useState('');
+  const [mathQuestion, setMathQuestion] = useState({ num1: 0, num2: 0 });
+
+  useEffect(() => {
+    setMathQuestion({
+      num1: Math.floor(Math.random() * 10) + 1,
+      num2: Math.floor(Math.random() * 10) + 1
+    });
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    let newValue = value;
+
+    if (id === 'name') {
+      // Allow only letters, spaces, hyphens, and apostrophes
+      newValue = value.replace(/[^A-Za-z\s\-']/g, '');
+    } else if (id === 'phone') {
+      // Allow only numbers, spaces, plus, hyphens, and parentheses
+      newValue = value.replace(/[^\d\+\s\-\(\)]/g, '');
+    } else if (id === 'company') {
+      // Prevent completely weird special characters
+      newValue = value.replace(/[<>\\/|]/g, '');
+    }
+
+    setFormData(prev => ({ ...prev, [id]: newValue }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (formData.name.trim().length < 2) {
+      setErrorMsg('Name must be at least 2 characters.');
+      return;
+    }
+
+    if (formData.company.trim().length < 2) {
+      setErrorMsg('Company Name must be at least 2 characters.');
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      setErrorMsg('Please enter a valid email address.');
+      return;
+    }
+
+    // Only accept popular email domains
+    const popularDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'icloud.com', 'aol.com', 'proton.me', 'protonmail.com'];
+    const emailDomain = formData.email.split('@')[1]?.toLowerCase();
+    if (!popularDomains.includes(emailDomain)) {
+      setErrorMsg('Please use a popular email provider (e.g., Gmail, Yahoo, Outlook).');
+      return;
+    }
+
+    const digitsOnly = formData.phone.replace(/\D/g, '');
+    let isValidPhone = false;
+    
+    if (digitsOnly.length === 10 && /^[6-9]\d{9}$/.test(digitsOnly)) {
+      isValidPhone = true;
+    } else if (digitsOnly.length === 11 && digitsOnly.startsWith('0') && /^[6-9]\d{9}$/.test(digitsOnly.slice(1))) {
+      isValidPhone = true;
+    } else if (digitsOnly.length === 12 && digitsOnly.startsWith('91') && /^[6-9]\d{9}$/.test(digitsOnly.slice(2))) {
+      isValidPhone = true;
+    }
+
+    if (!isValidPhone) {
+      setErrorMsg('Please enter a valid Indian mobile number (e.g., +91 98765 43210).');
+      return;
+    }
+
+    if (formData.message.trim().length < 10) {
+      setErrorMsg('Message must be at least 10 characters.');
+      return;
+    }
+
+    // Block spam keywords in Technical Requirements
+    const blockedKeywords = ['seo', 'marketing', 'crypto', 'bitcoin', 'investment', 'http://', 'https://', 'www.'];
+    const lowerMessage = formData.message.toLowerCase();
+    const hasBlockedKeyword = blockedKeywords.some(keyword => lowerMessage.includes(keyword));
+    if (hasBlockedKeyword) {
+      setErrorMsg('Your message contains blocked keywords or links. Please remove them.');
+      return;
+    }
+    if (parseInt(verifyAnswer) !== mathQuestion.num1 + mathQuestion.num2) {
+      setErrorMsg('Incorrect verification answer.');
+      setMathQuestion({
+        num1: Math.floor(Math.random() * 10) + 1,
+        num2: Math.floor(Math.random() * 10) + 1
+      });
+      setVerifyAnswer('');
+      return;
+    }
+
+    setErrorMsg('');
+    setStatus('submitting');
+
+    try {
+      const form = e.target as HTMLFormElement;
+      const data = new FormData(form);
+      
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data as any).toString(),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', company: '', email: '', phone: '', message: '' });
+        setVerifyAnswer('');
+      } else {
+        setStatus('error');
+        setErrorMsg('Submission failed. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setErrorMsg('Network error. Please try again.');
+    }
+  };
+
   return (
     <section className="w-full py-32 relative z-10 bg-white dark:bg-zinc-950 overflow-hidden transition-colors duration-500" id="contact">
       {/* Background Ambience */}
@@ -22,6 +151,7 @@ export default function ContactSection() {
             </div>
             <h2 className="font-heading font-black text-5xl md:text-7xl text-zinc-900 dark:text-white tracking-tighter uppercase transition-colors duration-500">
               Contact <span className="text-[#0055A4]">AEC</span>
+              <span className="sr-only"> - Industrial Air Compressor & Pneumatics Supplier in Pune</span>
             </h2>
             <p className="font-body text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mt-6 text-lg transition-colors duration-500">
               Connect with our engineering team for precision fluid power solutions, authentic spare parts, or emergency repair dispatch.
@@ -98,14 +228,39 @@ export default function ContactSection() {
 
             <div className="mb-10 relative z-10">
               <h3 className="font-heading font-black text-2xl md:text-3xl text-zinc-900 dark:text-white mb-2 uppercase tracking-wide transition-colors duration-500">
-                System Inquiry Form
+                Enquiry & Service Form
               </h3>
               <p className="font-body text-zinc-600 dark:text-zinc-400 text-sm md:text-base transition-colors duration-500">
-                Submit your specifications below. Our technical team typically responds within 4 hours.
+                Submit your equipment specifications, or request compressor maintenance and repair dispatch in Pune. Our technical team typically responds within 4 hours.
               </p>
             </div>
 
-            <form className="space-y-6 md:space-y-8 relative z-10">
+            <form 
+              name="contact" 
+              method="POST" 
+              data-netlify="true" 
+              netlify-honeypot="bot-field" 
+              onSubmit={handleSubmit}
+              className="space-y-6 md:space-y-8 relative z-10"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden">
+                <label>
+                  Don’t fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
+
+              {errorMsg && (
+                <div className="bg-red-500/10 border border-red-500/50 text-red-500 dark:text-red-400 px-4 py-3 rounded-sm font-body text-sm mb-6">
+                  {errorMsg}
+                </div>
+              )}
+              {status === 'success' && (
+                <div className="bg-green-500/10 border border-green-500/50 text-green-600 dark:text-green-400 px-4 py-3 rounded-sm font-body text-sm mb-6">
+                  Thank you! Your inquiry has been successfully transmitted.
+                </div>
+              )}
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <div className="relative group">
                   <label htmlFor="name" className="absolute -top-3 left-4 bg-zinc-50 dark:bg-[#09090b] px-2 text-[10px] md:text-xs font-bold font-mono text-zinc-600 dark:text-zinc-500 uppercase tracking-widest z-10 group-focus-within:text-[#0055A4] transition-colors duration-500">
@@ -114,7 +269,10 @@ export default function ContactSection() {
                   <input 
                     type="text" 
                     id="name"
-                    placeholder="John Engineer"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Rajesh Kumar"
                     className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                   />
                 </div>
@@ -126,22 +284,45 @@ export default function ContactSection() {
                   <input 
                     type="text" 
                     id="company"
-                    placeholder="Global Manufacturing Corp"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Bharat Engineering Corp"
                     className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                   />
                 </div>
               </div>
 
-              <div className="relative group">
-                <label htmlFor="email" className="absolute -top-3 left-4 bg-zinc-50 dark:bg-[#09090b] px-2 text-[10px] md:text-xs font-bold font-mono text-zinc-600 dark:text-zinc-500 uppercase tracking-widest z-10 group-focus-within:text-[#0055A4] transition-colors duration-500">
-                  Business Email
-                </label>
-                <input 
-                  type="email" 
-                  id="email"
-                  placeholder="john@manufacturing.com"
-                  className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <div className="relative group">
+                  <label htmlFor="email" className="absolute -top-3 left-4 bg-zinc-50 dark:bg-[#09090b] px-2 text-[10px] md:text-xs font-bold font-mono text-zinc-600 dark:text-zinc-500 uppercase tracking-widest z-10 group-focus-within:text-[#0055A4] transition-colors duration-500">
+                    Business Email
+                  </label>
+                  <input 
+                    type="email" 
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="rajesh@bharatengineering.in"
+                    className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
+                  />
+                </div>
+
+                <div className="relative group">
+                  <label htmlFor="phone" className="absolute -top-3 left-4 bg-zinc-50 dark:bg-[#09090b] px-2 text-[10px] md:text-xs font-bold font-mono text-zinc-600 dark:text-zinc-500 uppercase tracking-widest z-10 group-focus-within:text-[#0055A4] transition-colors duration-500">
+                    Phone Number
+                  </label>
+                  <input 
+                    type="tel" 
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+91 98765 43210"
+                    className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
+                  />
+                </div>
               </div>
 
               <div className="relative group">
@@ -150,18 +331,37 @@ export default function ContactSection() {
                 </label>
                 <textarea 
                   id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={4}
                   placeholder="Specify part numbers, pressure requirements, or repair needs..."
                   className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base resize-none placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                 ></textarea>
               </div>
 
+              <div className="relative group">
+                <label htmlFor="verifyAnswer" className="absolute -top-3 left-4 bg-zinc-50 dark:bg-[#09090b] px-2 text-[10px] md:text-xs font-bold font-mono text-zinc-600 dark:text-zinc-500 uppercase tracking-widest z-10 group-focus-within:text-[#0055A4] transition-colors duration-500">
+                  Verification: What is {mathQuestion.num1} + {mathQuestion.num2}?
+                </label>
+                <input 
+                  type="text" 
+                  id="verifyAnswer"
+                  name="verifyAnswer"
+                  value={verifyAnswer}
+                  onChange={(e) => setVerifyAnswer(e.target.value)}
+                  placeholder="Enter the sum"
+                  className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
+                />
+              </div>
+
               <button 
-                type="button" 
-                className="group w-full md:w-auto flex items-center justify-center gap-3 bg-[#0055A4] text-white font-heading font-bold text-sm md:text-base px-10 py-5 rounded-sm hover:bg-[#004080] transition-colors shadow-lg"
+                type="submit" 
+                disabled={status === 'submitting'}
+                className="group w-full md:w-auto flex items-center justify-center gap-3 bg-[#0055A4] text-white font-heading font-bold text-sm md:text-base px-10 py-5 rounded-sm hover:bg-[#004080] disabled:opacity-70 disabled:cursor-not-allowed transition-colors shadow-lg"
               >
-                <span>Transmit Request</span>
-                <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <span>{status === 'submitting' ? 'Transmitting...' : 'Transmit Request'}</span>
+                {status !== 'submitting' && <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
               </button>
             </form>
           </ScrollReveal>

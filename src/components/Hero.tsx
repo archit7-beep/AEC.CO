@@ -85,6 +85,7 @@ export default function Hero() {
           >
             <span className="text-zinc-900 dark:text-white block mb-2 md:mb-4">Amal Engineering</span>
             <span className="text-[#0ea5e9] block">Corporation</span>
+            <span className="sr-only"> - Industrial Air Compressors & Pneumatic Systems Supplier in India</span>
           </motion.h1>
         </div>
 

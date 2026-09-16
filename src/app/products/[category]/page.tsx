@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Download, PenTool } from 'lucide-react';
+import Script from 'next/script';
 import { CATALOG_DATA } from '@/data/catalogData';
 import ProductTable from '@/components/ProductTable';
 import ComingSoonButton from '@/components/ComingSoonButton';
@@ -30,12 +31,17 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   }
 
   return {
-    title: `${categoryData.name} | ${categoryData.brand}`,
+    title: `${categoryData.name} | ${categoryData.brand} Authorized Dealer`,
     description: categoryData.desc,
+    keywords: [categoryData.name, categoryData.brand, "Amal Engineering", "India", "Pneumatics", "Industrial"],
     openGraph: {
       title: `${categoryData.name} by ${categoryData.brand} | Amal Engineering`,
       description: categoryData.desc,
       images: [categoryData.img],
+      type: 'website',
+    },
+    alternates: {
+      canonical: `https://amalengcorp.com/products/${resolvedParams.category}`
     }
   };
 }
@@ -52,7 +58,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   if (resolvedParams.category === 'compressors') {
     return (
       <>
-        <script
+        <Script
+          id={`json-ld-${categoryData.id}`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -81,7 +88,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <div className="w-full relative z-10 font-body pb-24">
-      <script
+      <Script
+        id={`json-ld-${categoryData.id}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -188,7 +196,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               <h3 className="font-heading font-bold text-2xl text-[#0ea5e9] uppercase tracking-widest mb-6">
                 {subCat.title}
               </h3>
-              <ProductTable headers={subCat.tableHeaders} products={subCat.products} />
+              <ProductTable headers={subCat.tableHeaders} products={subCat.products} categoryName={categoryData.name} brandName={categoryData.brand} />
             </div>
           );
         })}

@@ -63,10 +63,11 @@ export async function generateMetadata({ params }: { params: Promise<{ brand: st
   if (!brandData) return { title: 'Brand Not Found' };
 
   return {
-    title: `${brandData.name} Authorized Dealer | Amal Engineering`,
-    description: brandData.description,
+    title: `Authorized ${brandData.name} Dealer in Pune | Amal Engineering`,
+    description: `Amal Engineering is the authorized supplier for ${brandData.name} in Pune and Pimpri-Chinchwad. ${brandData.description.slice(0, 100)}...`,
+    keywords: [brandData.name, "Dealer Pune", "Authorized Supplier", "Amal Engineering", "India", "Pimpri-Chinchwad"],
     openGraph: {
-      title: `${brandData.name} | Authorized Dealer in India`,
+      title: `${brandData.name} | Authorized Dealer in Pune`,
       description: brandData.description,
     }
   };

@@ -38,6 +38,9 @@ export const metadata: Metadata = {
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
+import { EnquiryProvider } from '@/context/EnquiryContext';
+import EnquiryDrawer from '@/components/EnquiryDrawer';
+import Script from 'next/script';
 
 export default function RootLayout({
   children,
@@ -51,36 +54,79 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script
+        <Script
+          id="json-ld-organization"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Amal Engineering Corporation",
-              "image": "https://amalengcorp.com/booklet/logo.png",
-              "description": "Established in 2008, Amal Engineering is a trusted manufacturer and authorized supplier of industrial air compressors, pneumatic systems, and fluid power equipment.",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Shop No.2, Near Hockey Stadium, Nehrunagar",
-                "addressLocality": "Pimpri, Pune",
-                "addressRegion": "Maharashtra",
-                "postalCode": "411018",
-                "addressCountry": "IN"
-              },
-              "telephone": "+91-9860222875",
-              "email": "amalengcorp@gmail.com",
-              "url": "https://amalengcorp.com"
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://amalengcorp.com/#organization",
+                  "name": "Amal Engineering Corporation",
+                  "url": "https://amalengcorp.com",
+                  "logo": "https://amalengcorp.com/booklet/logo.png",
+                  "sameAs": [
+                    "https://www.linkedin.com/company/amal-engineering-corporation",
+                    "https://www.facebook.com/amalengcorp"
+                  ]
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://amalengcorp.com/#localbusiness",
+                  "name": "Amal Engineering Corporation",
+                  "image": "https://amalengcorp.com/booklet/logo.png",
+                  "description": "Established in 2008, Amal Engineering is a trusted manufacturer and authorized supplier of industrial air compressors, pneumatic systems, and fluid power equipment.",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Shop No.2, Near Hockey Stadium, Nehrunagar",
+                    "addressLocality": "Pimpri, Pune",
+                    "addressRegion": "Maharashtra",
+                    "postalCode": "411018",
+                    "addressCountry": "IN"
+                  },
+                  "telephone": "+91-9860222875",
+                  "email": "amalengcorp@gmail.com",
+                  "url": "https://amalengcorp.com",
+                  "priceRange": "$$",
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday"
+                    ],
+                    "opens": "09:30",
+                    "closes": "20:00"
+                  }
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://amalengcorp.com/#website",
+                  "url": "https://amalengcorp.com",
+                  "name": "Amal Engineering Corporation",
+                  "publisher": {
+                    "@id": "https://amalengcorp.com/#organization"
+                  }
+                }
+              ]
             })
           }}
         />
       </head>
       <body suppressHydrationWarning className="min-h-screen text-slate-900 dark:text-slate-100 bg-[#FAFAFA] dark:bg-[#050505] selection:bg-cyan-500/30 selection:text-white font-body transition-colors duration-500">
-        <ClientThemeWrapper>
-          <SmoothScroll>
-            {children}
-          </SmoothScroll>
-        </ClientThemeWrapper>
+        <EnquiryProvider>
+          <ClientThemeWrapper>
+            <SmoothScroll>
+              {children}
+              <EnquiryDrawer />
+            </SmoothScroll>
+          </ClientThemeWrapper>
+        </EnquiryProvider>
       </body>
     </html>
   );

@@ -5,9 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import { Sun, Moon, Search } from 'lucide-react';
+import { Sun, Moon, Search, ClipboardList } from 'lucide-react';
 import SearchModal from './SearchModal';
 import { Space_Grotesk } from 'next/font/google';
+import { useEnquiry } from '@/context/EnquiryContext';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -16,6 +17,9 @@ const spaceGrotesk = Space_Grotesk({
 
 export default function NavbarSaaS() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { openDrawer, items } = useEnquiry();
+  const enquiryCount = items.reduce((acc, item) => acc + item.quantity, 0);
+
   const links = [
     { label: 'AEC Home', href: '/' },
     { label: 'Air Compressors', href: '/products/compressors' },
@@ -54,6 +58,18 @@ export default function NavbarSaaS() {
             onClick={() => setIsSearchOpen(true)}
           >
             <Search className="w-5 h-5" />
+          </button>
+          <button 
+            className="text-slate-900 dark:text-slate-200 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors pointer-events-auto relative"
+            onClick={openDrawer}
+            title="My Enquiry"
+          >
+            <ClipboardList className="w-5 h-5" />
+            {enquiryCount > 0 && (
+              <span className="absolute -top-2 -right-3 bg-red-600 text-white font-mono text-[10px] font-bold px-1.5 py-0.5 rounded">
+                {enquiryCount}
+              </span>
+            )}
           </button>
           <CyberThemeSwitch />
           <MagneticButton href="/contact" />

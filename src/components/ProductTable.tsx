@@ -2,16 +2,21 @@
 
 import React, { useEffect, useState } from 'react';
 import { ProductRow } from '@/data/catalogData';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Plus } from 'lucide-react';
+import { useEnquiry } from '@/context/EnquiryContext';
 
 interface ProductTableProps {
   headers: string[];
   products: ProductRow[];
+  categoryName?: string;
+  brandName?: string;
 }
 
-export default function ProductTable({ headers, products }: ProductTableProps) {
+export default function ProductTable({ headers, products, categoryName = 'Equipment', brandName }: ProductTableProps) {
   const [targetId, setTargetId] = useState('');
   const [expandedRows, setExpandedRows] = useState<Set<number>>(new Set());
+  const { addItem } = useEnquiry();
+  const [addedItem, setAddedItem] = useState<string | null>(null);
 
   const toggleRow = (idx: number) => {
     const newSet = new Set(expandedRows);
@@ -54,7 +59,14 @@ export default function ProductTable({ headers, products }: ProductTableProps) {
       window.removeEventListener('hashchange', updateTarget);
       clearTimeout(timeoutId);
     };
-  }, []);
+  }, [products]);
+
+  const handleAdd = (e: React.MouseEvent, id: string, name: string, variant?: string) => {
+    e.stopPropagation();
+    addItem({ id, brand: brandName, name, category: categoryName, variant });
+    setAddedItem(id);
+    setTimeout(() => setAddedItem(null), 2000);
+  };
 
   return (
     <div className="w-full overflow-x-auto bg-white/80 dark:bg-[#030014]/60 backdrop-blur-md border border-zinc-200 dark:border-white/10 rounded-xl mt-12 mb-24 transition-colors duration-500">
@@ -66,6 +78,9 @@ export default function ProductTable({ headers, products }: ProductTableProps) {
                 {header}
               </th>
             ))}
+            <th className="py-5 px-6 font-mono text-[11px] text-[#0ea5e9] tracking-widest uppercase text-right">
+              Action
+            </th>
           </tr>
         </thead>
         <tbody className="font-body text-zinc-600 dark:text-slate-300 transition-colors duration-500">
@@ -109,12 +124,24 @@ export default function ProductTable({ headers, products }: ProductTableProps) {
                       </span>
                     )}
                   </td>
+                  <td className="py-4 px-6 text-right">
+                    {!row.variations ? (
+                      <button 
+                        onClick={(e) => handleAdd(e, rowId, row.model)}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-zinc-100 hover:bg-[#0ea5e9] hover:text-white dark:bg-white/10 dark:hover:bg-[#0ea5e9] text-xs font-mono font-bold transition-all text-zinc-600 dark:text-slate-300"
+                      >
+                        {addedItem === rowId ? 'Added ✓' : <><Plus className="w-3 h-3" /> Add to Enquiry</>}
+                      </button>
+                    ) : (
+                      <span className="text-xs text-zinc-400 dark:text-zinc-500 font-mono italic">Select Variant</span>
+                    )}
+                  </td>
                 </tr>
 
                 {/* Expanded Variations Table */}
                 {isExpanded && row.variations && (
                   <tr className="bg-zinc-50 dark:bg-[#050B14] transition-colors duration-500">
-                    <td colSpan={5} className="p-0 border-b border-zinc-200 dark:border-white/5 transition-colors duration-500">
+                    <td colSpan={6} className="p-0 border-b border-zinc-200 dark:border-white/5 transition-colors duration-500">
                       <div className="p-6 pl-12 animate-in slide-in-from-top-2 duration-300">
                         <div className="mb-4 flex items-center gap-2">
                           <h4 className="font-heading font-bold text-[#0284c7] uppercase text-sm">Available Part Numbers</h4>
@@ -126,11 +153,11 @@ export default function ProductTable({ headers, products }: ProductTableProps) {
                               <th className="pb-2 font-normal w-1/2">Specifications</th>
                               <th className="pb-2 font-normal">Part Number</th>
                               <th className="pb-2 font-normal">Status</th>
+                              <th className="pb-2 font-normal text-right">Action</th>
                             </tr>
                           </thead>
                           <tbody>
                             {row.variations.map((v, vIdx) => {
-                              // We can add IDs to specific variations too
                               const vId = v.partNumber.replace(/\s+/g, '-').toLowerCase();
                               const isVTarget = targetId === vId;
                               
@@ -154,6 +181,14 @@ export default function ProductTable({ headers, products }: ProductTableProps) {
                                     ) : (
                                       <span className="text-zinc-500 dark:text-slate-500 text-xs transition-colors duration-500">MTO</span>
                                     )}
+                                  </td>
+                                  <td className="py-3 text-right">
+                                    <button 
+                                      onClick={(e) => handleAdd(e, vId, row.model, v.partNumber)}
+                                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 hover:border-[#0ea5e9] hover:text-[#0ea5e9] dark:hover:border-[#0ea5e9] dark:hover:text-[#0ea5e9] text-xs font-mono transition-all text-zinc-600 dark:text-slate-300"
+                                    >
+                                      {addedItem === vId ? 'Added ✓' : <><Plus className="w-3 h-3" /> Add</>}
+                                    </button>
                                   </td>
                                 </tr>
                               );

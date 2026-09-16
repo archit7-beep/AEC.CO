@@ -3,7 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { ChevronDown, Box, ArrowRight, Settings, Zap } from 'lucide-react';
+import { ChevronDown, Box, Settings, Zap, Plus } from 'lucide-react';
+import { useEnquiry } from '@/context/EnquiryContext';
+
+interface CompressorBlocksProps {
+  brandName?: string;
+}
 
 interface CompressorBlock {
   id: string;
@@ -94,8 +99,29 @@ const BLOCKS: CompressorBlock[] = [
   }
 ];
 
-export default function CompressorBlocks() {
+export default function CompressorBlocks({ brandName = 'Amal Engineering' }: CompressorBlocksProps = {}) {
   const [expandedBlock, setExpandedBlock] = useState<string | null>(null);
+  const { addItem, openDrawer } = useEnquiry();
+  const [addedItem, setAddedItem] = useState<string | null>(null);
+
+  const handleAdd = (e: React.MouseEvent, categoryTitle: string, itemName: string, itemSpecs: string) => {
+    e.stopPropagation();
+    addItem({
+      id: `${categoryTitle}-${itemName}`.replace(/\s+/g, '-').toLowerCase(),
+      name: itemName,
+      brand: brandName,
+      category: categoryTitle,
+      variant: itemSpecs,
+      quantity: 1
+    });
+    
+    setAddedItem(`${categoryTitle}-${itemName}`.replace(/\s+/g, '-').toLowerCase());
+    openDrawer();
+    
+    setTimeout(() => {
+      setAddedItem(null);
+    }, 2000);
+  };
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -186,18 +212,28 @@ export default function CompressorBlocks() {
                       <div>
                         <h4 className="font-mono text-sm md:text-base uppercase tracking-[0.2em] text-slate-400 dark:text-white/40 mb-6 border-b border-slate-200 dark:border-white/10 pb-3">{block.id === 'spares' ? 'Available Spare Parts' : 'Models & Types'}</h4>
                         <div className={block.accessories.length === 0 ? "grid grid-cols-1 md:grid-cols-2 gap-4" : "flex flex-col gap-4"}>
-                          {block.models.map((item, idx) => (
-                            <div key={idx} className="flex items-center gap-5 p-4 rounded-xl hover:bg-white dark:hover:bg-white/5 border border-transparent hover:border-slate-200 dark:hover:border-white/10 transition-all cursor-pointer group">
-                              <div className="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform">
-                                {block.id === 'spares' ? <Settings className="w-5 h-5" /> : <Zap className="w-5 h-5" />}
+                          {block.models.map((item, idx) => {
+                            const uniqueId = `${block.title}-${item.name}`.replace(/\s+/g, '-').toLowerCase();
+                            return (
+                            <div key={idx} className="flex items-center justify-between flex-wrap gap-4 p-4 rounded-xl hover:bg-white dark:hover:bg-white/5 border border-transparent hover:border-slate-200 dark:hover:border-white/10 transition-all group">
+                              <div className="flex items-center gap-5">
+                                <div className="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform">
+                                  {block.id === 'spares' ? <Settings className="w-5 h-5" /> : <Zap className="w-5 h-5" />}
+                                </div>
+                                <div className="flex flex-col">
+                                  <span className="font-sans font-semibold text-slate-900 dark:text-white text-base md:text-lg leading-tight">{item.name}</span>
+                                  <span className="font-mono text-cyan-600 dark:text-cyan-400 text-xs md:text-sm uppercase tracking-wider mt-1.5">{item.specs}</span>
+                                </div>
                               </div>
-                              <div className="flex flex-col">
-                                <span className="font-sans font-semibold text-slate-900 dark:text-white text-base md:text-lg leading-tight">{item.name}</span>
-                                <span className="font-mono text-cyan-600 dark:text-cyan-400 text-xs md:text-sm uppercase tracking-wider mt-1.5">{item.specs}</span>
-                              </div>
-                              <ArrowRight className="w-5 h-5 text-slate-300 dark:text-white/20 ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                              <button 
+                                onClick={(e) => handleAdd(e, block.title, item.name, item.specs)}
+                                className="inline-flex shrink-0 items-center justify-center gap-1.5 px-4 py-2 rounded bg-zinc-100 dark:bg-white/10 hover:bg-cyan-500 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-[#030014] text-xs font-mono font-bold transition-all text-zinc-600 dark:text-cyan-400 border border-transparent hover:border-cyan-500 w-full sm:w-auto"
+                              >
+                                {addedItem === uniqueId ? 'Added ✓' : <><Plus className="w-3.5 h-3.5" /> Add to Enquiry</>}
+                              </button>
                             </div>
-                          ))}
+                            );
+                          })}
                         </div>
                       </div>
 
@@ -206,18 +242,28 @@ export default function CompressorBlocks() {
                         <div>
                           <h4 className="font-mono text-sm md:text-base uppercase tracking-[0.2em] text-slate-400 dark:text-white/40 mb-6 border-b border-slate-200 dark:border-white/10 pb-3">Service & Accessories</h4>
                           <div className="flex flex-col gap-4">
-                            {block.accessories.map((item, idx) => (
-                              <div key={idx} className="flex items-center gap-5 p-4 rounded-xl hover:bg-white dark:hover:bg-white/5 border border-transparent hover:border-slate-200 dark:hover:border-white/10 transition-all cursor-pointer group">
-                                <div className="p-2 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-white/60 group-hover:scale-110 transition-transform">
-                                  <Settings className="w-5 h-5" />
+                            {block.accessories.map((item, idx) => {
+                              const uniqueId = `${block.title}-${item.name}`.replace(/\s+/g, '-').toLowerCase();
+                              return (
+                              <div key={idx} className="flex items-center justify-between flex-wrap gap-4 p-4 rounded-xl hover:bg-white dark:hover:bg-white/5 border border-transparent hover:border-slate-200 dark:hover:border-white/10 transition-all group">
+                                <div className="flex items-center gap-5">
+                                  <div className="p-2 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-white/60 group-hover:scale-110 transition-transform">
+                                    <Settings className="w-5 h-5" />
+                                  </div>
+                                  <div className="flex flex-col">
+                                    <span className="font-sans font-semibold text-slate-900 dark:text-white text-base md:text-lg leading-tight">{item.name}</span>
+                                    <span className="font-mono text-slate-500 dark:text-white/40 text-xs md:text-sm uppercase tracking-wider mt-1.5">{item.specs}</span>
+                                  </div>
                                 </div>
-                                <div className="flex flex-col">
-                                  <span className="font-sans font-semibold text-slate-900 dark:text-white text-base md:text-lg leading-tight">{item.name}</span>
-                                  <span className="font-mono text-slate-500 dark:text-white/40 text-xs md:text-sm uppercase tracking-wider mt-1.5">{item.specs}</span>
-                                </div>
-                                <ArrowRight className="w-5 h-5 text-slate-300 dark:text-white/20 ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                                <button 
+                                  onClick={(e) => handleAdd(e, block.title, item.name, item.specs)}
+                                  className="inline-flex shrink-0 items-center justify-center gap-1.5 px-4 py-2 rounded bg-zinc-100 dark:bg-white/10 hover:bg-cyan-500 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-[#030014] text-xs font-mono font-bold transition-all text-zinc-600 dark:text-cyan-400 border border-transparent hover:border-cyan-500 w-full sm:w-auto"
+                                >
+                                  {addedItem === uniqueId ? 'Added ✓' : <><Plus className="w-3.5 h-3.5" /> Add to Enquiry</>}
+                                </button>
                               </div>
-                            ))}
+                              );
+                            })}
                           </div>
                         </div>
                       )}
