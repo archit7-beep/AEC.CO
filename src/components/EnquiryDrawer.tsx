@@ -6,7 +6,9 @@ import { X, Trash2, Plus, Minus, Send, ClipboardList, CheckCircle2, ArrowRight, 
 import Link from 'next/link';
 import { useEnquiry } from '@/context/EnquiryContext';
 
-const itemVariants = {
+import { Variants } from 'framer-motion';
+
+const itemVariants: Variants = {
   hidden: { opacity: 0, x: 20 },
   visible: { opacity: 1, x: 0, transition: { type: 'spring', damping: 25, stiffness: 300 } },
   exit: { opacity: 0, scale: 0.9, transition: { duration: 0.2 } }

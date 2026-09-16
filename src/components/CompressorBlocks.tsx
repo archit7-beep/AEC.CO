@@ -111,8 +111,7 @@ export default function CompressorBlocks({ brandName = 'Amal Engineering' }: Com
       name: itemName,
       brand: brandName,
       category: categoryTitle,
-      variant: itemSpecs,
-      quantity: 1
+      variant: itemSpecs
     });
     
     setAddedItem(`${categoryTitle}-${itemName}`.replace(/\s+/g, '-').toLowerCase());
