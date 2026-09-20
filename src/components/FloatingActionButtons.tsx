@@ -27,13 +27,15 @@ export default function FloatingActionButtons() {
 
       {/* Bottom Right Floating Button (Download Catalogues) */}
       <div className="fixed bottom-8 right-8 z-50">
-        <button 
-          onClick={() => alert("Coming soon!")}
+        <a 
+          href="/catalog.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-2 bg-[#110b29] border border-[#0ea5e9]/50 hover:bg-[#0ea5e9] hover:text-[#030014] text-[#0ea5e9] font-body font-semibold text-sm px-5 py-3 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-300 group"
         >
           <Download className="w-4 h-4 group-hover:animate-bounce" />
           Download Catalogues
-        </button>
+        </a>
       </div>
     </>
   );

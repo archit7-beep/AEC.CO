@@ -331,12 +331,12 @@ export default function EnquiryDrawer() {
                           <div className={`grid gap-4 ${isExpanded ? 'grid-cols-2' : 'grid-cols-1'}`}>
                             <div className="space-y-1">
                               <label htmlFor="name" className="block text-[9px] font-bold text-zinc-500 dark:text-white/50 uppercase tracking-widest pl-1">Full Name *</label>
-                              <input required type="text" id="name" name="name" className="w-full bg-zinc-50 dark:bg-black/30 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all text-sm" placeholder="e.g. Rajesh Kumar" />
+                              <input required type="text" id="name" name="name" className="w-full bg-zinc-50 dark:bg-black/30 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all text-sm" placeholder="" />
                             </div>
                             
                             <div className="space-y-1">
                               <label htmlFor="company" className="block text-[9px] font-bold text-zinc-500 dark:text-white/50 uppercase tracking-widest pl-1">Company Name</label>
-                              <input type="text" id="company" name="company" className="w-full bg-zinc-50 dark:bg-black/30 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all text-sm" placeholder="e.g. Bharat Engineering" />
+                              <input type="text" id="company" name="company" className="w-full bg-zinc-50 dark:bg-black/30 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all text-sm" placeholder="" />
                             </div>
                           </div>
                           
@@ -353,7 +353,7 @@ export default function EnquiryDrawer() {
                           
                           <div className="space-y-1">
                             <label htmlFor="message" className="block text-[9px] font-bold text-zinc-500 dark:text-white/50 uppercase tracking-widest pl-1">Requirements</label>
-                            <textarea id="message" name="message" rows={3} className="w-full bg-zinc-50 dark:bg-black/30 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all resize-none text-sm" placeholder="Any specific requirements..."></textarea>
+                            <textarea id="message" name="message" rows={3} className="w-full bg-zinc-50 dark:bg-black/30 border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-3 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all resize-none text-sm" placeholder="Requirements"></textarea>
                           </div>
                           
                           <div className={`pt-2 ${isExpanded ? 'pt-4' : ''}`}>

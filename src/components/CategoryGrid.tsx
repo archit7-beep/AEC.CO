@@ -21,9 +21,14 @@ export default function CategoryGrid() {
               Our Products & Brands
             </h2>
           </div>
-          <ComingSoonButton className="mt-6 md:mt-0 text-zinc-900 dark:text-white border-b border-[#0ea5e9] pb-1 font-body font-medium hover:text-[#0ea5e9] dark:hover:text-[#0ea5e9] transition-colors duration-500 flex items-center">
+          <a 
+            href="/catalog.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 md:mt-0 text-zinc-900 dark:text-white border-b border-[#0ea5e9] pb-1 font-body font-medium hover:text-[#0ea5e9] dark:hover:text-[#0ea5e9] transition-colors duration-500 flex items-center"
+          >
             Download PDF Catalog <ArrowUpRight className="w-4 h-4 ml-2" />
-          </ComingSoonButton>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

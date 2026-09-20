@@ -338,9 +338,6 @@ export default function Navbar() {
             <button className="text-zinc-800 dark:text-white hover:text-[#0ea5e9] dark:hover:text-[#0ea5e9] transition-colors hidden sm:block" onClick={() => setIsSearchOpen(true)}>
               <Search className="w-6 h-6" />
             </button>
-            <button className="text-zinc-800 dark:text-white hover:text-[#0ea5e9] transition-colors hidden sm:block" onClick={() => alert('Coming soon!')}>
-              <User className="w-6 h-6" />
-            </button>
             <button 
               className="text-zinc-800 dark:text-white hover:text-[#0ea5e9] transition-colors relative" 
               onClick={openDrawer}

@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     default: "Amal Engineering Corporation",
     template: "%s | Amal Engineering"
   },
-  description: "Established in 2008, Amal Engineering is a leading manufacturer and authorized supplier of industrial air compressors, pneumatic systems, and fluid power equipment in India.",
-  keywords: ["Amal Engineering", "air compressors", "pneumatics", "hydraulic pumps", "industrial fittings", "compressor spares", "Janatics dealer"],
+  description: "Established in 2008, Amal Engineering Corporation is a trusted industrial engineering company and the best compressor dealer in Pimpri-Chinchwad (PCMC) and Pune. Supplying top-rated air compressors, pneumatics, and fluid power equipment to Bhosari MIDC and across India.",
+  keywords: ["Amal Engineering", "air compressors", "pneumatics", "hydraulic pumps", "industrial fittings", "compressor spares", "best compressor dealer in PCMC", "good compressor dealer", "best dealer in Bhosari MIDC", "Pimpri-Chinchwad", "Pune"],
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -77,7 +77,7 @@ export default function RootLayout({
                   "@id": "https://amalengg.com/#localbusiness",
                   "name": "Amal Engineering Corporation",
                   "image": "https://amalengg.com/booklet/logo.png",
-                  "description": "Established in 2008, Amal Engineering is a trusted manufacturer and authorized supplier of industrial air compressors, pneumatic systems, and fluid power equipment.",
+                  "description": "Amal Engineering Corporation is a trusted industrial engineering company and the best compressor dealer in Pimpri-Chinchwad (PCMC) and Pune. We supply and service industrial air compressors, pneumatics, and fluid power equipment near Bhosari MIDC.",
                   "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "Shop No.2, Near Hockey Stadium, Nehrunagar",
@@ -100,9 +100,54 @@ export default function RootLayout({
                       "Friday",
                       "Saturday"
                     ],
-                    "opens": "09:30",
-                    "closes": "20:00"
+                    "opens": "09:00",
+                    "closes": "18:00"
                   }
+                },
+                {
+                  "@type": "FAQPage",
+                  "mainEntity": [
+                    {
+                      "@type": "Question",
+                      "name": "Do you supply and service air compressors in Bhosari MIDC?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, Amal Engineering supplies and services rotary screw and piston compressors for manufacturing plants throughout Bhosari MIDC, Pimpri-Chinchwad, and Pune."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What types of industrial compressors do you sell in PCMC?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We are a top dealer for high-pressure piston compressors, rotary screw compressors, and PET blowing compressors in the PCMC area."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Do you provide compressor overhauling and repair?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, we provide full maintenance, overhauling, and repair services for industrial air compressors, along with genuine OEM spare parts."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Who is the best compressor dealer in Pimpri-Chinchwad?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Amal Engineering Corporation is widely considered the best and most reliable compressor dealer in Pimpri-Chinchwad (PCMC) and Bhosari MIDC, offering top-tier machines and rapid service."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Do you supply spare parts for all compressor and pneumatic brands?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, we are a good dealer for all parts and all brands. We supply valves, cylinders, and fittings for major B2B industrial brands including Janatics, Festo, SMC, and compressor spares for Atlas Copco, ELGi, and Chicago Pneumatic."
+                      }
+                    }
+                  ]
                 },
                 {
                   "@type": "WebSite",

@@ -198,7 +198,10 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h5 className="font-heading font-bold text-zinc-900 dark:text-white uppercase tracking-wider mb-1 md:mb-2 text-base md:text-lg transition-colors duration-500">Digital Dispatch</h5>
-                    <p className="font-body text-zinc-600 dark:text-zinc-400 font-light text-sm md:text-base leading-relaxed hover:text-[#0055A4] transition-colors cursor-pointer">amalengcorp@gmail.com</p>
+                    <p className="font-body text-zinc-600 dark:text-zinc-400 font-light text-sm md:text-base leading-relaxed hover:text-[#0055A4] transition-colors cursor-pointer">
+                      amalcomengg@gmail.com<br/>
+                      amalengcorp@gmail.com
+                    </p>
                   </div>
                 </div>
               </div>
@@ -272,7 +275,7 @@ export default function ContactSection() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Rajesh Kumar"
+                    placeholder=""
                     className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                   />
                 </div>
@@ -287,7 +290,7 @@ export default function ContactSection() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    placeholder="Bharat Engineering Corp"
+                    placeholder=""
                     className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                   />
                 </div>
@@ -304,7 +307,7 @@ export default function ContactSection() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="rajesh@bharatengineering.in"
+                    placeholder=""
                     className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                   />
                 </div>
@@ -319,7 +322,7 @@ export default function ContactSection() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+91 98765 43210"
+                    placeholder=""
                     className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                   />
                 </div>
@@ -335,7 +338,7 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  placeholder="Specify part numbers, pressure requirements, or repair needs..."
+                  placeholder="Requirements"
                   className="w-full bg-zinc-50 dark:bg-[#09090b] border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white px-6 py-4 md:py-5 rounded-sm focus:outline-none focus:border-[#0055A4] focus:ring-1 focus:ring-[#0055A4] transition-all font-body text-sm md:text-base resize-none placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                 ></textarea>
               </div>

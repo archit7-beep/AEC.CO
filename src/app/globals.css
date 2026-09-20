@@ -23,6 +23,17 @@
   100% { transform: translateX(-50%); }
 }
 
+@layer utilities {
+  .animate-flash-yellow {
+    animation: flash-yellow 1.5s ease-out 2;
+  }
+}
+
+@keyframes flash-yellow {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(234, 179, 8, 0.4); border-color: rgba(234, 179, 8, 0.8); }
+}
+
 @layer base {
   body {
     background-color: transparent;

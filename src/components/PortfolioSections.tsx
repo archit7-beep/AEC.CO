@@ -56,9 +56,9 @@ export function PortfolioGallery() {
 
         {/* Explore Button */}
         <div className="mt-20 md:mt-40 text-center w-full relative z-50">
-           <button className="bg-[#0055A4] text-white font-heading font-bold text-lg px-8 py-4 rounded-sm hover:bg-[#004080] transition-colors shadow-lg">
+           <Link href="/products" className="inline-block bg-[#0055A4] text-white font-heading font-bold text-lg px-8 py-4 rounded-sm hover:bg-[#004080] transition-colors shadow-lg">
              View All Projects &rarr;
-           </button>
+           </Link>
         </div>
 
       </div>

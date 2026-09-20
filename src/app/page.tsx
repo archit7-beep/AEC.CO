@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 import FeaturedCarousel from '@/components/FeaturedCarousel';
 import { WhyChooseUs, IndustriesServed, OurServices } from '@/components/InformationSections';
 import { PartnerLogos } from '@/components/PortfolioSections';
+import HeroProducts from '@/components/HeroProducts';
 import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
@@ -16,10 +17,11 @@ export default function Home() {
     <div className="flex-1 flex flex-col w-full relative z-10 font-body">
       <Hero />
       <PartnerLogos />
+      <HeroProducts />
       <IndustriesServed />
+      <FeaturedCarousel />
       <OurServices />
       <WhyChooseUs />
-      <FeaturedCarousel />
       <ContactSection />
       
       {/* Basic Footer */}

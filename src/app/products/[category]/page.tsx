@@ -179,9 +179,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 <Download className="w-4 h-4 mr-2" /> Download Spec Sheet
               </a>
             ) : (
-              <ComingSoonButton className="flex items-center bg-white/5 hover:bg-white/10 border border-white/10 text-white px-6 py-3 rounded-md font-mono text-xs uppercase tracking-widest transition-all">
-                <Download className="w-4 h-4 mr-2" /> Spec Sheet PDF
-              </ComingSoonButton>
+              <Link href="/contact" className="flex items-center bg-white/5 hover:bg-white/10 border border-white/10 text-white px-6 py-3 rounded-md font-mono text-xs uppercase tracking-widest transition-all">
+                <Download className="w-4 h-4 mr-2" /> Request Spec Sheet
+              </Link>
             )}
             <Link href="/contact" className="flex items-center bg-[#0ea5e9] hover:bg-white text-[#030014] px-6 py-3 rounded-md font-heading font-bold uppercase tracking-widest transition-all">
               <PenTool className="w-4 h-4 mr-2" /> Request Quote

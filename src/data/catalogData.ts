@@ -4343,17 +4343,6 @@ export const CATALOG_DATA: Record<string, CatalogCategory> = {
     heroText: 'INDUSTRIAL AIR COMPRESSION',
     subCategories: [
       {
-        title: 'Screw Compressors',
-        tableHeaders: ['Model Name', 'Compressor Type', 'Key Specifications', 'Stock Status'],
-        products: [
-          { model: '10 HP Rotary Screw Compressor', size: 'Tank Mounted Screw', maxPressure: '10 HP / Compact Design', inStock: true },
-          { model: '15 HP Rotary Screw Compressor', size: 'Rotary Screw', maxPressure: '15 HP / Industrial Duty', inStock: true },
-          { model: '30 HP Screw Compressor', size: 'Rotary Screw', maxPressure: '30 HP / High Volume', inStock: true },
-          { model: '50 HP Industrial Screw Compressor', size: 'Rotary Screw', maxPressure: '50 HP / 12 Bar / 190-220 CFM', inStock: true },
-          { model: 'Screw Compressor for Pharmaceutical', size: 'Tank & Dryer Included', maxPressure: 'Complete System', inStock: true }
-        ]
-      },
-      {
         title: 'Piston Compressors',
         tableHeaders: ['Model Name', 'Compressor Type', 'Key Specifications', 'Stock Status'],
         products: [
@@ -4378,6 +4367,17 @@ export const CATALOG_DATA: Record<string, CatalogCategory> = {
           { model: '25 HP High Pressure Air Compressor', size: 'High Pressure', maxPressure: '25 HP / Extreme Duty', inStock: true },
           { model: 'Two Stage Compressor', size: 'Two Stage', maxPressure: 'Standard Two Stage', inStock: true },
           { model: 'Single Stage Dry Vacuum Pumps', size: 'Vacuum Pump', maxPressure: 'Dry Vacuum Applications', inStock: true }
+        ]
+      },
+      {
+        title: 'Screw Compressors',
+        tableHeaders: ['Model Name', 'Compressor Type', 'Key Specifications', 'Stock Status'],
+        products: [
+          { model: '10 HP Rotary Screw Compressor', size: 'Tank Mounted Screw', maxPressure: '10 HP / Compact Design', inStock: true },
+          { model: '15 HP Rotary Screw Compressor', size: 'Rotary Screw', maxPressure: '15 HP / Industrial Duty', inStock: true },
+          { model: '30 HP Screw Compressor', size: 'Rotary Screw', maxPressure: '30 HP / High Volume', inStock: true },
+          { model: '50 HP Industrial Screw Compressor', size: 'Rotary Screw', maxPressure: '50 HP / 12 Bar / 190-220 CFM', inStock: true },
+          { model: 'Screw Compressor for Pharmaceutical', size: 'Tank & Dryer Included', maxPressure: 'Complete System', inStock: true }
         ]
       },
       {

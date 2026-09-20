@@ -29,7 +29,7 @@ export default function AboutPreview() {
         <div className="w-full flex flex-col xl:flex-row gap-16 md:gap-32 justify-end">
           
           {/* Left / Top Info Text */}
-          <div className="w-full xl:w-1/2 flex flex-col gap-12">
+          <div className="w-full xl:w-[55%] flex flex-col gap-12">
             <ScrollReveal animation="fade">
               <p className="font-mono text-slate-800 dark:text-slate-300 text-xl leading-relaxed font-bold border-l-4 border-[#0ea5e9] pl-6 transition-colors duration-500">
                 Established in 2008, Amal Engineering is a trusted name in the field of industrial engineering solutions. We specialize in the manufacturing, authorized supply, repair, and rental of industrial air compression and fluid power systems, offering high-performance solutions tailored to diverse industrial applications.
@@ -84,17 +84,16 @@ export default function AboutPreview() {
           </div>
 
           {/* Right / Bottom Visual */}
-          <ScrollReveal animation="slide-left" className="w-full xl:w-1/2 relative h-[500px] md:h-auto min-h-[600px] border-4 border-slate-900 dark:border-[#0ea5e9] bg-slate-900 dark:bg-[#0ea5e9] overflow-hidden group transition-colors duration-500">
-             <Image 
-                src="/vs_products/product_1.png"
-                alt="Industrial Facility"
-                fill
-                className="object-cover opacity-60 dark:opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal"
-             />
-             <div className="absolute inset-0 border-[20px] border-[#0ea5e9] dark:border-[#030014] m-8 mix-blend-overlay pointer-events-none" />
-             <div className="absolute bottom-0 left-0 bg-slate-900 dark:bg-[#030014] text-white font-heading font-black text-4xl p-6 uppercase tracking-widest transition-colors duration-500">
-                Trusted Excellence
-             </div>
+          <ScrollReveal animation="slide-left" className="w-full xl:w-[40%] relative h-[400px] md:h-auto min-h-[450px] border-4 border-slate-900 dark:border-[#0ea5e9] bg-slate-900 dark:bg-[#0ea5e9] overflow-hidden group transition-colors duration-500">
+             <a href="/new-cover.jpeg" target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-pointer" title="View ISO Certificate">
+               <Image 
+                  src="/new-cover.jpeg"
+                  alt="ISO Certificate"
+                  fill
+                  className="object-cover transition-all duration-700 group-hover:scale-110"
+               />
+               <div className="absolute inset-0 border-[20px] border-[#0ea5e9] dark:border-[#030014] m-8 mix-blend-overlay pointer-events-none" />
+             </a>
           </ScrollReveal>
           
         </div>

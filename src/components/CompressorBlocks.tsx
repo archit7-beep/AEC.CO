@@ -21,23 +21,9 @@ interface CompressorBlock {
 
 const BLOCKS: CompressorBlock[] = [
   {
-    id: 'air',
-    title: 'Screw Compressor',
-    image: '/booklet/screw-compressor.png',
-    description: 'High efficiency oil-injected rotary screw compressors for continuous industrial applications.',
-    models: [
-      { name: '10 HP Rotary Screw Compressor', specs: '10 HP / Tank Mounted' },
-      { name: '15 HP Rotary Screw Compressor', specs: '15 HP / Rotary Screw' },
-      { name: '30 HP Screw Compressor', specs: '30 HP / Heavy Duty' },
-      { name: '50 HP Industrial Screw Compressor', specs: '50 HP / 12 Bar / 190-220 CFM' },
-      { name: 'Screw Compressor for Pharmaceutical', specs: 'Tank & Dryer Included' }
-    ],
-    accessories: []
-  },
-  {
     id: 'piston',
     title: 'Piston Compressor',
-    image: '/booklet/piston-compressor.png',
+    image: '/10hp-main-compressor.png',
     description: 'Heavy duty reciprocating air compressors built with cast iron blocks for maximum durability and peak loads.',
     models: [
       { name: '1 HP Air Compressor', specs: '1 HP / General Duty' },
@@ -61,6 +47,20 @@ const BLOCKS: CompressorBlock[] = [
       { name: '25 HP High Pressure Air Compressor', specs: '25 HP / Extreme Duty' },
       { name: 'Two Stage Compressor', specs: 'Standard Two Stage' },
       { name: 'Single Stage Dry Vacuum Pumps', specs: 'Dry Vacuum Applications' }
+    ],
+    accessories: []
+  },
+  {
+    id: 'air',
+    title: 'Screw Compressor',
+    image: '/booklet/screw-compressor.png',
+    description: 'High efficiency oil-injected rotary screw compressors for continuous industrial applications.',
+    models: [
+      { name: '10 HP Rotary Screw Compressor', specs: '10 HP / Tank Mounted' },
+      { name: '15 HP Rotary Screw Compressor', specs: '15 HP / Rotary Screw' },
+      { name: '30 HP Screw Compressor', specs: '30 HP / Heavy Duty' },
+      { name: '50 HP Industrial Screw Compressor', specs: '50 HP / 12 Bar / 190-220 CFM' },
+      { name: 'Screw Compressor for Pharmaceutical', specs: 'Tank & Dryer Included' }
     ],
     accessories: []
   },
@@ -101,8 +101,38 @@ const BLOCKS: CompressorBlock[] = [
 
 export default function CompressorBlocks({ brandName = 'Amal Engineering' }: CompressorBlocksProps = {}) {
   const [expandedBlock, setExpandedBlock] = useState<string | null>(null);
+  const [highlightedItem, setHighlightedItem] = useState<string | null>(null);
   const { addItem, openDrawer } = useEnquiry();
   const [addedItem, setAddedItem] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const highlight = params.get('highlight');
+      if (highlight) {
+        // Find which block contains this item
+        for (const block of BLOCKS) {
+          const inModels = block.models.some(item => `${block.title}-${item.name}`.replace(/\s+/g, '-').toLowerCase() === highlight);
+          const inAccessories = block.accessories.some(item => `${block.title}-${item.name}`.replace(/\s+/g, '-').toLowerCase() === highlight);
+          if (inModels || inAccessories) {
+            setExpandedBlock(block.id);
+            setTimeout(() => {
+              const el = document.getElementById(highlight);
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setHighlightedItem(highlight);
+                // Clean up URL to avoid flashing again on reload
+                window.history.replaceState({}, '', window.location.pathname);
+                // Remove highlight class after animation finishes
+                setTimeout(() => setHighlightedItem(null), 3000);
+              }
+            }, 600); // Wait for expansion animation
+            break;
+          }
+        }
+      }
+    }
+  }, []);
 
   const handleAdd = (e: React.MouseEvent, categoryTitle: string, itemName: string, itemSpecs: string) => {
     e.stopPropagation();
@@ -152,11 +182,13 @@ export default function CompressorBlocks({ brandName = 'Amal Engineering' }: Com
               layout
               id={block.id}
               key={block.id}
-              className={`relative flex flex-col bg-white dark:bg-[#030014] border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-cyan-500/30 ${isExpanded ? 'shadow-[0_0_40px_rgba(34,211,238,0.1)]' : 'shadow-sm'}`}
+              className={`bg-white dark:bg-[#030014]/40 rounded-[32px] border border-zinc-200 dark:border-white/5 overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+                isExpanded ? 'shadow-2xl dark:shadow-[0_20px_60px_rgba(11,32,70,0.4)] md:col-span-2' : 'hover:shadow-lg dark:hover:shadow-cyan-900/10'
+              }`}
             >
               {/* Image Header Area */}
               <div 
-                className="relative h-[250px] md:h-[320px] w-full cursor-pointer group bg-transparent overflow-hidden"
+                className="relative h-[250px] md:h-[320px] w-full cursor-pointer group bg-transparent overflow-hidden flex items-center justify-center"
                 onClick={() => setExpandedBlock(isExpanded ? null : block.id)}
               >
                 {/* Background glow effect */}
@@ -167,7 +199,7 @@ export default function CompressorBlocks({ brandName = 'Amal Engineering' }: Com
                     src={block.image}
                     alt={block.title}
                     fill
-                    className="object-contain p-2 md:p-4 transform scale-100 group-hover:scale-105 transition-transform duration-700 z-10"
+                    className={`object-contain p-2 md:p-4 transition-transform duration-700 z-10 ${block.id === 'piston' ? 'transform scale-125 group-hover:scale-[1.35]' : 'transform scale-100 group-hover:scale-105'}`}
                   />
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center opacity-30 group-hover:opacity-60 transition-opacity duration-500 z-10">
@@ -214,7 +246,11 @@ export default function CompressorBlocks({ brandName = 'Amal Engineering' }: Com
                           {block.models.map((item, idx) => {
                             const uniqueId = `${block.title}-${item.name}`.replace(/\s+/g, '-').toLowerCase();
                             return (
-                            <div key={idx} className="flex items-center justify-between flex-wrap gap-4 p-4 rounded-xl hover:bg-white dark:hover:bg-white/5 border border-transparent hover:border-slate-200 dark:hover:border-white/10 transition-all group">
+                            <div 
+                              id={uniqueId}
+                              key={idx} 
+                              className={`flex items-center justify-between flex-wrap gap-4 p-4 rounded-xl hover:bg-white dark:hover:bg-white/5 border transition-all group ${highlightedItem === uniqueId ? 'animate-flash-yellow' : 'border-transparent hover:border-slate-200 dark:hover:border-white/10'}`}
+                            >
                               <div className="flex items-center gap-5">
                                 <div className="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform">
                                   {block.id === 'spares' ? <Settings className="w-5 h-5" /> : <Zap className="w-5 h-5" />}
@@ -244,7 +280,11 @@ export default function CompressorBlocks({ brandName = 'Amal Engineering' }: Com
                             {block.accessories.map((item, idx) => {
                               const uniqueId = `${block.title}-${item.name}`.replace(/\s+/g, '-').toLowerCase();
                               return (
-                              <div key={idx} className="flex items-center justify-between flex-wrap gap-4 p-4 rounded-xl hover:bg-white dark:hover:bg-white/5 border border-transparent hover:border-slate-200 dark:hover:border-white/10 transition-all group">
+                              <div 
+                                id={uniqueId}
+                                key={idx} 
+                                className={`flex items-center justify-between flex-wrap gap-4 p-4 rounded-xl hover:bg-white dark:hover:bg-white/5 border transition-all group ${highlightedItem === uniqueId ? 'animate-flash-yellow' : 'border-transparent hover:border-slate-200 dark:hover:border-white/10'}`}
+                              >
                                 <div className="flex items-center gap-5">
                                   <div className="p-2 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-white/60 group-hover:scale-110 transition-transform">
                                     <Settings className="w-5 h-5" />
@@ -269,7 +309,10 @@ export default function CompressorBlocks({ brandName = 'Amal Engineering' }: Com
                     </div>
                     
                     <div className="p-8 md:p-12 pt-0">
-                       <button className="w-full py-5 rounded-xl border border-slate-200 dark:border-white/10 text-slate-900/60 dark:text-white/60 font-mono text-sm uppercase tracking-widest hover:bg-slate-900 dark:hover:bg-white text-center hover:text-white dark:hover:text-black hover:border-slate-900 dark:hover:border-white transition-all duration-300">
+                       <button 
+                         onClick={(e) => handleAdd(e, block.title, 'Full Specifications Catalog', 'All Models & Details')}
+                         className="w-full py-5 rounded-xl border border-slate-200 dark:border-white/10 text-slate-900/60 dark:text-white/60 font-mono text-sm uppercase tracking-widest hover:bg-slate-900 dark:hover:bg-white text-center hover:text-white dark:hover:text-black hover:border-slate-900 dark:hover:border-white transition-all duration-300"
+                       >
                          Request Full Specifications
                        </button>
                     </div>
