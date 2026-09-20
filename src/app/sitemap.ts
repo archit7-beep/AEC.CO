@@ -4,7 +4,7 @@ import { CATALOG_DATA } from '@/data/catalogData';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://amalengcorp.com';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://amalengg.com';
 
   const routes: MetadataRoute.Sitemap = [
     {

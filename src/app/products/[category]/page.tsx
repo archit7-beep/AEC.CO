@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       type: 'website',
     },
     alternates: {
-      canonical: `https://amalengcorp.com/products/${resolvedParams.category}`
+      canonical: `https://amalengg.com/products/${resolvedParams.category}`
     }
   };
 }
@@ -66,7 +66,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               "@context": "https://schema.org",
               "@type": "Product",
               "name": categoryData.name,
-              "image": `https://amalengcorp.com${categoryData.img}`,
+              "image": `https://amalengg.com${categoryData.img}`,
               "description": categoryData.desc,
               "brand": {
                 "@type": "Brand",
@@ -96,7 +96,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             "@context": "https://schema.org",
             "@type": "Product",
             "name": categoryData.name,
-            "image": `https://amalengcorp.com${categoryData.img}`,
+            "image": `https://amalengg.com${categoryData.img}`,
             "description": categoryData.desc,
             "brand": {
               "@type": "Brand",

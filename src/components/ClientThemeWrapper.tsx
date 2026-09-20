@@ -45,7 +45,7 @@ export default function ClientThemeWrapper({ children }: { children: React.React
 
   // Modern Obsidian Aesthetic for the rest of the site
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
         {/* FIXED BACKGROUND STACK FRAMEWORK */}
         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none">
           {/* Layer 0: The Deep Void Base (Only visible in dark mode via globals.css or bg class) */}

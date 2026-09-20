@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://amalengcorp.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://amalengg.com'),
   title: {
     default: "Amal Engineering Corporation",
     template: "%s | Amal Engineering"
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://amalengcorp.com",
+    url: "https://amalengg.com",
     siteName: "Amal Engineering Corporation",
     title: "Amal Engineering Corporation",
     description: "Industrial fluid power, pneumatic systems, and heavy-duty air compressors.",
@@ -63,10 +63,10 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Organization",
-                  "@id": "https://amalengcorp.com/#organization",
+                  "@id": "https://amalengg.com/#organization",
                   "name": "Amal Engineering Corporation",
-                  "url": "https://amalengcorp.com",
-                  "logo": "https://amalengcorp.com/booklet/logo.png",
+                  "url": "https://amalengg.com",
+                  "logo": "https://amalengg.com/booklet/logo.png",
                   "sameAs": [
                     "https://www.linkedin.com/company/amal-engineering-corporation",
                     "https://www.facebook.com/amalengcorp"
@@ -74,9 +74,9 @@ export default function RootLayout({
                 },
                 {
                   "@type": "LocalBusiness",
-                  "@id": "https://amalengcorp.com/#localbusiness",
+                  "@id": "https://amalengg.com/#localbusiness",
                   "name": "Amal Engineering Corporation",
-                  "image": "https://amalengcorp.com/booklet/logo.png",
+                  "image": "https://amalengg.com/booklet/logo.png",
                   "description": "Established in 2008, Amal Engineering is a trusted manufacturer and authorized supplier of industrial air compressors, pneumatic systems, and fluid power equipment.",
                   "address": {
                     "@type": "PostalAddress",
@@ -88,7 +88,7 @@ export default function RootLayout({
                   },
                   "telephone": "+91-9860222875",
                   "email": "amalengcorp@gmail.com",
-                  "url": "https://amalengcorp.com",
+                  "url": "https://amalengg.com",
                   "priceRange": "$$",
                   "openingHoursSpecification": {
                     "@type": "OpeningHoursSpecification",
@@ -106,11 +106,11 @@ export default function RootLayout({
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://amalengcorp.com/#website",
-                  "url": "https://amalengcorp.com",
+                  "@id": "https://amalengg.com/#website",
+                  "url": "https://amalengg.com",
                   "name": "Amal Engineering Corporation",
                   "publisher": {
-                    "@id": "https://amalengcorp.com/#organization"
+                    "@id": "https://amalengg.com/#organization"
                   }
                 }
               ]
