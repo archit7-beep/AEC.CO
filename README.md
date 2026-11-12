@@ -1,4 +1,4 @@
-# 🏭 Amal Engineering Corporation (AEC)
+#  Amal Engineering Corporation (AEC)
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.2.7-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2.4-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
@@ -26,7 +26,7 @@
 
 ---
 
-## 📖 Overview
+##  Overview
 
 Amal Engineering Corporation (AEC) delivers zero-tolerance fluid power and compressed air engineering solutions for high-stakes industrial operations across India. 
 
@@ -39,33 +39,33 @@ This platform serves as AEC's primary digital catalog, engineering showroom, and
 
 ---
 
-## ✨ Key Features & User Experience
+##  Key Features & User Experience
 
-### 1. 🎨 Precision Brutalist & Blueprint Aesthetic
+### 1.  Precision Brutalist & Blueprint Aesthetic
 - High-contrast, industrial-grade design language matching modern technical engineering aesthetics.
 - Seamless Dark and Light theme switching powered by `next-themes` with custom hardware-accelerated background gradients and technical drafting blueprint grids.
 - Smooth inertial scrolling powered by **Lenis** (`lenis/react`).
 
-### 2. 🧊 Interactive 3D WebGL Compressor Viewer
+### 2.  Interactive 3D WebGL Compressor Viewer
 - Built on **Three.js**, **React Three Fiber** (`@react-three/fiber`), and **Drei** (`@react-three/drei`).
 - Renders responsive 3D industrial compressor assemblies (`.glb` / `.gltf`) with orbit controls, interactive lighting, and hardware-accelerated canvas integration.
 
-### 3. ⚡ Dedicated Air Compressor Hub (`/products/compressors`)
+### 3.  Dedicated Air Compressor Hub (`/products/compressors`)
 - Bespoke SaaS interactive view showcasing the flagship compression line.
 - Dynamic expandable category cards: **Screw Compressors**, **Piston Compressors**, **Air Dryers**, and **Spare Parts**.
 - Interactive **System Component Map** highlighting unloader lines, in-tank check valves, electric motors, pressure adjustment dials, and drain ports.
 - Deep-linking URL hash listener (`#piston`, `#spares`, `#air`, `#dryer`) with automatic smooth scrolling and block expansion.
 
-### 4. 📊 Technical Specifications Matrix (`/products/[category]`)
+### 4.  Technical Specifications Matrix (`/products/[category]`)
 - Data-driven technical tables displaying 10,000+ configurations with part numbers, bore sizes, operating pressures, flow rates, and stock statuses.
 - Expandable product variation drawers for granular industrial part lookups.
 - Direct PDF technical booklet and spec sheet downloads.
 
-### 5. 🔍 Real-Time Global Search Modal (`Ctrl + K`)
+### 5.  Real-Time Global Search Modal (`Ctrl + K`)
 - Instant keyboard-accessible modal search (`SearchModal.tsx`).
 - Searches across categories, model numbers, specifications, and authorized brand names in real-time.
 
-### 6. 🌐 Dynamic Partner Marquees & Sector Grid
+### 6.  Dynamic Partner Marquees & Sector Grid
 - Infinite ticker showcasing authorized brand certifications and pan-India dispatch announcements.
 - Interactive **Sectors We Empower** interactive masonry grid (Manufacturing, Construction, Oil & Gas, Automotive, Chemical Plants, Power Generation, Water Treatment, Aerospace).
 
@@ -159,7 +159,7 @@ AME/
 
 ---
 
-## 🗄 Data Architecture
+##  Data Architecture
 
 To ensure clean code separation, content is **completely decoupled from UI rendering logic**:
 
@@ -170,7 +170,7 @@ To ensure clean code separation, content is **completely decoupled from UI rende
 
 ---
 
-## 🚀 SEO & Structured Data
+##  SEO & Structured Data
 
 The platform follows rigorous white-hat SEO practices:
 
@@ -185,7 +185,7 @@ The platform follows rigorous white-hat SEO practices:
 
 ---
 
-## ⚡ Performance & Optimization
+##  Performance & Optimization
 
 - **Next.js Image Optimization**: Configured to serve WebP/AVIF next-generation formats, lazy load offscreen assets, and prevent layout shift with explicit `sizes` definitions.
 - **Hardware Acceleration**: Background blurs and mesh gradients utilize `transform-gpu` and `will-change-transform` to delegate rendering to the client's GPU, preserving smooth 60fps scrolling.
@@ -193,7 +193,7 @@ The platform follows rigorous white-hat SEO practices:
 
 ---
 
-## 🏢 Corporate Information
+##  Corporate Information
 
 **Amal Engineering Corporation**  
 *Engineering Reliability Since 2008*
